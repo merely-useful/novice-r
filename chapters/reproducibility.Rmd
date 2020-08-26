@@ -565,7 +565,7 @@ of the file (the part surrounded by `---`). This part is called the YAML header,
 which we will cover more a bit later. Try converting the file to HTML by hitting
 the "Knit" button at the top or by typing out `Ctrl-Shift-K`.
 
-!["Knit" button.](figures/r-reproducibility/knit-button-rstudio.png)
+!["Knit" button.](figures/reproducibility/knit-button-rstudio.png)
 
 #### Headers
 
@@ -708,12 +708,12 @@ on) png, jpeg, or pdf image file by adding (:
 So something like this:
 
 ```markdown
-![Steps to being more reproducible. Source DOI: 10.1038/d41586-018-05990-5](figures/r-reproducibility/code-sharing-steps.png)
+![Steps to being more reproducible. Source DOI: 10.1038/d41586-018-05990-5](figures/reproducibility/code-sharing-steps.png)
 ```
 
 which gives...
 
-![Steps to being more reproducible. Source DOI: [10.1038/d41586-018-05990-5](https://doi.org/10.1038/d41586-018-05990-5)](figures/r-reproducibility/code-sharing-steps.png)
+![Steps to being more reproducible. Source DOI: [10.1038/d41586-018-05990-5](https://doi.org/10.1038/d41586-018-05990-5)](figures/reproducibility/code-sharing-steps.png)
 
 *Tip*: Can also include links to images from the Internet, as a URL link.
 
@@ -721,12 +721,12 @@ If you want to modify the width or sizing, append something like `{width=##%}` t
 the end of the image insertion:
 
 ```markdown
-![Caption.](figures/r-reproducibility/code-sharing-steps.png){width=50%}
+![Caption.](figures/reproducibility/code-sharing-steps.png){width=50%}
 ```
 
 which gives...
 
-![Caption.](figures/r-reproducibility/code-sharing-steps.png){width=50%}
+![Caption.](figures/reproducibility/code-sharing-steps.png){width=50%}
 
 #### Adding links to websites
 
@@ -1137,7 +1137,7 @@ something else and add a Table of Contents.
 
 ## Key Points {#reproducibility-keypoints}
 
-```{r, child="keypoints/r-reproducibility.md"}
+```{r, child="keypoints/reproducibility.md"}
 ```
 
 ## Additional learning resources and material {#reproducibility-resources}

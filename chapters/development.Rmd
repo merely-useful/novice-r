@@ -278,7 +278,7 @@ help(sum_two_numbers)
 This is the same text that is displayed in the Spyder help pane, where it is
 rendered as markdown for rich display with typefaces, headings, etc.
 
-![Rich rendering of the docstring in Spyder](figures/r-development/docstring-spyder.png)
+![Rich rendering of the docstring in Spyder](figures/development/docstring-spyder.png)
 
 Spyder includes a convenient function to automatically generate docstring
 templates. Once you have written the function signature and typed out the first
@@ -595,7 +595,7 @@ referred to as [rubber duck debugging][wiki-rubber-duck-debugging].
 
 ## Key Points {#dev-keypoints}
 
-```{r child="keypoints/r-development.md"}
+```{r child="keypoints/development.md"}
 ```
 
 ## Exercises {#dev-exercises}

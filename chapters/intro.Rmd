@@ -1,9 +1,5 @@
 # Introduction {#intro}
 
-```{r r-intro-setup, include=FALSE}
-source(here::here("_common.R"))
-```
-
 FIXME: general introduction.
 
 ## Who are these lessons for? {#intro-personas}

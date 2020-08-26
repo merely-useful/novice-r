@@ -34,7 +34,7 @@ Let's get started by taking a "look" at the data. The RStudio Viewer has an inte
 View(dog_licenses)
 ```
 
-![](figures/r-data-manipulation/dog-licenses-view.png)
+![](figures/data-manipulation/dog-licenses-view.png)
 
 This viewer has some basic data manipulation features:
 
@@ -390,7 +390,7 @@ dog_licenses %>%
 ```
 
 ```{r r-data-manipulation-ifelse, echo=FALSE, fig.cap="Schematic of `ifelse()`."}
-insert_graphic("figures/r-data-manipulation/ifelse.jpg") 
+insert_graphic("figures/data-manipulation/ifelse.jpg") 
 ```
 
 You can perform multiple mutate steps at once by passing more arguments to `mutate()`, so an alternative way of writing the above code (with more keystrokes, but with lines that are shorter) would be:

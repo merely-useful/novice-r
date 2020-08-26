@@ -336,5 +336,5 @@ search results:
 
 ## Key Points {#getting-started-keypoints}
 
-```{r, child="keypoints/py-getting-started.md"}
+```{r, child="keypoints/getting-started.md"}
 ```

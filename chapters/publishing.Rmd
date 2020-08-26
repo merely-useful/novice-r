@@ -1,9 +1,5 @@
 # Publishing {#publishing}
 
-```{r r-publishing-setup, include=FALSE}
-source(here::here("_common.R"))
-```
-
 ## Objectives {#publishing-objectives}
 
 ```{r, child="objectives/publishing.md"}
@@ -70,7 +66,7 @@ FIXME: Would it be better to get to this point by getting learners to fork a rep
 
 If you Knit `report.Rmd` you'll get `report.html`, an HTML document, because in the header of `report.Rmd`  `output` is set to `html_document`.  In the Files pane in RStudio if you click on `report.html`, you'll get two options: Open in Editor, or Display in Web Browser.
 
-![](figures/r-publishing/open-html.png)
+![](figures/publishing/open-html.png)
 
 HTML is the language of webpages. If you "Open in Editor" you will see the contents of the file—it's plain text with markup tags
 to indicate how web browsers should display the text.  If you "View in Web Browser" your browser will read, interpret and display the HTML for you.   When you "View in Web Browser" you may notice the address bar in your browser looks something like:
@@ -111,11 +107,11 @@ Now you will activate GitHub Pages, so that GitHub will know to deliver your fil
 
 Visit your GitHub Repository and head to the "Settings" tab.
 
-![](figures/r-publishing/github-settings.png)
+![](figures/publishing/github-settings.png)
 
 Scroll to the "GitHub Pages" section.  Activate GitHub pages, with source set to "master branch /docs folder".  You should see a message that your site is now live at: `https://{{your_username}}.github.io/sharing-work`
 
-![](figures/r-publishing/github-pages.png)
+![](figures/publishing/github-pages.png)
 
 Try visiting: `https://{{your_username}}.github.io/sharing-work/report.html`.  You should see your report.  Congratulations you have a webpage!
 
@@ -152,7 +148,7 @@ Save the file as `index.Rmd`, knit it, commit, and push your changes.  Your repo
 
 Now when you visit `https://{{your_username}}.github.io/sharing-work` you should see:
 
-![](figures/r-publishing/index.png)
+![](figures/publishing/index.png)
 
 Note that it might take some time for the webpage to refresh automatically and detect the new index file. You can trigger this manually by going to GitHub Pages settings and changes the source branch to something else than `docs/` and then back again.
 
