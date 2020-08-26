@@ -41,7 +41,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Render Book
-        run: Rscript -e 'bookdown::render_book("index.Rmd", quiet = TRUE)'
+        run: Rscript -e 'options(bookdown.render.file_scope = FALSE); bookdown::render_book("index.Rmd", quiet = TRUE)'
 
       - name: Cache bookdown results
         uses: actions/cache@v1
