@@ -45,7 +45,7 @@ html : ${ALL_HTML}
 
 _book/index.html : ${R_NOVICE_FILES} ${COMMON_FILES}
 	rm -f novice-r.Rmd
-	Rscript -e "bookdown::render_book(input='index.Rmd', output_format='bookdown::gitbook'); warnings()"
+	Rscript -e "options(bookdown.render.file_scope = FALSE); bookdown::render_book(input='index.Rmd', output_format='bookdown::gitbook'); warnings()"
 	cp -r ${EXTRA} _book
 
 #-------------------------------------------------------------------------------
@@ -55,7 +55,7 @@ pdf : ${ALL_PDF}
 
 _book/novice-r.pdf : ${R_NOVICE_FILES} ${COMMON_FILES}
 	rm -f novice-r.Rmd
-	Rscript -e "bookdown::render_book(input='index.Rmd', output_format='bookdown::pdf_book'); warnings()"
+	Rscript -e "options(bookdown.render.file_scope = FALSE); bookdown::render_book(input='index.Rmd', output_format='bookdown::pdf_book'); warnings()"
 
 #-------------------------------------------------------------------------------
 
