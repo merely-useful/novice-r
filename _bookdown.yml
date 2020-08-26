@@ -9,7 +9,6 @@ output_dir: "_book"
 delete_merged_file: false
 rmd_files:
   - index.Rmd
-  - novice-goals.Rmd
   - chapters/intro.Rmd
   - chapters/getting-started.Rmd
   - chapters/data-manipulation.Rmd
@@ -19,7 +18,6 @@ rmd_files:
   - appendix.Rmd
   - LICENSE.md
   - CONDUCT.md
-  - CONTRIBUTING.md
   - gloss.md
   - chapters/objectives.Rmd
   - chapters/keypoints.Rmd

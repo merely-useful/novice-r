@@ -7,7 +7,6 @@ EXTRA=data
 R_NOVICE_FILES=\
   _bookdown.yml \
   index.Rmd \
-  goals.Rmd \
   chapters/intro.Rmd \
   chapters/getting-started.Rmd \
   chapters/practice.Rmd \
@@ -22,7 +21,6 @@ COMMON_FILES=\
   appendix.Rmd \
   LICENSE.md \
   CONDUCT.md \
-  CONTRIBUTING.md \
   gloss.md \
   references.Rmd \
   links.md \
