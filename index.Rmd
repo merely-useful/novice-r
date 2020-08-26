@@ -15,6 +15,9 @@ lof: yes
 
 # Overview {#overview}
 
+> NOTE: This book is very much in-development so many parts are incomplete,
+as a draft, or not even started. Check back later!
+
 ```{r r-index-setup, include=FALSE}
 source(here::here("_common.R"))
 ```
