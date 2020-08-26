@@ -1,15 +1,15 @@
-# Development {#r-development}
+# Development {#development}
 
 ```{r r-development-setup, include=FALSE}
 source("_common.R")
 ```
 
-## Questions {#r-dev-questions}
+## Objectives {#dev-objectives}
 
-```{r child="questions/r-development.md"}
+```{r child="objectives/r-development.md"}
 ```
 
-## Functions {#r-dev-functions}
+## Functions {#dev-functions}
 
 Functions are like recipes. You give a few ingredients as input to a function,
 and it will generate an output based on these ingredients. Just as when
@@ -41,7 +41,7 @@ modularized the code into separate functions with well chosen names, it
 would take longer to understand its overall purpose since there
 would be 30-60 lines of code to read instead of just three.
 
-### Creating functions {#r-dev-creating-functions}
+### Creating functions {#dev-creating-functions}
 
 In R, everything that has an action ("does something") is a function. Functions
 are the engines that move all analyses and programming in R. Creating functions
@@ -164,7 +164,7 @@ function call (`2` and `5` above) as *arguments*. Although this might sound
 confusing at first, it is a standard followed by many programming languages so
 it is useful to get accustomed to this terminology.
 
-#### Function composition {#r-dev-function-composition}
+#### Function composition {#dev-function-composition}
 
 Combining functions is referred to as function composition. This practice
 allows us to write functions that perform one specific task and then combine
@@ -178,7 +178,7 @@ def sum_and_len(list_of_numbers):
     return sum(list_of_numbers), len(list_of_numbers)
 ```
 
-#### Positional and keyword arguments {#r-dev-positional-and-keyword-arguments}
+#### Positional and keyword arguments {#dev-positional-and-keyword-arguments}
 
 Up until now, our function calls have included just enough arguments to assign
 one to each of the function parameters. The assignment has been based on the
@@ -197,7 +197,7 @@ that they can be specified in any order.
 sum_two_numbers(num2=5, num1=2)
 ```
 
-#### Defining default values {#r-dev-defining-default-values}
+#### Defining default values {#dev-defining-default-values}
 
 Above, we have specified a value for every argument in each function call. This
 is manageable when functions have few parameters, but it can get tedious for
@@ -232,7 +232,7 @@ Since the arguments are given in the same order as in the function definition,
 we could have left out the `return_input=` part and just written `True` in the
 third position.
 
-#### Function documentation {#r-dev-function-documentation}
+#### Function documentation {#dev-function-documentation}
 
 Functions might appear self-explanatory when they are being written, but it is
 essential that there is proper documentation describing what the function does
@@ -290,7 +290,7 @@ triple quote for the docstring, there will be a small pop-up window that reads
 "Generate docstring". Click it or press enter and a `numpy` docstring template
 will be created based on the parameters in the function signature.
 
-## How to make programs indicate that something has gone wrong? {#r-dev-how-to-make-programs-indicate-that-something-has-gone-wrong}
+## How to make programs indicate that something has gone wrong? {#dev-how-to-make-programs-indicate-that-something-has-gone-wrong}
 
 When performing programmatic data analysis, we need to both ensure that our
 code runs correctly and that it carries out the intended tasks. The Python
@@ -298,7 +298,7 @@ interpreter will help us with the first part; if a part of the code is not
 valid, an error will be raised with a message that helps us trace back what
 part of the code is not correct.
 
-### Ducktyping - relying on Python to detect unexpected behavior {#r-dev-ducktyping-relying-on-Python-to-detect-unexpected-behavior}
+### Ducktyping - relying on Python to detect unexpected behavior {#dev-ducktyping-relying-on-Python-to-detect-unexpected-behavior}
 
 In our function `sum_two_numbers()`, we could explicitly check that the input
 arguments are numerical. However, explicitly checking the type of each input
@@ -321,7 +321,7 @@ like the saying
 > If it looks like a duck, swims like a duck, and quacks like a duck, then it
 > probably is a duck.
 
-### Assertions - explicitly checking for unexpected behavior {#r-dev-assertions-explicitly-checking-for-unexpected-behavior}
+### Assertions - explicitly checking for unexpected behavior {#dev-assertions-explicitly-checking-for-unexpected-behavior}
 
 Ducktyping is useful to catch anything that raises an error in Python, but
 sometimes we might want to stop the code execution for reasons other than a
@@ -362,9 +362,9 @@ within a `try` and `except` block, or within a conditional statement using
 `if`, `elif`, and `else`, but `assert` is a simple and readable way of allowing
 for manual error checking.
 
-## Packages {#r-dev-packages}
+## Packages {#dev-packages}
 
-### Installing Python {#r-dev-installing-Python}
+### Installing Python {#dev-installing-Python}
 
 There are several ways of installing Python on your system. One of the most
 robust and cross-platform compatible is to install the Anaconda Python
@@ -373,7 +373,7 @@ Windows](https://www.anaconda.com/distribution/#download-section). Choose to
 download the Python 3 installer unless you need to work with Python 2 for a
 specific reason.
 
-### Using Python {#r-dev-using-Python}
+### Using Python {#dev-using-Python}
 
 When the Anaconda installation has finished, Python is accessible by running
 `python` in a terminal (on Windows, use the `Anaconda Prompt`). Anaconda also
@@ -381,7 +381,7 @@ includes graphical interfaces for interacting with Python, which can be invoked
 by running `spyder` or `jupyter-lab` from the command line, these are covered
 more in detail elsewhere in this book.
 
-### What is a package? {#r-dev-what-is-a-package}
+### What is a package? {#dev-what-is-a-package}
 
 A package is essentially a few Python scripts in a specific directory structure 
 coupled with installation instructions for the computer. Python packages can 
@@ -444,7 +444,7 @@ packages right from your terminal, let's see how we can use them!
    name>`. The [conda forge channel](https://conda-forge.github.io/) channel
    has many of the packages not in the default repositories.
 
-### Importing packages {#r-dev-importing-packages}
+### Importing packages {#dev-importing-packages}
 
 Many of the functions that we use regularly, such as `print()` and `len()` are 
 part of Python's Built-in functions. These are the functions that are always avaliable, 
@@ -549,7 +549,7 @@ numpy-folder/
         script-with-the-fftfreq-definition.py
 ```
 
-### Installing packages {#r-dev-installing-packages}
+### Installing packages {#dev-installing-packages}
 
 After Anaconda has been installed on your system, you can use the command line
 `conda` package manager or the GUI-driven `anaconda-navigator` to install
@@ -569,7 +569,7 @@ step-by-step instructions to get up and running with `conda` follow.
    name>`. The [conda forge channel](https://conda-forge.github.io/) channel
    has many of the packages not in the default repositories.
 
-## How to get help online {#r-dev-how-to-get-help-online}
+## How to get help online {#dev-how-to-get-help-online}
 
 When reading the built-in Python help is not sufficient, there are several
 online resources that can helpful. One of the most commonly used resources for
@@ -597,12 +597,12 @@ exactly which region of the code is failing and the act of explaining the
 problem often reveals a solution before any replies have come in (commonly
 referred to as [rubber duck debugging][wiki-rubber-duck-debugging].
 
-## Key Points {#r-dev-keypoints}
+## Key Points {#dev-keypoints}
 
 ```{r child="keypoints/r-development.md"}
 ```
 
-## Exercises {#r-dev-exercises}
+## Exercises {#dev-exercises}
 
 1. Write a function that returns the mean of exactly two numbers. Start with
    the code we used to create the function `sum_two_numbers()` above.

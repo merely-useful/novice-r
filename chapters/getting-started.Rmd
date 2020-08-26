@@ -1,12 +1,12 @@
-# Getting Started with R {#r-getting-started}
+# Getting Started with R {#getting-started}
 
 ```{r r-getting-started-setup, include=FALSE}
 source(here::here("_common.R"))
 ```
 
-## Questions {#r-getting-started-questions}
+## Objectives {#getting-started-objectives}
 
-```{r, child="questions/r-getting-started.md"}
+```{r, child="objectives/r-getting-started.md"}
 ```
 
 As stated in the introduction, our overall goal is to work with people, programs
@@ -14,7 +14,7 @@ and data. In this section, we will focus on programs and data as we learn
 how to run R code, as well as
 how data is stored and accessed on a computer.
 
-## Introduction to RStudio {#r-getting-started-rstudio}
+## Introduction to RStudio {#getting-started-rstudio}
 
 Throughout this book, we'll be writing
 programs (or, in verb form, *programming*) in order to accomplish our goals
@@ -38,7 +38,7 @@ FIXME: Screenshot or schematic.
 We'll take it slowly and introduce the purpose of each pane one at a time.
 We'll start with the pane occupying the lefthand side of your screen.
 
-## Running Code in the Console {#r-getting-started-console}
+## Running Code in the Console {#getting-started-console}
 
 Now that we have our space for writing and running code (our **environment**)
 open, it's time to
@@ -71,7 +71,7 @@ what they do; in upcoming chapters, we'll focus on functions that allow you to
 read in and manipulate data. At some point it may be helpful to write your
 *own* functions, which we'll also cover in another chapter.
 
-## Running Code via Scripts {#r-getting-started-script}
+## Running Code via Scripts {#getting-started-script}
 
 Can you imagine a situation where continuing to type code into the console
 could become tedious or challenging?
@@ -129,7 +129,7 @@ We have now told the computer what to do by using R code, and we have run that
 code in two different ways within our "workbench" - the RSudio IDE. Let's
 see what else we can use in this environment to help us.
 
-## Assigning and Recalling Objects {#r-getting-started-objects}
+## Assigning and Recalling Objects {#getting-started-objects}
 
 Besides running functions that *do* something (as above), we'll also want
 to use R to keep track of information that we're using throughout
@@ -164,7 +164,7 @@ Hopefully you can imagine how assigning objects can allow you to
 work more easily with complex data, which you'll have a chance to do
 in the next section.
 
-## Viewing installed packages {#r-viewing-installed-packages}
+## Viewing installed packages {#viewing-installed-packages}
 
 Functions in R are grouped together into collections of related code called
 packages. There is a tab in the lower right pane in RStudio called "Packages"
@@ -206,7 +206,7 @@ library("tidyverse")
 It is appropriate to include this code in your script, so any functions from loaded
 packages are recognized by R and run as expected.
 
-## Getting Help in RStudio {#r-getting-started-rstudio-help}
+## Getting Help in RStudio {#getting-started-rstudio-help}
 
 There are a number of additional features in RStudio that may be of
 use, but we'll discuss them in later sections as the need arises.
@@ -257,7 +257,7 @@ RStudio also provides helpful pop-up windows that attempt to predict the
 function name you're typing. You may see windows that appear as you're coding,
 which include short versions of the help documentation.
 
-## Getting Help Online {#r-getting-started-web-help}
+## Getting Help Online {#getting-started-web-help}
 
 Sometimes you may not be able to find the answers you seek in the
 documentation available through RStudio.
@@ -338,7 +338,7 @@ search results:
     What happens when you click on it?
 
 
-## Key Points {#r-getting-started-keypoints}
+## Key Points {#getting-started-keypoints}
 
 ```{r, child="keypoints/py-getting-started.md"}
 ```

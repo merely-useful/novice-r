@@ -1,8 +1,8 @@
-# Joining data sets {#r-joins}
+# Joining data sets {#joins}
 
-## Questions {#r-joins-questions}
+## Objectives {#joins-objectives}
 
-```{r, child="questions/r-joins.md"}
+```{r, child="objectives/r-joins.md"}
 ```
 
 ```{r, message = FALSE}
@@ -10,7 +10,6 @@ library(tidyverse)
 library(here)
 dog_licenses <- read_csv(here("data/nyc-dog-licenses.csv.gz"))
 ```
-
 
 ## How can I work with two or more datasets?
 

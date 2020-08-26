@@ -1,4 +1,4 @@
-# Introduction {#r-intro}
+# Introduction {#intro}
 
 ```{r r-intro-setup, include=FALSE}
 source(here::here("_common.R"))
@@ -6,7 +6,7 @@ source(here::here("_common.R"))
 
 FIXME: general introduction.
 
-## Who are these lessons for? {#r-intro-personas}
+## Who are these lessons for? {#intro-personas}
 
 ### Exton Excel
 
@@ -45,7 +45,7 @@ FIXME: general introduction.
     she would rather get a low grade and blame it on partying
     than let her classmates see that she is floundering.
 
-## What will these lessons teach you? {#r-intro-goals}
+## What will these lessons teach you? {#intro-goals}
 
 During this course, you will learn how to:
 
@@ -59,7 +59,7 @@ During this course, you will learn how to:
 -   Select open source and Creative Commons licenses that allow you and others to share data, software, and reports.
 -   Be an active participant in open, inclusive projects.
 
-### What do you need to have and know to start? {#r-intro-prereq}
+### What do you need to have and know to start? {#intro-prereq}
 
 This course assumes that you:
 
@@ -71,11 +71,11 @@ We have tried to make these lessons accessible to people with visual or motor ch
 but recognize that some parts (particularly data visualization) may still be difficult.
 We welcome suggestions for improvements.
 
-## What examples will we use? {#r-intro-example}
+## What examples will we use? {#intro-example}
 
 FIXME: introduce running examples
 
-## What's the big picture? (#r-intro-bigpicture}
+## What's the big picture? (#intro-bigpicture}
 
 We now swim in a sea of data and generate more each day.
 That data can help us understand the world,
