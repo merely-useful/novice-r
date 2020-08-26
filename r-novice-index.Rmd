@@ -50,6 +50,11 @@ Other people are afraid of looking foolish or incompetent by sharing code that m
 This isn't just [impostor syndrome][impostor-syndrome]:
 members of marginalized groups are frequently judged more harshly than others (FIXME: citation).
 
+## Contributing
+
+If you want to contribute, please check out the 
+[CONTRIBUTING](TODO: UPDATE) guidelines.
+
 ## Acknowledgments {#overview-ack}
 
 This book owes its existence to
