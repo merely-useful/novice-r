@@ -1,12 +1,8 @@
 # Development {#development}
 
-```{r r-development-setup, include=FALSE}
-source("_common.R")
-```
-
 ## Objectives {#dev-objectives}
 
-```{r child="objectives/r-development.md"}
+```{r child="objectives/development.md"}
 ```
 
 ## Functions {#dev-functions}

@@ -1,12 +1,8 @@
 # Data Manipulation {#data-manipulation}
 
-```{r r-data-manipulation-setup, include=FALSE}
-source(here::here("_common.R"))
-```
-
 ## Objectives {#data-manipulation-objectives}
 
-```{r, child="objectives/r-data-manipulation.md"}
+```{r, child="objectives/data-manipulation.md"}
 ```
 
 ## Motivation

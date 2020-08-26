@@ -2,7 +2,7 @@
 
 ## Objectives {#joins-objectives}
 
-```{r, child="objectives/r-joins.md"}
+```{r, child="objectives/joins.md"}
 ```
 
 ```{r, message = FALSE}

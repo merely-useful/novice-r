@@ -1,9 +1,5 @@
 # Reproducibility {#reproducibility}
 
-```{r re-reproducibility-setup, include=FALSE}
-source(here::here("_common.R"))
-```
-
 There are several key cornerstones for doing rigorous and sound scientific
 research, two of which are reproducibility and replicability [@Patil2016]. Replicability is
 when a study is repeated by other independent research groups. [Reproducibility][sci-reproducibility]

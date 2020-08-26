@@ -1,9 +1,5 @@
 # Practice
 
-```{r r-practice-setup, include=FALSE}
-source(here::here("_common.R"))
-```
-
 We have covered a lot in the last few lessons,
 so this one presents some practice exercises to ground what we have learned
 and introduce a few more commonly-used functions.

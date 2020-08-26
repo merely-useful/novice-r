@@ -1,12 +1,8 @@
 # Getting Started with R {#getting-started}
 
-```{r r-getting-started-setup, include=FALSE}
-source(here::here("_common.R"))
-```
-
 ## Objectives {#getting-started-objectives}
 
-```{r, child="objectives/r-getting-started.md"}
+```{r, child="objectives/getting-started.md"}
 ```
 
 As stated in the introduction, our overall goal is to work with people, programs
