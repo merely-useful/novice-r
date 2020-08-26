@@ -14,9 +14,7 @@
 [buffer]: glossary.html#buffer
 [checkr]: https://cran.r-project.org/web/packages/checkr/index.html
 [chunk-label]: https://yihui.name/knitr/options/#chunk-options
-[climate-api]: https://data.worldbank.org/developers/climate-data-api
 [code-coverage]: glossary.html#code-coverage
-[cookiecutter]: https://drivendata.github.io/cookiecutter-data-science/
 [corpus]: glossary.html#corpus
 [cran]: https://cran.r-project.org/
 [csv]: glossary.html#csv
