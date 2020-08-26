@@ -1,6 +1,6 @@
-Package: merely.useful
+Package: novice.r
 Type: Book
-Title: Merely Useful
+Title: "Merely Useful: Course for teaching R to novices"
 Version: 1.0.0
 Imports: 
     tinytex,
