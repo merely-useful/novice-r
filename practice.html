@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Practice | Merely Useful: An introduction to using R</title>
+  <meta name="description" content="Chapter 5 Practice | Merely Useful: An introduction to using R" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Practice | Merely Useful: An introduction to using R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="merely-useful/novice-r" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Practice | Merely Useful: An introduction to using R" />
+  
+  
+  
+
+<meta name="author" content="Madeleine Bonsma-Fisher, Kate Hertweck, Damien Irving, Luke Johnston, Christina Koch, Sara Mahallati, Joel Ostblom, Elizabeth Wickes, Charlotte Wickham, and Greg Wilson" />
+
+
+<meta name="date" content="2020-08-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-manipulation.html"/>
+<link rel="next" href="publishing.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Merely Useful</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview-against"><i class="fa fa-check"></i><b>1.1</b> Why isn’t all of this normal already?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#contributing"><i class="fa fa-check"></i><b>1.2</b> Contributing</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#overview-ack"><i class="fa fa-check"></i><b>1.3</b> Acknowledgments</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#goals"><i class="fa fa-check"></i><b>1.4</b> Goals of this course</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#personas"><i class="fa fa-check"></i><b>1.4.1</b> Personas</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#outline"><i class="fa fa-check"></i><b>1.4.2</b> Outline</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#intro-personas"><i class="fa fa-check"></i><b>2.1</b> Who are these lessons for?</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#exton-excel"><i class="fa fa-check"></i><b>2.1.1</b> Exton Excel</a></li>
+<li class="chapter" data-level="2.1.2" data-path="intro.html"><a href="intro.html#nina-newbie"><i class="fa fa-check"></i><b>2.1.2</b> Nina Newbie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#intro-goals"><i class="fa fa-check"></i><b>2.2</b> What will these lessons teach you?</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="intro.html"><a href="intro.html#intro-prereq"><i class="fa fa-check"></i><b>2.2.1</b> What do you need to have and know to start?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#intro-example"><i class="fa fa-check"></i><b>2.3</b> What examples will we use?</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#whats-the-big-picture-intro-bigpicture"><i class="fa fa-check"></i><b>2.4</b> What’s the big picture? (#intro-bigpicture}</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="index.html"><a href="index.html#getting-started"><i class="fa fa-check"></i><b>3</b> Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>3.1</b> Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-rstudio"><i class="fa fa-check"></i><b>3.2</b> Introduction to RStudio</a></li>
+<li class="chapter" data-level="3.3" data-path="getting-started.html"><a href="getting-started.html#getting-started-console"><i class="fa fa-check"></i><b>3.3</b> Running Code in the Console</a></li>
+<li class="chapter" data-level="3.4" data-path="getting-started.html"><a href="getting-started.html#getting-started-script"><i class="fa fa-check"></i><b>3.4</b> Running Code via Scripts</a></li>
+<li class="chapter" data-level="3.5" data-path="getting-started.html"><a href="getting-started.html#getting-started-objects"><i class="fa fa-check"></i><b>3.5</b> Assigning and Recalling Objects</a></li>
+<li class="chapter" data-level="3.6" data-path="getting-started.html"><a href="getting-started.html#viewing-installed-packages"><i class="fa fa-check"></i><b>3.6</b> Viewing installed packages</a></li>
+<li class="chapter" data-level="3.7" data-path="getting-started.html"><a href="getting-started.html#getting-started-rstudio-help"><i class="fa fa-check"></i><b>3.7</b> Getting Help in RStudio</a></li>
+<li class="chapter" data-level="3.8" data-path="getting-started.html"><a href="getting-started.html#getting-started-web-help"><i class="fa fa-check"></i><b>3.8</b> Getting Help Online</a></li>
+<li class="chapter" data-level="3.9" data-path="getting-started.html"><a href="getting-started.html#exercises"><i class="fa fa-check"></i><b>3.9</b> Exercises</a></li>
+<li class="chapter" data-level="3.10" data-path="getting-started.html"><a href="getting-started.html#getting-started-keypoints"><i class="fa fa-check"></i><b>3.10</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="index.html"><a href="index.html#data-manipulation"><i class="fa fa-check"></i><b>4</b> Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#motivation"><i class="fa fa-check"></i><b>4.2</b> Motivation</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-point-and-click-data-manipulation"><i class="fa fa-check"></i><b>4.2.1</b> Exercise: Point and click data manipulation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#exploring-data-in-the-console"><i class="fa fa-check"></i><b>4.3</b> Exploring data in the console</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-manipulation.html"><a href="data-manipulation.html#re-arranging-rows"><i class="fa fa-check"></i><b>4.3.1</b> Re-arranging rows</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-arranging-character-strings"><i class="fa fa-check"></i><b>4.3.2</b> Exercise: Arranging character strings</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-manipulation.html"><a href="data-manipulation.html#how-can-i-select-subsets-of-my-data"><i class="fa fa-check"></i><b>4.4</b> How can I select subsets of my data?</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#selecting-columns"><i class="fa fa-check"></i><b>4.4.1</b> Selecting columns</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-find-the-latest-license-issue-date"><i class="fa fa-check"></i><b>4.4.2</b> Exercise: Find the latest license issue date</a></li>
+<li class="chapter" data-level="4.4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#combining-operations-with-the-pipe"><i class="fa fa-check"></i><b>4.4.3</b> Combining operations with the pipe <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="4.4.4" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-reading-aloud"><i class="fa fa-check"></i><b>4.4.4</b> Exercise: Reading aloud</a></li>
+<li class="chapter" data-level="4.4.5" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-using-the-pipe"><i class="fa fa-check"></i><b>4.4.5</b> Exercise: Using the pipe</a></li>
+<li class="chapter" data-level="4.4.6" data-path="data-manipulation.html"><a href="data-manipulation.html#filtering-to-keep-a-subset-of-rows"><i class="fa fa-check"></i><b>4.4.6</b> Filtering to keep a subset of rows</a></li>
+<li class="chapter" data-level="4.4.7" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-enterprising-dogs"><i class="fa fa-check"></i><b>4.4.7</b> Exercise: Enterprising dogs</a></li>
+<li class="chapter" data-level="4.4.8" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-expired-licenses"><i class="fa fa-check"></i><b>4.4.8</b> Exercise: Expired Licenses</a></li>
+<li class="chapter" data-level="4.4.9" data-path="data-manipulation.html"><a href="data-manipulation.html#more-complicated-expressions"><i class="fa fa-check"></i><b>4.4.9</b> More complicated expressions</a></li>
+<li class="chapter" data-level="4.4.10" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-expired-licenses-1"><i class="fa fa-check"></i><b>4.4.10</b> Exercise: Expired Licenses</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="data-manipulation.html"><a href="data-manipulation.html#how-can-i-calculate-new-values"><i class="fa fa-check"></i><b>4.5</b> How can I calculate new values?</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-ages-of-dogs"><i class="fa fa-check"></i><b>4.5.1</b> Exercise: Ages of dogs</a></li>
+<li class="chapter" data-level="4.5.2" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-unknown-breeds"><i class="fa fa-check"></i><b>4.5.2</b> Exercise: Unknown breeds</a></li>
+<li class="chapter" data-level="4.5.3" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-name-length"><i class="fa fa-check"></i><b>4.5.3</b> Exercise: Name length</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="data-manipulation.html"><a href="data-manipulation.html#how-can-i-tell-whats-gone-wrong-in-my-programs"><i class="fa fa-check"></i><b>4.6</b> How can I tell what’s gone wrong in my programs?</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="data-manipulation.html"><a href="data-manipulation.html#common-syntax-errors"><i class="fa fa-check"></i><b>4.6.1</b> Common syntax errors</a></li>
+<li class="chapter" data-level="4.6.2" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-syntax-errors"><i class="fa fa-check"></i><b>4.6.2</b> Exercise: Syntax errors</a></li>
+<li class="chapter" data-level="4.6.3" data-path="data-manipulation.html"><a href="data-manipulation.html#common-runtime-errors"><i class="fa fa-check"></i><b>4.6.3</b> Common runtime errors</a></li>
+<li class="chapter" data-level="4.6.4" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-object-not-found"><i class="fa fa-check"></i><b>4.6.4</b> Exercise: <code>object not found</code></a></li>
+<li class="chapter" data-level="4.6.5" data-path="data-manipulation.html"><a href="data-manipulation.html#warnings-and-messages"><i class="fa fa-check"></i><b>4.6.5</b> Warnings and messages</a></li>
+<li class="chapter" data-level="4.6.6" data-path="data-manipulation.html"><a href="data-manipulation.html#what-do-i-do-when-i-get-an-error-i-cant-fix"><i class="fa fa-check"></i><b>4.6.6</b> What do I do when I get an <code>Error</code> I can’t fix?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="data-manipulation.html"><a href="data-manipulation.html#how-can-i-operate-on-subsets-of-my-data"><i class="fa fa-check"></i><b>4.7</b> How can I operate on subsets of my data?</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-dog-birth-months"><i class="fa fa-check"></i><b>4.7.1</b> Exercise: Dog birth months</a></li>
+<li class="chapter" data-level="4.7.2" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-order-matters"><i class="fa fa-check"></i><b>4.7.2</b> Exercise: Order matters?</a></li>
+<li class="chapter" data-level="4.7.3" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-the-five-boroughs"><i class="fa fa-check"></i><b>4.7.3</b> Exercise: the five boroughs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="data-manipulation.html"><a href="data-manipulation.html#how-can-i-read-my-own-tabular-data-into-r"><i class="fa fa-check"></i><b>4.8</b> How can I read my own tabular data into R?</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#what-is-tabular-data"><i class="fa fa-check"></i><b>4.8.1</b> What is tabular data?</a></li>
+<li class="chapter" data-level="4.8.2" data-path="data-manipulation.html"><a href="data-manipulation.html#importing-csv-data-into-r"><i class="fa fa-check"></i><b>4.8.2</b> Importing CSV data into R</a></li>
+<li class="chapter" data-level="4.8.3" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-import-visited.csv"><i class="fa fa-check"></i><b>4.8.3</b> Exercise: Import <code>visited.csv</code></a></li>
+<li class="chapter" data-level="4.8.4" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-import-irs-tax-return-data-for-new-york-city"><i class="fa fa-check"></i><b>4.8.4</b> Exercise: Import IRS tax return data for New York City</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="data-manipulation.html"><a href="data-manipulation.html#how-can-i-save-my-results"><i class="fa fa-check"></i><b>4.9</b> How can I save my results?</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise"><i class="fa fa-check"></i><b>4.9.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>5</b> Practice</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="practice.html"><a href="practice.html#working-with-a-single-tidy-table"><i class="fa fa-check"></i><b>5.1</b> Working with a single tidy table</a></li>
+<li class="chapter" data-level="5.2" data-path="practice.html"><a href="practice.html#working-with-grouped-data"><i class="fa fa-check"></i><b>5.2</b> Working with grouped data</a></li>
+<li class="chapter" data-level="5.3" data-path="practice.html"><a href="practice.html#creating-charts"><i class="fa fa-check"></i><b>5.3</b> Creating charts</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="index.html"><a href="index.html#publishing"><i class="fa fa-check"></i><b>6</b> Publishing</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="publishing.html"><a href="publishing.html#why-should-i-share-my-work-on-the-internet"><i class="fa fa-check"></i><b>6.2</b> Why should I share my work on the internet?</a></li>
+<li class="chapter" data-level="6.3" data-path="publishing.html"><a href="publishing.html#what-does-it-take-to-get-a-webpage-online"><i class="fa fa-check"></i><b>6.3</b> What does it take to get a webpage online?</a></li>
+<li class="chapter" data-level="6.4" data-path="publishing.html"><a href="publishing.html#how-do-i-get-my-work-on-the-web"><i class="fa fa-check"></i><b>6.4</b> How do I get my work on the web?</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="publishing.html"><a href="publishing.html#a-starting-point"><i class="fa fa-check"></i><b>6.4.1</b> A starting point</a></li>
+<li class="chapter" data-level="6.4.2" data-path="publishing.html"><a href="publishing.html#html-files"><i class="fa fa-check"></i><b>6.4.2</b> HTML files</a></li>
+<li class="chapter" data-level="6.4.3" data-path="publishing.html"><a href="publishing.html#setting-up-your-repo-to-have-a-web-page"><i class="fa fa-check"></i><b>6.4.3</b> Setting up your repo to have a web page</a></li>
+<li class="chapter" data-level="6.4.4" data-path="publishing.html"><a href="publishing.html#getting-a-default-page-to-display-when-people-visit-the-project-site"><i class="fa fa-check"></i><b>6.4.4</b> Getting a default page to display when people visit the project site</a></li>
+<li class="chapter" data-level="6.4.5" data-path="publishing.html"><a href="publishing.html#what-does-it-take-to-get-your-work-on-a-webpage"><i class="fa fa-check"></i><b>6.4.5</b> What does it take to get your work on a webpage?</a></li>
+<li class="chapter" data-level="6.4.6" data-path="publishing.html"><a href="publishing.html#exercise-customize-index.rmd"><i class="fa fa-check"></i><b>6.4.6</b> Exercise: Customize <code>index.Rmd</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="publishing.html"><a href="publishing.html#how-do-i-link-to-other-pages-files-or-images"><i class="fa fa-check"></i><b>6.5</b> How do I link to other pages, files or images?</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="publishing.html"><a href="publishing.html#linking-to-other-pages"><i class="fa fa-check"></i><b>6.5.1</b> Linking to other pages</a></li>
+<li class="chapter" data-level="6.5.2" data-path="publishing.html"><a href="publishing.html#exercise-relative-links"><i class="fa fa-check"></i><b>6.5.2</b> Exercise: Relative links</a></li>
+<li class="chapter" data-level="6.5.3" data-path="publishing.html"><a href="publishing.html#exercise-add-links-to-index.html"><i class="fa fa-check"></i><b>6.5.3</b> Exercise: Add links to <code>index.html</code></a></li>
+<li class="chapter" data-level="6.5.4" data-path="publishing.html"><a href="publishing.html#linking-to-sections-within-a-page"><i class="fa fa-check"></i><b>6.5.4</b> Linking to sections within a page</a></li>
+<li class="chapter" data-level="6.5.5" data-path="publishing.html"><a href="publishing.html#exercise-add-and-link-to-a-section-in-report.rmd"><i class="fa fa-check"></i><b>6.5.5</b> Exercise: Add and link to a section in <code>report.Rmd</code></a></li>
+<li class="chapter" data-level="6.5.6" data-path="publishing.html"><a href="publishing.html#including-images"><i class="fa fa-check"></i><b>6.5.6</b> Including images</a></li>
+<li class="chapter" data-level="6.5.7" data-path="publishing.html"><a href="publishing.html#exercise-add-an-image-to-index.html"><i class="fa fa-check"></i><b>6.5.7</b> Exercise: Add an image to <code>index.html</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="publishing.html"><a href="publishing.html#exercise-add-a-website-to-an-existing-project"><i class="fa fa-check"></i><b>6.6</b> Exercise: Add a website to an existing project</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="index.html"><a href="index.html#reproducibility"><i class="fa fa-check"></i><b>7</b> Reproducibility</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>7.1</b> Project organization</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="reproducibility.html"><a href="reproducibility.html#creating-your-first-project"><i class="fa fa-check"></i><b>7.1.1</b> Creating your first project</a></li>
+<li class="chapter" data-level="7.1.2" data-path="reproducibility.html"><a href="reproducibility.html#exercise-better-file-naming"><i class="fa fa-check"></i><b>7.1.2</b> Exercise: Better file naming</a></li>
+<li class="chapter" data-level="7.1.3" data-path="reproducibility.html"><a href="reproducibility.html#should-you-keep-your-data-under-version-control"><i class="fa fa-check"></i><b>7.1.3</b> Should you keep your data under version control?</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="reproducibility.html"><a href="reproducibility.html#reproducibility-reusability"><i class="fa fa-check"></i><b>7.2</b> Reusability</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="reproducibility.html"><a href="reproducibility.html#keeping-a-clean-slate"><i class="fa fa-check"></i><b>7.2.1</b> Keeping a clean slate</a></li>
+<li class="chapter" data-level="7.2.2" data-path="reproducibility.html"><a href="reproducibility.html#packages-data-and-file-paths"><i class="fa fa-check"></i><b>7.2.2</b> Packages, data, and file paths</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="reproducibility.html"><a href="reproducibility.html#reproducibility-readability"><i class="fa fa-check"></i><b>7.3</b> Readability</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="reproducibility.html"><a href="reproducibility.html#exercise-make-the-code-more-readable"><i class="fa fa-check"></i><b>7.3.1</b> Exercise: Make the code more readable</a></li>
+<li class="chapter" data-level="7.3.2" data-path="reproducibility.html"><a href="reproducibility.html#automatic-styling-with-styler"><i class="fa fa-check"></i><b>7.3.2</b> Automatic styling with styler</a></li>
+<li class="chapter" data-level="7.3.3" data-path="reproducibility.html"><a href="reproducibility.html#exercise-use-styler-to-fix-code-formatting"><i class="fa fa-check"></i><b>7.3.3</b> Exercise: Use styler to fix code formatting</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="reproducibility.html"><a href="reproducibility.html#reproducibility-markdown"><i class="fa fa-check"></i><b>7.4</b> Integrating text, code, and results</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="reproducibility.html"><a href="reproducibility.html#markdown"><i class="fa fa-check"></i><b>7.4.1</b> Markdown</a></li>
+<li class="chapter" data-level="7.4.2" data-path="reproducibility.html"><a href="reproducibility.html#r-markdown"><i class="fa fa-check"></i><b>7.4.2</b> R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="reproducibility.html"><a href="reproducibility.html#reproducibility-keypoints"><i class="fa fa-check"></i><b>7.5</b> Key Points</a></li>
+<li class="chapter" data-level="7.6" data-path="reproducibility.html"><a href="reproducibility.html#reproducibility-resources"><i class="fa fa-check"></i><b>7.6</b> Additional learning resources and material</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i><b>A</b> License</a></li>
+<li class="chapter" data-level="B" data-path="conduct.html"><a href="conduct.html"><i class="fa fa-check"></i><b>B</b> Code of Conduct</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="conduct.html"><a href="conduct.html#conduct-standards"><i class="fa fa-check"></i><b>B.1</b> Our Standards</a></li>
+<li class="chapter" data-level="B.2" data-path="conduct.html"><a href="conduct.html#conduct-responsibilities"><i class="fa fa-check"></i><b>B.2</b> Our Responsibilities</a></li>
+<li class="chapter" data-level="B.3" data-path="conduct.html"><a href="conduct.html#conduct-scope"><i class="fa fa-check"></i><b>B.3</b> Scope</a></li>
+<li class="chapter" data-level="B.4" data-path="conduct.html"><a href="conduct.html#conduct-enforcement"><i class="fa fa-check"></i><b>B.4</b> Enforcement</a></li>
+<li class="chapter" data-level="B.5" data-path="conduct.html"><a href="conduct.html#conduct-attribution"><i class="fa fa-check"></i><b>B.5</b> Attribution</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>C</b> Glossary</a></li>
+<li class="chapter" data-level="D" data-path="objectives.html"><a href="objectives.html"><i class="fa fa-check"></i><b>D</b> Novice R Learning Objectives</a></li>
+<li class="chapter" data-level="E" data-path="keypoints.html"><a href="keypoints.html"><i class="fa fa-check"></i><b>E</b> Novice R Key Points</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Merely Useful: An introduction to using R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="practice" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Practice</h1>
+<p>We have covered a lot in the last few lessons,
+so this one presents some practice exercises to ground what we have learned
+and introduce a few more commonly-used functions.</p>
+<div id="working-with-a-single-tidy-table" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Working with a single tidy table</h2>
+<ol style="list-style-type: decimal">
+<li>Load the tidyverse collection of package and the <code>here</code> package for constructing paths:</li>
+</ol>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="practice.html#cb168-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb168-2"><a href="practice.html#cb168-2" aria-hidden="true"></a><span class="kw">library</span>(here)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Use <code>here::here</code> to construct a path to a file and <code>readr::read_csv</code> to read that file:</li>
+</ol>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="practice.html#cb169-1" aria-hidden="true"></a>path &lt;-<span class="st"> </span>here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;person.csv&quot;</span>)</span>
+<span id="cb169-2"><a href="practice.html#cb169-2" aria-hidden="true"></a>person &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(path)</span></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   person_id = [31mcol_character()[39m,
+##   personal_name = [31mcol_character()[39m,
+##   family_name = [31mcol_character()[39m
+## )</code></pre>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="practice.html#cb171-1" aria-hidden="true"></a>person</span></code></pre></div>
+<pre><code>## [90m# A tibble: 5 x 3[39m
+##   person_id personal_name family_name
+##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m         [3m[90m&lt;chr&gt;[39m[23m      
+## [90m1[39m dyer      William       Dyer       
+## [90m2[39m pb        Frank         Pabodie    
+## [90m3[39m lake      Anderson      Lake       
+## [90m4[39m roe       Valentina     Roerich    
+## [90m5[39m danforth  Frank         Danforth</code></pre>
+<p><em>Read <code>survey/site.csv</code>.</em></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Count rows and columns using <code>nrow</code> and <code>ncol</code>:</li>
+</ol>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="practice.html#cb173-1" aria-hidden="true"></a><span class="kw">nrow</span>(person)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="practice.html#cb175-1" aria-hidden="true"></a><span class="kw">ncol</span>(person)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p><em>How many rows and columns are in the site data?</em></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Format strings using <code>glue::glue</code>:</li>
+</ol>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="practice.html#cb177-1" aria-hidden="true"></a><span class="kw">print</span>(glue<span class="op">::</span><span class="kw">glue</span>(<span class="st">&quot;person has {nrow(person)} rows and {ncol(person)} columns&quot;</span>))</span></code></pre></div>
+<pre><code>## person has 5 rows and 3 columns</code></pre>
+<p><em>Print a nicely-formatted summary of the number of rows and columns in the site data.</em></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Use <code>colnames</code> to get the names of columns and <code>paste</code> to join strings together:</li>
+</ol>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="practice.html#cb179-1" aria-hidden="true"></a><span class="kw">print</span>(glue<span class="op">::</span><span class="kw">glue</span>(<span class="st">&quot;person columns are {paste(colnames(person), collapse = &#39; &#39;)}&quot;</span>))</span></code></pre></div>
+<pre><code>## person columns are person_id personal_name family_name</code></pre>
+<p><em>Print a nicely-formatted summary of the names of the columns in the site data.</em></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Use <code>dplyr::select</code> to create a new table with a subset of columns by name:</li>
+</ol>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="practice.html#cb181-1" aria-hidden="true"></a>dplyr<span class="op">::</span><span class="kw">select</span>(person, family_name, personal_name)</span></code></pre></div>
+<pre><code>## [90m# A tibble: 5 x 2[39m
+##   family_name personal_name
+##   [3m[90m&lt;chr&gt;[39m[23m       [3m[90m&lt;chr&gt;[39m[23m        
+## [90m1[39m Dyer        William      
+## [90m2[39m Pabodie     Frank        
+## [90m3[39m Lake        Anderson     
+## [90m4[39m Roerich     Valentina    
+## [90m5[39m Danforth    Frank</code></pre>
+<p><em>Create a table with just the latitudes and longitudes of sites.</em></p>
+<ol start="7" style="list-style-type: decimal">
+<li>Use <code>dplyr::filter</code> to create a new table with a subset of rows by values:</li>
+</ol>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="practice.html#cb183-1" aria-hidden="true"></a>dplyr<span class="op">::</span><span class="kw">filter</span>(person, family_name <span class="op">&lt;</span><span class="st"> &quot;M&quot;</span>)</span></code></pre></div>
+<pre><code>## [90m# A tibble: 3 x 3[39m
+##   person_id personal_name family_name
+##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m         [3m[90m&lt;chr&gt;[39m[23m      
+## [90m1[39m dyer      William       Dyer       
+## [90m2[39m lake      Anderson      Lake       
+## [90m3[39m danforth  Frank         Danforth</code></pre>
+<p><em>Create a table with only sites south of -48 degrees.</em></p>
+<ol start="8" style="list-style-type: decimal">
+<li>Use the pipe operator <code>%&gt;%</code> to combine operations:</li>
+</ol>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="practice.html#cb185-1" aria-hidden="true"></a>person <span class="op">%&gt;%</span></span>
+<span id="cb185-2"><a href="practice.html#cb185-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(family_name, personal_name) <span class="op">%&gt;%</span></span>
+<span id="cb185-3"><a href="practice.html#cb185-3" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(family_name <span class="op">&lt;</span><span class="st"> &quot;M&quot;</span>)</span></code></pre></div>
+<pre><code>## [90m# A tibble: 3 x 2[39m
+##   family_name personal_name
+##   [3m[90m&lt;chr&gt;[39m[23m       [3m[90m&lt;chr&gt;[39m[23m        
+## [90m1[39m Dyer        William      
+## [90m2[39m Lake        Anderson     
+## [90m3[39m Danforth    Frank</code></pre>
+<p><em>Create a table with only the latitudes and longitudes of sites south of -48 degrees.</em></p>
+<ol start="9" style="list-style-type: decimal">
+<li>Use <code>dplyr::mutate</code> to create a new column with calculated values and <code>stringr::str_length</code> to calculate string length:</li>
+</ol>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="practice.html#cb187-1" aria-hidden="true"></a>person <span class="op">%&gt;%</span></span>
+<span id="cb187-2"><a href="practice.html#cb187-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">name_length =</span> stringr<span class="op">::</span><span class="kw">str_length</span>(family_name))</span></code></pre></div>
+<pre><code>## [90m# A tibble: 5 x 4[39m
+##   person_id personal_name family_name name_length
+##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m         [3m[90m&lt;chr&gt;[39m[23m             [3m[90m&lt;int&gt;[39m[23m
+## [90m1[39m dyer      William       Dyer                  4
+## [90m2[39m pb        Frank         Pabodie               7
+## [90m3[39m lake      Anderson      Lake                  4
+## [90m4[39m roe       Valentina     Roerich               7
+## [90m5[39m danforth  Frank         Danforth              8</code></pre>
+<p><em>Look at the help for the built-in function <code>round</code> and then use it to create a table with latitudes and longitudes rounded to integers.</em></p>
+<ol start="10" style="list-style-type: decimal">
+<li>Use <code>dplyr::arrange</code> to order rows and (optionally) <code>dplyr::desc</code> to impose descending order:</li>
+</ol>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="practice.html#cb189-1" aria-hidden="true"></a>person <span class="op">%&gt;%</span></span>
+<span id="cb189-2"><a href="practice.html#cb189-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">name_length =</span> stringr<span class="op">::</span><span class="kw">str_length</span>(family_name)) <span class="op">%&gt;%</span></span>
+<span id="cb189-3"><a href="practice.html#cb189-3" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(dplyr<span class="op">::</span><span class="kw">desc</span>(name_length))</span></code></pre></div>
+<pre><code>## [90m# A tibble: 5 x 4[39m
+##   person_id personal_name family_name name_length
+##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m         [3m[90m&lt;chr&gt;[39m[23m             [3m[90m&lt;int&gt;[39m[23m
+## [90m1[39m danforth  Frank         Danforth              8
+## [90m2[39m pb        Frank         Pabodie               7
+## [90m3[39m roe       Valentina     Roerich               7
+## [90m4[39m dyer      William       Dyer                  4
+## [90m5[39m lake      Anderson      Lake                  4</code></pre>
+<p><em>Create a table sorted by decreasing longitude (i.e., most negative longitude last).</em></p>
+</div>
+<div id="working-with-grouped-data" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Working with grouped data</h2>
+<ol style="list-style-type: decimal">
+<li>Read <code>survey/measurements.csv</code> and look at the data with <code>View</code>:</li>
+</ol>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="practice.html#cb191-1" aria-hidden="true"></a>measurements &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;measurements.csv&quot;</span>))</span></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   visit_id = [32mcol_double()[39m,
+##   visitor = [31mcol_character()[39m,
+##   quantity = [31mcol_character()[39m,
+##   reading = [32mcol_double()[39m
+## )</code></pre>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="practice.html#cb193-1" aria-hidden="true"></a><span class="kw">View</span>(measurements)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Find rows where <code>reading</code> is not NA, save as <code>cleaned</code>, and report how many rows were removed:</li>
+</ol>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="practice.html#cb194-1" aria-hidden="true"></a>cleaned &lt;-<span class="st"> </span>measurements <span class="op">%&gt;%</span></span>
+<span id="cb194-2"><a href="practice.html#cb194-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(reading))</span>
+<span id="cb194-3"><a href="practice.html#cb194-3" aria-hidden="true"></a><span class="kw">nrow</span>(measurements) <span class="op">-</span><span class="st"> </span><span class="kw">nrow</span>(cleaned)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p><em>Rewrite the filter expression to select rows where the visitor and quantity are not NA either and report the total number of rows removed.</em></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Group measurements by quantity measured and count the number of each (the column is named <code>n</code> automatically):</li>
+</ol>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="practice.html#cb196-1" aria-hidden="true"></a>cleaned <span class="op">%&gt;%</span></span>
+<span id="cb196-2"><a href="practice.html#cb196-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(quantity) <span class="op">%&gt;%</span></span>
+<span id="cb196-3"><a href="practice.html#cb196-3" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">count</span>()</span></code></pre></div>
+<pre><code>## [90m# A tibble: 3 x 2[39m
+## [90m# Groups:   quantity [3][39m
+##   quantity     n
+##   [3m[90m&lt;chr&gt;[39m[23m    [3m[90m&lt;int&gt;[39m[23m
+## [90m1[39m rad          8
+## [90m2[39m sal          7
+## [90m3[39m temp         3</code></pre>
+<p><em>Group by person and quantity measured.</em></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Find the minimum, average, and maximum for each quantity:</li>
+</ol>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="practice.html#cb198-1" aria-hidden="true"></a>cleaned <span class="op">%&gt;%</span></span>
+<span id="cb198-2"><a href="practice.html#cb198-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(quantity) <span class="op">%&gt;%</span></span>
+<span id="cb198-3"><a href="practice.html#cb198-3" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarize</span>(<span class="dt">low =</span> <span class="kw">min</span>(reading), <span class="dt">mid =</span> <span class="kw">mean</span>(reading), <span class="dt">high =</span> <span class="kw">max</span>(reading))</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## [90m# A tibble: 3 x 4[39m
+##   quantity    low    mid  high
+##   [3m[90m&lt;chr&gt;[39m[23m     [3m[90m&lt;dbl&gt;[39m[23m  [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;dbl&gt;[39m[23m
+## [90m1[39m rad        1.46   6.56  11.2
+## [90m2[39m sal        0.05   9.24  41.6
+## [90m3[39m temp     -[31m21[39m[31m.[39m[31m5[39m  -[31m18[39m[31m.[39m[31m7[39m  -[31m16[39m</code></pre>
+<p><em>Look at the range for each combination of person and quantity.</em></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Rescale salinity measurements that are greater than 1:</li>
+</ol>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="practice.html#cb201-1" aria-hidden="true"></a>cleaned &lt;-<span class="st"> </span>cleaned <span class="op">%&gt;%</span></span>
+<span id="cb201-2"><a href="practice.html#cb201-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">reading =</span> <span class="kw">ifelse</span>(quantity <span class="op">==</span><span class="st"> &#39;sal&#39;</span> <span class="op">&amp;</span><span class="st"> </span>reading <span class="op">&gt;</span><span class="st"> </span><span class="fl">1.0</span>, reading<span class="op">/</span><span class="dv">100</span>, reading))</span>
+<span id="cb201-3"><a href="practice.html#cb201-3" aria-hidden="true"></a>cleaned</span></code></pre></div>
+<pre><code>## [90m# A tibble: 18 x 4[39m
+##    visit_id visitor quantity reading
+##       [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;chr&gt;[39m[23m      [3m[90m&lt;dbl&gt;[39m[23m
+## [90m 1[39m      619 dyer    rad        9.82 
+## [90m 2[39m      619 dyer    sal        0.13 
+## [90m 3[39m      622 dyer    rad        7.8  
+## [90m 4[39m      622 dyer    sal        0.09 
+## [90m 5[39m      734 pb      rad        8.41 
+## [90m 6[39m      734 lake    sal        0.05 
+## [90m 7[39m      734 pb      temp     -[31m21[39m[31m.[39m[31m5[39m  
+## [90m 8[39m      735 pb      rad        7.22 
+## [90m 9[39m      751 pb      rad        4.35 
+## [90m10[39m      751 pb      temp     -[31m18[39m[31m.[39m[31m5[39m  
+## [90m11[39m      752 lake    rad        2.19 
+## [90m12[39m      752 lake    sal        0.09 
+## [90m13[39m      752 lake    temp     -[31m16[39m    
+## [90m14[39m      752 roe     sal        0.416
+## [90m15[39m      837 lake    rad        1.46 
+## [90m16[39m      837 lake    sal        0.21 
+## [90m17[39m      837 roe     sal        0.225
+## [90m18[39m      844 roe     rad       11.2</code></pre>
+<p><em>Do the same calculation use <code>case_when</code>.</em></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Read <code>visited.csv</code>, drop the NAs and store in <code>visits</code>. Use <code>anti_join()</code> to find the measurements in <code>cleaned</code> that don’t have matches in <code>visits</code>:</li>
+</ol>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="practice.html#cb203-1" aria-hidden="true"></a>visits &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;visited.csv&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb203-2"><a href="practice.html#cb203-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(visit_date))</span></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   visit_id = [32mcol_double()[39m,
+##   site_id = [31mcol_character()[39m,
+##   visit_date = [34mcol_date(format = &quot;&quot;)[39m
+## )</code></pre>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="practice.html#cb205-1" aria-hidden="true"></a>cleaned <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">anti_join</span>(visits)</span></code></pre></div>
+<pre><code>## Joining, by = &quot;visit_id&quot;</code></pre>
+<pre><code>## [90m# A tibble: 4 x 4[39m
+##   visit_id visitor quantity reading
+##      [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;chr&gt;[39m[23m      [3m[90m&lt;dbl&gt;[39m[23m
+## [90m1[39m      752 lake    rad        2.19 
+## [90m2[39m      752 lake    sal        0.09 
+## [90m3[39m      752 lake    temp     -[31m16[39m    
+## [90m4[39m      752 roe     sal        0.416</code></pre>
+<p><em>Are there any sites in <code>visits</code> that don’t have matches in <code>cleaned</code>?</em></p>
+<ol start="7" style="list-style-type: decimal">
+<li>Join <code>visits</code> with the cleaned-up table of readings:</li>
+</ol>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="practice.html#cb208-1" aria-hidden="true"></a>cleaned &lt;-<span class="st"> </span>visits <span class="op">%&gt;%</span></span>
+<span id="cb208-2"><a href="practice.html#cb208-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">inner_join</span>(cleaned, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;visit_id&quot;</span> =<span class="st"> &quot;visit_id&quot;</span>))</span>
+<span id="cb208-3"><a href="practice.html#cb208-3" aria-hidden="true"></a>cleaned</span></code></pre></div>
+<pre><code>## [90m# A tibble: 14 x 6[39m
+##    visit_id site_id visit_date visitor quantity reading
+##       [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;date&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;chr&gt;[39m[23m      [3m[90m&lt;dbl&gt;[39m[23m
+## [90m 1[39m      619 DR-1    1927-02-08 dyer    rad        9.82 
+## [90m 2[39m      619 DR-1    1927-02-08 dyer    sal        0.13 
+## [90m 3[39m      622 DR-1    1927-02-10 dyer    rad        7.8  
+## [90m 4[39m      622 DR-1    1927-02-10 dyer    sal        0.09 
+## [90m 5[39m      734 DR-3    1930-01-07 pb      rad        8.41 
+## [90m 6[39m      734 DR-3    1930-01-07 lake    sal        0.05 
+## [90m 7[39m      734 DR-3    1930-01-07 pb      temp     -[31m21[39m[31m.[39m[31m5[39m  
+## [90m 8[39m      735 DR-3    1930-01-12 pb      rad        7.22 
+## [90m 9[39m      751 DR-3    1930-02-26 pb      rad        4.35 
+## [90m10[39m      751 DR-3    1930-02-26 pb      temp     -[31m18[39m[31m.[39m[31m5[39m  
+## [90m11[39m      837 MSK-4   1932-01-14 lake    rad        1.46 
+## [90m12[39m      837 MSK-4   1932-01-14 lake    sal        0.21 
+## [90m13[39m      837 MSK-4   1932-01-14 roe     sal        0.225
+## [90m14[39m      844 DR-1    1932-03-22 roe     rad       11.2</code></pre>
+<p><em>Join <code>visited.csv</code> with <code>site.csv</code> to get (date, latitude, longitude) triples for site visits.</em></p>
+<ol start="7" style="list-style-type: decimal">
+<li>Find the dates of the highest radiation reading at each site:</li>
+</ol>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="practice.html#cb210-1" aria-hidden="true"></a>cleaned <span class="op">%&gt;%</span></span>
+<span id="cb210-2"><a href="practice.html#cb210-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(quantity <span class="op">==</span><span class="st"> &quot;rad&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb210-3"><a href="practice.html#cb210-3" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(site_id) <span class="op">%&gt;%</span></span>
+<span id="cb210-4"><a href="practice.html#cb210-4" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">max_rad =</span> <span class="kw">max</span>(reading)) <span class="op">%&gt;%</span></span>
+<span id="cb210-5"><a href="practice.html#cb210-5" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(reading <span class="op">==</span><span class="st"> </span>max_rad)</span></code></pre></div>
+<pre><code>## [90m# A tibble: 3 x 7[39m
+## [90m# Groups:   site_id [3][39m
+##   visit_id site_id visit_date visitor quantity reading max_rad
+##      [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;date&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;chr&gt;[39m[23m      [3m[90m&lt;dbl&gt;[39m[23m   [3m[90m&lt;dbl&gt;[39m[23m
+## [90m1[39m      734 DR-3    1930-01-07 pb      rad         8.41    8.41
+## [90m2[39m      837 MSK-4   1932-01-14 lake    rad         1.46    1.46
+## [90m3[39m      844 DR-1    1932-03-22 roe     rad        11.2    11.2</code></pre>
+<p>Another way to do it:</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="practice.html#cb212-1" aria-hidden="true"></a>cleaned <span class="op">%&gt;%</span></span>
+<span id="cb212-2"><a href="practice.html#cb212-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(quantity <span class="op">==</span><span class="st"> &quot;rad&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb212-3"><a href="practice.html#cb212-3" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(site_id) <span class="op">%&gt;%</span></span>
+<span id="cb212-4"><a href="practice.html#cb212-4" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">top_n</span>(<span class="dv">1</span>, reading) <span class="op">%&gt;%</span></span>
+<span id="cb212-5"><a href="practice.html#cb212-5" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(site_id, visit_date, reading)</span></code></pre></div>
+<pre><code>## [90m# A tibble: 3 x 3[39m
+## [90m# Groups:   site_id [3][39m
+##   site_id visit_date reading
+##   [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;date&gt;[39m[23m       [3m[90m&lt;dbl&gt;[39m[23m
+## [90m1[39m DR-3    1930-01-07    8.41
+## [90m2[39m MSK-4   1932-01-14    1.46
+## [90m3[39m DR-1    1932-03-22   11.2</code></pre>
+<p><em>Explain why this <strong>doesn’t</strong> work.</em></p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="practice.html#cb214-1" aria-hidden="true"></a>cleaned <span class="op">%&gt;%</span></span>
+<span id="cb214-2"><a href="practice.html#cb214-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(quantity <span class="op">==</span><span class="st"> &quot;rad&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb214-3"><a href="practice.html#cb214-3" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(site_id) <span class="op">%&gt;%</span></span>
+<span id="cb214-4"><a href="practice.html#cb214-4" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarize</span>(<span class="dt">max_rad =</span> <span class="kw">max</span>(reading)) <span class="op">%&gt;%</span></span>
+<span id="cb214-5"><a href="practice.html#cb214-5" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></span>
+<span id="cb214-6"><a href="practice.html#cb214-6" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(reading <span class="op">==</span><span class="st"> </span>max_rad)</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## Error: Problem with `filter()` input `..1`.
+## [31m✖[39m object &#39;reading&#39; not found
+## [34mℹ[39m Input `..1` is `reading == max_rad`.</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>Normalize radiation against the highest radiation seen per site:</li>
+</ol>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="practice.html#cb217-1" aria-hidden="true"></a>cleaned <span class="op">%&gt;%</span></span>
+<span id="cb217-2"><a href="practice.html#cb217-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(quantity <span class="op">==</span><span class="st"> &quot;rad&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb217-3"><a href="practice.html#cb217-3" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(site_id) <span class="op">%&gt;%</span></span>
+<span id="cb217-4"><a href="practice.html#cb217-4" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(</span>
+<span id="cb217-5"><a href="practice.html#cb217-5" aria-hidden="true"></a>    <span class="dt">max_rad =</span> <span class="kw">max</span>(reading),</span>
+<span id="cb217-6"><a href="practice.html#cb217-6" aria-hidden="true"></a>    <span class="dt">frac_rad =</span> reading <span class="op">/</span><span class="st"> </span>max_rad) <span class="op">%&gt;%</span></span>
+<span id="cb217-7"><a href="practice.html#cb217-7" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(visit_id, site_id, visit_date, frac_rad)</span></code></pre></div>
+<pre><code>## [90m# A tibble: 7 x 4[39m
+## [90m# Groups:   site_id [3][39m
+##   visit_id site_id visit_date frac_rad
+##      [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;date&gt;[39m[23m        [3m[90m&lt;dbl&gt;[39m[23m
+## [90m1[39m      619 DR-1    1927-02-08    0.873
+## [90m2[39m      622 DR-1    1927-02-10    0.693
+## [90m3[39m      734 DR-3    1930-01-07    1    
+## [90m4[39m      735 DR-3    1930-01-12    0.859
+## [90m5[39m      751 DR-3    1930-02-26    0.517
+## [90m6[39m      837 MSK-4   1932-01-14    1    
+## [90m7[39m      844 DR-1    1932-03-22    1</code></pre>
+<p><em>Normalize salinity against mean salinity by site.</em></p>
+<ol start="9" style="list-style-type: decimal">
+<li>Find stepwise change in radiation per site by date:</li>
+</ol>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="practice.html#cb219-1" aria-hidden="true"></a>cleaned <span class="op">%&gt;%</span></span>
+<span id="cb219-2"><a href="practice.html#cb219-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(quantity <span class="op">==</span><span class="st"> &quot;rad&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb219-3"><a href="practice.html#cb219-3" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(site_id) <span class="op">%&gt;%</span></span>
+<span id="cb219-4"><a href="practice.html#cb219-4" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">delta_rad =</span> reading <span class="op">-</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">lag</span>(reading)) <span class="op">%&gt;%</span></span>
+<span id="cb219-5"><a href="practice.html#cb219-5" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(site_id, visit_date)</span></code></pre></div>
+<pre><code>## [90m# A tibble: 7 x 7[39m
+## [90m# Groups:   site_id [3][39m
+##   visit_id site_id visit_date visitor quantity reading delta_rad
+##      [3m[90m&lt;dbl&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;date&gt;[39m[23m     [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;chr&gt;[39m[23m      [3m[90m&lt;dbl&gt;[39m[23m     [3m[90m&lt;dbl&gt;[39m[23m
+## [90m1[39m      619 DR-1    1927-02-08 dyer    rad         9.82     [31mNA[39m   
+## [90m2[39m      622 DR-1    1927-02-10 dyer    rad         7.8      -[31m2[39m[31m.[39m[31m0[39m[31m2[39m
+## [90m3[39m      844 DR-1    1932-03-22 roe     rad        11.2       3.45
+## [90m4[39m      734 DR-3    1930-01-07 pb      rad         8.41     [31mNA[39m   
+## [90m5[39m      735 DR-3    1930-01-12 pb      rad         7.22     -[31m1[39m[31m.[39m[31m19[39m
+## [90m6[39m      751 DR-3    1930-02-26 pb      rad         4.35     -[31m2[39m[31m.[39m[31m87[39m
+## [90m7[39m      837 MSK-4   1932-01-14 lake    rad         1.46     [31mNA[39m</code></pre>
+<p><em>Find length of time between visits by site.</em></p>
+<ol start="10" style="list-style-type: decimal">
+<li>Find sites that experience any stepwise increase in radiation between visits:</li>
+</ol>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="practice.html#cb221-1" aria-hidden="true"></a>cleaned <span class="op">%&gt;%</span></span>
+<span id="cb221-2"><a href="practice.html#cb221-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(quantity <span class="op">==</span><span class="st"> &quot;rad&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb221-3"><a href="practice.html#cb221-3" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(site_id) <span class="op">%&gt;%</span></span>
+<span id="cb221-4"><a href="practice.html#cb221-4" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">delta_rad =</span> reading <span class="op">-</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">lag</span>(reading)) <span class="op">%&gt;%</span></span>
+<span id="cb221-5"><a href="practice.html#cb221-5" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(delta_rad)) <span class="op">%&gt;%</span></span>
+<span id="cb221-6"><a href="practice.html#cb221-6" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarize</span>(<span class="dt">any_increase =</span> <span class="kw">any</span>(delta_rad <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb221-7"><a href="practice.html#cb221-7" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(any_increase)</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## [90m# A tibble: 1 x 2[39m
+##   site_id any_increase
+##   [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;lgl&gt;[39m[23m       
+## [90m1[39m DR-1    TRUE</code></pre>
+<p><em>Find sites with visits more than one year apart.</em></p>
+</div>
+<div id="creating-charts" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Creating charts</h2>
+<p>We will use data on the mass and home range area (HRA) of various species from:</p>
+<blockquote>
+<p>Tamburello N, Côté IM, Dulvy NK (2015) Data from: Energy and the scaling of animal space use. Dryad Digital Repository.
+<a href="https://doi.org/10.5061/dryad.q5j65" class="uri">https://doi.org/10.5061/dryad.q5j65</a></p>
+</blockquote>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="practice.html#cb224-1" aria-hidden="true"></a>hra &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;home-range-database.csv&quot;</span>))</span></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   mean.mass.g = [32mcol_double()[39m,
+##   log10.mass = [32mcol_double()[39m,
+##   mean.hra.m2 = [32mcol_double()[39m,
+##   log10.hra = [32mcol_double()[39m,
+##   preymass = [32mcol_double()[39m,
+##   log10.preymass = [32mcol_double()[39m,
+##   PPMR = [32mcol_double()[39m
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="practice.html#cb227-1" aria-hidden="true"></a><span class="kw">head</span>(hra)</span></code></pre></div>
+<pre><code>## [90m# A tibble: 6 x 24[39m
+##   taxon common.name class order family genus species primarymethod N    
+##   [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m       [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m  [3m[90m&lt;chr&gt;[39m[23m [3m[90m&lt;chr&gt;[39m[23m   [3m[90m&lt;chr&gt;[39m[23m         [3m[90m&lt;chr&gt;[39m[23m
+## [90m1[39m lake… american e… acti… angu… angui… angu… rostra… telemetry     16   
+## [90m2[39m rive… blacktail … acti… cypr… catos… moxo… poecil… mark-recaptu… [31mNA[39m   
+## [90m3[39m rive… central st… acti… cypr… cypri… camp… anomal… mark-recaptu… 20   
+## [90m4[39m rive… rosyside d… acti… cypr… cypri… clin… fundul… mark-recaptu… 26   
+## [90m5[39m rive… longnose d… acti… cypr… cypri… rhin… catara… mark-recaptu… 17   
+## [90m6[39m rive… muskellunge acti… esoc… esoci… esox  masqui… telemetry     5    
+## [90m# … with 15 more variables: mean.mass.g [3m[90m&lt;dbl&gt;[90m[23m, log10.mass [3m[90m&lt;dbl&gt;[90m[23m,[39m
+## [90m#   alternative.mass.reference [3m[90m&lt;chr&gt;[90m[23m, mean.hra.m2 [3m[90m&lt;dbl&gt;[90m[23m, log10.hra [3m[90m&lt;dbl&gt;[90m[23m,[39m
+## [90m#   hra.reference [3m[90m&lt;chr&gt;[90m[23m, realm [3m[90m&lt;chr&gt;[90m[23m, thermoregulation [3m[90m&lt;chr&gt;[90m[23m, locomotion [3m[90m&lt;chr&gt;[90m[23m,[39m
+## [90m#   trophic.guild [3m[90m&lt;chr&gt;[90m[23m, dimension [3m[90m&lt;chr&gt;[90m[23m, preymass [3m[90m&lt;dbl&gt;[90m[23m, log10.preymass [3m[90m&lt;dbl&gt;[90m[23m,[39m
+## [90m#   PPMR [3m[90m&lt;dbl&gt;[90m[23m, prey.size.reference [3m[90m&lt;chr&gt;[90m[23m[39m</code></pre>
+<ol style="list-style-type: decimal">
+<li>Look at how mass is distributed:</li>
+</ol>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="practice.html#cb229-1" aria-hidden="true"></a>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(hra, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> mean.mass.g)) <span class="op">+</span></span>
+<span id="cb229-2"><a href="practice.html#cb229-2" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_histogram</span>()</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="novice-r_files/figure-html/chart-mass-1.png" /><!-- --></p>
+<p>Try again with <code>log10.mass</code>:</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="practice.html#cb231-1" aria-hidden="true"></a>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(hra, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass)) <span class="op">+</span></span>
+<span id="cb231-2"><a href="practice.html#cb231-2" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_histogram</span>()</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="novice-r_files/figure-html/chart-log-mass-1.png" /><!-- --></p>
+<p><em>Create histograms showing the distribution of home range area using linear and log scales.</em></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Change the visual appearance of a chart:</li>
+</ol>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="practice.html#cb233-1" aria-hidden="true"></a>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(hra, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass)) <span class="op">+</span></span>
+<span id="cb233-2"><a href="practice.html#cb233-2" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">100</span>) <span class="op">+</span></span>
+<span id="cb233-3"><a href="practice.html#cb233-3" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggtitle</span>(<span class="st">&quot;Frequency of Species Masses&quot;</span>) <span class="op">+</span></span>
+<span id="cb233-4"><a href="practice.html#cb233-4" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">xlab</span>(<span class="st">&quot;Log10 of Mass&quot;</span>) <span class="op">+</span></span>
+<span id="cb233-5"><a href="practice.html#cb233-5" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ylab</span>(<span class="st">&quot;Number of Species&quot;</span>) <span class="op">+</span></span>
+<span id="cb233-6"><a href="practice.html#cb233-6" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<p><img src="novice-r_files/figure-html/change-visual-1.png" /><!-- --></p>
+<p><em>Show the distribution of home range areas with a dark background.</em></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Create a scatterplot showing the relationship between mass and home range area:</li>
+</ol>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="practice.html#cb234-1" aria-hidden="true"></a>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(hra, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass, <span class="dt">y =</span> log10.hra)) <span class="op">+</span></span>
+<span id="cb234-2"><a href="practice.html#cb234-2" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_point</span>()</span></code></pre></div>
+<p><img src="novice-r_files/figure-html/scatterplot-1.png" /><!-- --></p>
+<p><em>Create a similar scatterplot showing the relationship between the raw values rather than the log values.</em></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Colorize scatterplot points by class:</li>
+</ol>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="practice.html#cb235-1" aria-hidden="true"></a>hra <span class="op">%&gt;%</span></span>
+<span id="cb235-2"><a href="practice.html#cb235-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">class_fct =</span> <span class="kw">as.factor</span>(class)) <span class="op">%&gt;%</span></span>
+<span id="cb235-3"><a href="practice.html#cb235-3" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass, <span class="dt">y =</span> log10.hra, <span class="dt">color =</span> class_fct)) <span class="op">+</span></span>
+<span id="cb235-4"><a href="practice.html#cb235-4" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="novice-r_files/figure-html/colorize-scatterplot-1.png" /><!-- --></p>
+<p><em>Group by order and experiment with different alpha values.</em></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Create a faceted plot:</li>
+</ol>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="practice.html#cb236-1" aria-hidden="true"></a>hra <span class="op">%&gt;%</span></span>
+<span id="cb236-2"><a href="practice.html#cb236-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">class_fct =</span> <span class="kw">as.factor</span>(class)) <span class="op">%&gt;%</span></span>
+<span id="cb236-3"><a href="practice.html#cb236-3" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass, <span class="dt">y =</span> log10.hra, <span class="dt">color =</span> class_fct)) <span class="op">+</span></span>
+<span id="cb236-4"><a href="practice.html#cb236-4" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb236-5"><a href="practice.html#cb236-5" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">facet_wrap</span>(<span class="kw">vars</span>(class_fct))</span></code></pre></div>
+<p><img src="novice-r_files/figure-html/facet-plot-1.png" /><!-- --></p>
+<p><em>Create a plot faceted by order for just the reptiles.</em></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Fit a linear regression to the logarithmic data for birds:</li>
+</ol>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="practice.html#cb237-1" aria-hidden="true"></a>hra <span class="op">%&gt;%</span></span>
+<span id="cb237-2"><a href="practice.html#cb237-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(class <span class="op">==</span><span class="st"> &quot;aves&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb237-3"><a href="practice.html#cb237-3" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass, <span class="dt">y =</span> log10.hra)) <span class="op">+</span></span>
+<span id="cb237-4"><a href="practice.html#cb237-4" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb237-5"><a href="practice.html#cb237-5" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm, <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="novice-r_files/figure-html/fit-line-1.png" /><!-- --></p>
+<p><em>Fit a line to the raw data for birds rather than the logarithmic data.</em></p>
+<ol start="7" style="list-style-type: decimal">
+<li>Create a violin plot of mass by order for birds:</li>
+</ol>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="practice.html#cb239-1" aria-hidden="true"></a>hra <span class="op">%&gt;%</span></span>
+<span id="cb239-2"><a href="practice.html#cb239-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(class <span class="op">==</span><span class="st"> &quot;aves&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb239-3"><a href="practice.html#cb239-3" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">order_fct =</span> <span class="kw">as.factor</span>(order)) <span class="op">%&gt;%</span></span>
+<span id="cb239-4"><a href="practice.html#cb239-4" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> order_fct, <span class="dt">y =</span> log10.mass, <span class="dt">color =</span> order_fct)) <span class="op">+</span></span>
+<span id="cb239-5"><a href="practice.html#cb239-5" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_violin</span>()</span></code></pre></div>
+<p><img src="novice-r_files/figure-html/violin-plot-1.png" /><!-- --></p>
+<p><em>Rotate the labels on the X axis to make this readable, then explain the gaps.</em></p>
+<ol start="8" style="list-style-type: decimal">
+<li>Display the same data as a boxplot:</li>
+</ol>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="practice.html#cb240-1" aria-hidden="true"></a>hra <span class="op">%&gt;%</span></span>
+<span id="cb240-2"><a href="practice.html#cb240-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(class <span class="op">==</span><span class="st"> &quot;aves&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb240-3"><a href="practice.html#cb240-3" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">order_fct =</span> <span class="kw">as.factor</span>(order)) <span class="op">%&gt;%</span></span>
+<span id="cb240-4"><a href="practice.html#cb240-4" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> order_fct, <span class="dt">y =</span> log10.mass, <span class="dt">color =</span> order_fct)) <span class="op">+</span></span>
+<span id="cb240-5"><a href="practice.html#cb240-5" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="novice-r_files/figure-html/box-plot-1.png" /><!-- --></p>
+<p><em>Fix the labels and remove orders that only contain one species.</em></p>
+<ol start="9" style="list-style-type: decimal">
+<li>Save the linear regression plot for birds as a PNG:</li>
+</ol>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="practice.html#cb241-1" aria-hidden="true"></a>hra <span class="op">%&gt;%</span></span>
+<span id="cb241-2"><a href="practice.html#cb241-2" aria-hidden="true"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(class <span class="op">==</span><span class="st"> &quot;aves&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb241-3"><a href="practice.html#cb241-3" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass, <span class="dt">y =</span> log10.hra)) <span class="op">+</span></span>
+<span id="cb241-4"><a href="practice.html#cb241-4" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb241-5"><a href="practice.html#cb241-5" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm, <span class="dt">color =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="novice-r_files/figure-html/save-file-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="practice.html#cb243-1" aria-hidden="true"></a><span class="kw">ggsave</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;birds.png&quot;</span>))</span></code></pre></div>
+<pre><code>## Saving 7 x 5 in image
+## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><em>Save the plot as SVG scaled to be 8cm wide.</em></p>
+<ol start="10" style="list-style-type: decimal">
+<li>Create a horizontal histogram with 50 bins:</li>
+</ol>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="practice.html#cb245-1" aria-hidden="true"></a>ggplot2<span class="op">::</span><span class="kw">ggplot</span>(hra, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> log10.mass)) <span class="op">+</span></span>
+<span id="cb245-2"><a href="practice.html#cb245-2" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">50</span>) <span class="op">+</span></span>
+<span id="cb245-3"><a href="practice.html#cb245-3" aria-hidden="true"></a><span class="st">  </span>ggplot2<span class="op">::</span><span class="kw">coord_flip</span>()</span></code></pre></div>
+<p><img src="novice-r_files/figure-html/horizontal-1.png" /><!-- --></p>
+<p><em>Use <code>stat_summary</code> to summarize the relationship between mass and home range area by class.</em></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-manipulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="publishing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/merely-useful/novice-r/edit/master/chapters/practice.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

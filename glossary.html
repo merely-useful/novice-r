@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>C Glossary | Merely Useful: An introduction to using R</title>
+  <meta name="description" content="C Glossary | Merely Useful: An introduction to using R" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="C Glossary | Merely Useful: An introduction to using R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="merely-useful/novice-r" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="C Glossary | Merely Useful: An introduction to using R" />
+  
+  
+  
+
+<meta name="author" content="Madeleine Bonsma-Fisher, Kate Hertweck, Damien Irving, Luke Johnston, Christina Koch, Sara Mahallati, Joel Ostblom, Elizabeth Wickes, Charlotte Wickham, and Greg Wilson" />
+
+
+<meta name="date" content="2020-08-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="conduct.html"/>
+<link rel="next" href="objectives.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Merely Useful</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview-against"><i class="fa fa-check"></i><b>1.1</b> Why isn’t all of this normal already?</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#contributing"><i class="fa fa-check"></i><b>1.2</b> Contributing</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#overview-ack"><i class="fa fa-check"></i><b>1.3</b> Acknowledgments</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#goals"><i class="fa fa-check"></i><b>1.4</b> Goals of this course</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#personas"><i class="fa fa-check"></i><b>1.4.1</b> Personas</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#outline"><i class="fa fa-check"></i><b>1.4.2</b> Outline</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#intro-personas"><i class="fa fa-check"></i><b>2.1</b> Who are these lessons for?</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#exton-excel"><i class="fa fa-check"></i><b>2.1.1</b> Exton Excel</a></li>
+<li class="chapter" data-level="2.1.2" data-path="intro.html"><a href="intro.html#nina-newbie"><i class="fa fa-check"></i><b>2.1.2</b> Nina Newbie</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#intro-goals"><i class="fa fa-check"></i><b>2.2</b> What will these lessons teach you?</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="intro.html"><a href="intro.html#intro-prereq"><i class="fa fa-check"></i><b>2.2.1</b> What do you need to have and know to start?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#intro-example"><i class="fa fa-check"></i><b>2.3</b> What examples will we use?</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#whats-the-big-picture-intro-bigpicture"><i class="fa fa-check"></i><b>2.4</b> What’s the big picture? (#intro-bigpicture}</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="index.html"><a href="index.html#getting-started"><i class="fa fa-check"></i><b>3</b> Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>3.1</b> Objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-rstudio"><i class="fa fa-check"></i><b>3.2</b> Introduction to RStudio</a></li>
+<li class="chapter" data-level="3.3" data-path="getting-started.html"><a href="getting-started.html#getting-started-console"><i class="fa fa-check"></i><b>3.3</b> Running Code in the Console</a></li>
+<li class="chapter" data-level="3.4" data-path="getting-started.html"><a href="getting-started.html#getting-started-script"><i class="fa fa-check"></i><b>3.4</b> Running Code via Scripts</a></li>
+<li class="chapter" data-level="3.5" data-path="getting-started.html"><a href="getting-started.html#getting-started-objects"><i class="fa fa-check"></i><b>3.5</b> Assigning and Recalling Objects</a></li>
+<li class="chapter" data-level="3.6" data-path="getting-started.html"><a href="getting-started.html#viewing-installed-packages"><i class="fa fa-check"></i><b>3.6</b> Viewing installed packages</a></li>
+<li class="chapter" data-level="3.7" data-path="getting-started.html"><a href="getting-started.html#getting-started-rstudio-help"><i class="fa fa-check"></i><b>3.7</b> Getting Help in RStudio</a></li>
+<li class="chapter" data-level="3.8" data-path="getting-started.html"><a href="getting-started.html#getting-started-web-help"><i class="fa fa-check"></i><b>3.8</b> Getting Help Online</a></li>
+<li class="chapter" data-level="3.9" data-path="getting-started.html"><a href="getting-started.html#exercises"><i class="fa fa-check"></i><b>3.9</b> Exercises</a></li>
+<li class="chapter" data-level="3.10" data-path="getting-started.html"><a href="getting-started.html#getting-started-keypoints"><i class="fa fa-check"></i><b>3.10</b> Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="index.html"><a href="index.html#data-manipulation"><i class="fa fa-check"></i><b>4</b> Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>4.1</b> Objectives</a></li>
+<li class="chapter" data-level="4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#motivation"><i class="fa fa-check"></i><b>4.2</b> Motivation</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-point-and-click-data-manipulation"><i class="fa fa-check"></i><b>4.2.1</b> Exercise: Point and click data manipulation</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#exploring-data-in-the-console"><i class="fa fa-check"></i><b>4.3</b> Exploring data in the console</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-manipulation.html"><a href="data-manipulation.html#re-arranging-rows"><i class="fa fa-check"></i><b>4.3.1</b> Re-arranging rows</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-arranging-character-strings"><i class="fa fa-check"></i><b>4.3.2</b> Exercise: Arranging character strings</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-manipulation.html"><a href="data-manipulation.html#how-can-i-select-subsets-of-my-data"><i class="fa fa-check"></i><b>4.4</b> How can I select subsets of my data?</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-manipulation.html"><a href="data-manipulation.html#selecting-columns"><i class="fa fa-check"></i><b>4.4.1</b> Selecting columns</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-find-the-latest-license-issue-date"><i class="fa fa-check"></i><b>4.4.2</b> Exercise: Find the latest license issue date</a></li>
+<li class="chapter" data-level="4.4.3" data-path="data-manipulation.html"><a href="data-manipulation.html#combining-operations-with-the-pipe"><i class="fa fa-check"></i><b>4.4.3</b> Combining operations with the pipe <code>%&gt;%</code></a></li>
+<li class="chapter" data-level="4.4.4" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-reading-aloud"><i class="fa fa-check"></i><b>4.4.4</b> Exercise: Reading aloud</a></li>
+<li class="chapter" data-level="4.4.5" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-using-the-pipe"><i class="fa fa-check"></i><b>4.4.5</b> Exercise: Using the pipe</a></li>
+<li class="chapter" data-level="4.4.6" data-path="data-manipulation.html"><a href="data-manipulation.html#filtering-to-keep-a-subset-of-rows"><i class="fa fa-check"></i><b>4.4.6</b> Filtering to keep a subset of rows</a></li>
+<li class="chapter" data-level="4.4.7" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-enterprising-dogs"><i class="fa fa-check"></i><b>4.4.7</b> Exercise: Enterprising dogs</a></li>
+<li class="chapter" data-level="4.4.8" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-expired-licenses"><i class="fa fa-check"></i><b>4.4.8</b> Exercise: Expired Licenses</a></li>
+<li class="chapter" data-level="4.4.9" data-path="data-manipulation.html"><a href="data-manipulation.html#more-complicated-expressions"><i class="fa fa-check"></i><b>4.4.9</b> More complicated expressions</a></li>
+<li class="chapter" data-level="4.4.10" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-expired-licenses-1"><i class="fa fa-check"></i><b>4.4.10</b> Exercise: Expired Licenses</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="data-manipulation.html"><a href="data-manipulation.html#how-can-i-calculate-new-values"><i class="fa fa-check"></i><b>4.5</b> How can I calculate new values?</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-ages-of-dogs"><i class="fa fa-check"></i><b>4.5.1</b> Exercise: Ages of dogs</a></li>
+<li class="chapter" data-level="4.5.2" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-unknown-breeds"><i class="fa fa-check"></i><b>4.5.2</b> Exercise: Unknown breeds</a></li>
+<li class="chapter" data-level="4.5.3" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-name-length"><i class="fa fa-check"></i><b>4.5.3</b> Exercise: Name length</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="data-manipulation.html"><a href="data-manipulation.html#how-can-i-tell-whats-gone-wrong-in-my-programs"><i class="fa fa-check"></i><b>4.6</b> How can I tell what’s gone wrong in my programs?</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="data-manipulation.html"><a href="data-manipulation.html#common-syntax-errors"><i class="fa fa-check"></i><b>4.6.1</b> Common syntax errors</a></li>
+<li class="chapter" data-level="4.6.2" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-syntax-errors"><i class="fa fa-check"></i><b>4.6.2</b> Exercise: Syntax errors</a></li>
+<li class="chapter" data-level="4.6.3" data-path="data-manipulation.html"><a href="data-manipulation.html#common-runtime-errors"><i class="fa fa-check"></i><b>4.6.3</b> Common runtime errors</a></li>
+<li class="chapter" data-level="4.6.4" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-object-not-found"><i class="fa fa-check"></i><b>4.6.4</b> Exercise: <code>object not found</code></a></li>
+<li class="chapter" data-level="4.6.5" data-path="data-manipulation.html"><a href="data-manipulation.html#warnings-and-messages"><i class="fa fa-check"></i><b>4.6.5</b> Warnings and messages</a></li>
+<li class="chapter" data-level="4.6.6" data-path="data-manipulation.html"><a href="data-manipulation.html#what-do-i-do-when-i-get-an-error-i-cant-fix"><i class="fa fa-check"></i><b>4.6.6</b> What do I do when I get an <code>Error</code> I can’t fix?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="data-manipulation.html"><a href="data-manipulation.html#how-can-i-operate-on-subsets-of-my-data"><i class="fa fa-check"></i><b>4.7</b> How can I operate on subsets of my data?</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-dog-birth-months"><i class="fa fa-check"></i><b>4.7.1</b> Exercise: Dog birth months</a></li>
+<li class="chapter" data-level="4.7.2" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-order-matters"><i class="fa fa-check"></i><b>4.7.2</b> Exercise: Order matters?</a></li>
+<li class="chapter" data-level="4.7.3" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-the-five-boroughs"><i class="fa fa-check"></i><b>4.7.3</b> Exercise: the five boroughs</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="data-manipulation.html"><a href="data-manipulation.html#how-can-i-read-my-own-tabular-data-into-r"><i class="fa fa-check"></i><b>4.8</b> How can I read my own tabular data into R?</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="data-manipulation.html"><a href="data-manipulation.html#what-is-tabular-data"><i class="fa fa-check"></i><b>4.8.1</b> What is tabular data?</a></li>
+<li class="chapter" data-level="4.8.2" data-path="data-manipulation.html"><a href="data-manipulation.html#importing-csv-data-into-r"><i class="fa fa-check"></i><b>4.8.2</b> Importing CSV data into R</a></li>
+<li class="chapter" data-level="4.8.3" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-import-visited.csv"><i class="fa fa-check"></i><b>4.8.3</b> Exercise: Import <code>visited.csv</code></a></li>
+<li class="chapter" data-level="4.8.4" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise-import-irs-tax-return-data-for-new-york-city"><i class="fa fa-check"></i><b>4.8.4</b> Exercise: Import IRS tax return data for New York City</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="data-manipulation.html"><a href="data-manipulation.html#how-can-i-save-my-results"><i class="fa fa-check"></i><b>4.9</b> How can I save my results?</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="data-manipulation.html"><a href="data-manipulation.html#exercise"><i class="fa fa-check"></i><b>4.9.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>5</b> Practice</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="practice.html"><a href="practice.html#working-with-a-single-tidy-table"><i class="fa fa-check"></i><b>5.1</b> Working with a single tidy table</a></li>
+<li class="chapter" data-level="5.2" data-path="practice.html"><a href="practice.html#working-with-grouped-data"><i class="fa fa-check"></i><b>5.2</b> Working with grouped data</a></li>
+<li class="chapter" data-level="5.3" data-path="practice.html"><a href="practice.html#creating-charts"><i class="fa fa-check"></i><b>5.3</b> Creating charts</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="index.html"><a href="index.html#publishing"><i class="fa fa-check"></i><b>6</b> Publishing</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6.1</b> Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="publishing.html"><a href="publishing.html#why-should-i-share-my-work-on-the-internet"><i class="fa fa-check"></i><b>6.2</b> Why should I share my work on the internet?</a></li>
+<li class="chapter" data-level="6.3" data-path="publishing.html"><a href="publishing.html#what-does-it-take-to-get-a-webpage-online"><i class="fa fa-check"></i><b>6.3</b> What does it take to get a webpage online?</a></li>
+<li class="chapter" data-level="6.4" data-path="publishing.html"><a href="publishing.html#how-do-i-get-my-work-on-the-web"><i class="fa fa-check"></i><b>6.4</b> How do I get my work on the web?</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="publishing.html"><a href="publishing.html#a-starting-point"><i class="fa fa-check"></i><b>6.4.1</b> A starting point</a></li>
+<li class="chapter" data-level="6.4.2" data-path="publishing.html"><a href="publishing.html#html-files"><i class="fa fa-check"></i><b>6.4.2</b> HTML files</a></li>
+<li class="chapter" data-level="6.4.3" data-path="publishing.html"><a href="publishing.html#setting-up-your-repo-to-have-a-web-page"><i class="fa fa-check"></i><b>6.4.3</b> Setting up your repo to have a web page</a></li>
+<li class="chapter" data-level="6.4.4" data-path="publishing.html"><a href="publishing.html#getting-a-default-page-to-display-when-people-visit-the-project-site"><i class="fa fa-check"></i><b>6.4.4</b> Getting a default page to display when people visit the project site</a></li>
+<li class="chapter" data-level="6.4.5" data-path="publishing.html"><a href="publishing.html#what-does-it-take-to-get-your-work-on-a-webpage"><i class="fa fa-check"></i><b>6.4.5</b> What does it take to get your work on a webpage?</a></li>
+<li class="chapter" data-level="6.4.6" data-path="publishing.html"><a href="publishing.html#exercise-customize-index.rmd"><i class="fa fa-check"></i><b>6.4.6</b> Exercise: Customize <code>index.Rmd</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="publishing.html"><a href="publishing.html#how-do-i-link-to-other-pages-files-or-images"><i class="fa fa-check"></i><b>6.5</b> How do I link to other pages, files or images?</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="publishing.html"><a href="publishing.html#linking-to-other-pages"><i class="fa fa-check"></i><b>6.5.1</b> Linking to other pages</a></li>
+<li class="chapter" data-level="6.5.2" data-path="publishing.html"><a href="publishing.html#exercise-relative-links"><i class="fa fa-check"></i><b>6.5.2</b> Exercise: Relative links</a></li>
+<li class="chapter" data-level="6.5.3" data-path="publishing.html"><a href="publishing.html#exercise-add-links-to-index.html"><i class="fa fa-check"></i><b>6.5.3</b> Exercise: Add links to <code>index.html</code></a></li>
+<li class="chapter" data-level="6.5.4" data-path="publishing.html"><a href="publishing.html#linking-to-sections-within-a-page"><i class="fa fa-check"></i><b>6.5.4</b> Linking to sections within a page</a></li>
+<li class="chapter" data-level="6.5.5" data-path="publishing.html"><a href="publishing.html#exercise-add-and-link-to-a-section-in-report.rmd"><i class="fa fa-check"></i><b>6.5.5</b> Exercise: Add and link to a section in <code>report.Rmd</code></a></li>
+<li class="chapter" data-level="6.5.6" data-path="publishing.html"><a href="publishing.html#including-images"><i class="fa fa-check"></i><b>6.5.6</b> Including images</a></li>
+<li class="chapter" data-level="6.5.7" data-path="publishing.html"><a href="publishing.html#exercise-add-an-image-to-index.html"><i class="fa fa-check"></i><b>6.5.7</b> Exercise: Add an image to <code>index.html</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="publishing.html"><a href="publishing.html#exercise-add-a-website-to-an-existing-project"><i class="fa fa-check"></i><b>6.6</b> Exercise: Add a website to an existing project</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="index.html"><a href="index.html#reproducibility"><i class="fa fa-check"></i><b>7</b> Reproducibility</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>7.1</b> Project organization</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="reproducibility.html"><a href="reproducibility.html#creating-your-first-project"><i class="fa fa-check"></i><b>7.1.1</b> Creating your first project</a></li>
+<li class="chapter" data-level="7.1.2" data-path="reproducibility.html"><a href="reproducibility.html#exercise-better-file-naming"><i class="fa fa-check"></i><b>7.1.2</b> Exercise: Better file naming</a></li>
+<li class="chapter" data-level="7.1.3" data-path="reproducibility.html"><a href="reproducibility.html#should-you-keep-your-data-under-version-control"><i class="fa fa-check"></i><b>7.1.3</b> Should you keep your data under version control?</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="reproducibility.html"><a href="reproducibility.html#reproducibility-reusability"><i class="fa fa-check"></i><b>7.2</b> Reusability</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="reproducibility.html"><a href="reproducibility.html#keeping-a-clean-slate"><i class="fa fa-check"></i><b>7.2.1</b> Keeping a clean slate</a></li>
+<li class="chapter" data-level="7.2.2" data-path="reproducibility.html"><a href="reproducibility.html#packages-data-and-file-paths"><i class="fa fa-check"></i><b>7.2.2</b> Packages, data, and file paths</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="reproducibility.html"><a href="reproducibility.html#reproducibility-readability"><i class="fa fa-check"></i><b>7.3</b> Readability</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="reproducibility.html"><a href="reproducibility.html#exercise-make-the-code-more-readable"><i class="fa fa-check"></i><b>7.3.1</b> Exercise: Make the code more readable</a></li>
+<li class="chapter" data-level="7.3.2" data-path="reproducibility.html"><a href="reproducibility.html#automatic-styling-with-styler"><i class="fa fa-check"></i><b>7.3.2</b> Automatic styling with styler</a></li>
+<li class="chapter" data-level="7.3.3" data-path="reproducibility.html"><a href="reproducibility.html#exercise-use-styler-to-fix-code-formatting"><i class="fa fa-check"></i><b>7.3.3</b> Exercise: Use styler to fix code formatting</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="reproducibility.html"><a href="reproducibility.html#reproducibility-markdown"><i class="fa fa-check"></i><b>7.4</b> Integrating text, code, and results</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="reproducibility.html"><a href="reproducibility.html#markdown"><i class="fa fa-check"></i><b>7.4.1</b> Markdown</a></li>
+<li class="chapter" data-level="7.4.2" data-path="reproducibility.html"><a href="reproducibility.html#r-markdown"><i class="fa fa-check"></i><b>7.4.2</b> R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="reproducibility.html"><a href="reproducibility.html#reproducibility-keypoints"><i class="fa fa-check"></i><b>7.5</b> Key Points</a></li>
+<li class="chapter" data-level="7.6" data-path="reproducibility.html"><a href="reproducibility.html#reproducibility-resources"><i class="fa fa-check"></i><b>7.6</b> Additional learning resources and material</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i><b>A</b> License</a></li>
+<li class="chapter" data-level="B" data-path="conduct.html"><a href="conduct.html"><i class="fa fa-check"></i><b>B</b> Code of Conduct</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="conduct.html"><a href="conduct.html#conduct-standards"><i class="fa fa-check"></i><b>B.1</b> Our Standards</a></li>
+<li class="chapter" data-level="B.2" data-path="conduct.html"><a href="conduct.html#conduct-responsibilities"><i class="fa fa-check"></i><b>B.2</b> Our Responsibilities</a></li>
+<li class="chapter" data-level="B.3" data-path="conduct.html"><a href="conduct.html#conduct-scope"><i class="fa fa-check"></i><b>B.3</b> Scope</a></li>
+<li class="chapter" data-level="B.4" data-path="conduct.html"><a href="conduct.html#conduct-enforcement"><i class="fa fa-check"></i><b>B.4</b> Enforcement</a></li>
+<li class="chapter" data-level="B.5" data-path="conduct.html"><a href="conduct.html#conduct-attribution"><i class="fa fa-check"></i><b>B.5</b> Attribution</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i><b>C</b> Glossary</a></li>
+<li class="chapter" data-level="D" data-path="objectives.html"><a href="objectives.html"><i class="fa fa-check"></i><b>D</b> Novice R Learning Objectives</a></li>
+<li class="chapter" data-level="E" data-path="keypoints.html"><a href="keypoints.html"><i class="fa fa-check"></i><b>E</b> Novice R Key Points</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Merely Useful: An introduction to using R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="glossary" class="section level1" number="10">
+<h1><span class="header-section-number">C</span> Glossary</h1>
+<dl>
+<dt><strong>Abandonware</strong><a id="abandonware"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Absolute error</strong><a id="absolute-error"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Absolute import</strong><a id="absolute-import"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Absolute path</strong><a id="absolute-path"></a></dt>
+<dd>Refers to the complete listing of folders between the <a href="glossary.html#root-directory">root</a>
+folder to the last folder, if the path points to a folder, or to the parent
+folder, if the path points to a file.
+</dd>
+<dt><strong>Actual result</strong><a id="actual-result"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Agile development</strong><a id="agile"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Ally</strong><a id="ally"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Append mode</strong><a id="append-mode"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Assertion</strong><a id="assertion"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Authentic task</strong><a id="authentic-task"></a></dt>
+<dd>A task which contains important elements of things that learners would do in real (non-classroom situations).
+To be authentic,
+a task should require learners to construct their own answers rather than choose between provided answers,
+and to work with the same tools and data they would use in real life.
+</dd>
+<dt><strong>Auto-completion</strong><a id="auto-completion"></a></dt>
+<dd>Is a feature that allows the user to finish a word or code quickly through
+the use of hitting the TAB key to list possible words or code that the user can
+select from.
+</dd>
+<dt><strong>Automatic variable</strong><a id="automatic-variable-make"></a> (in Make)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Boilerplate</strong><a id="boilerplate"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Branch-per-feature workflow</strong><a id="branch-per-feature-workflow"></a></dt>
+<dd>FIXME <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow" class="uri">https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow</a>
+</dd>
+<dt><strong>Bug report</strong><a id="bug-report"></a></dt>
+<dd>Is a collection of files, logs, or related information that adequately
+describes either an unexpected output of some code or program or an unexpected
+error or warning. This information is used to help find and fix a bug in the
+program or code.
+</dd>
+<dt><strong>Bug tracker</strong><a id="bug-tracker"></a></dt>
+<dd>Is a system that tracks and manages <a href="glossary.html#bug-report">reported bugs</a> for a software program,
+to make it easier to address and fix the bugs.
+</dd>
+<dt><strong>Build manager</strong><a id="build-manager"></a></dt>
+<dd>FIXME <a href="https://en.wikipedia.org/wiki/List_of_build_automation_software" class="uri">https://en.wikipedia.org/wiki/List_of_build_automation_software</a>
+</dd>
+<dt><strong>Byte code</strong><a id="byte-code"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Call stack</strong><a id="call-stack"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Camel case</strong><a id="camel-case"></a></dt>
+<dd>A style of writing code that involves naming variables and objects with no
+space, underscore (<code>_</code>), dot (<code>.</code>), or dash (<code>-</code>), with each word being capitalized.
+Some examples would be: <code>CalculateSum</code>, <code>findPattern</code>, <code>SearchFiles</code>, or <code>objectNumber</code>.
+</dd>
+<dt><strong>Catch</strong><a id="catch"></a> (an exception)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Checking-driven development</strong><a id="cdd"></a> (CDD)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Checklist</strong><a id="checklist"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Code review</strong><a id="code-review"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Cognitive load</strong><a id="cognitive-load"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Command argument</strong><a id="command-argument"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Command flag</strong><a id="command-flag"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Command history</strong><a id="command-history-unix"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Command option</strong><a id="command-option"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Command shell</strong><a id="command-shell"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Command switch</strong><a id="command-switch"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Command-line interface</strong><a id="cli"></a> (CLI)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Comment</strong><a id="comment"></a></dt>
+<dd>Is text written in a script that is not treated as code to be run, but rather
+as text that describes what the code is doing. These are usually short notes,
+often beginning with a <code>#</code> (in many programming languages).
+</dd>
+<dt><strong>Commit</strong><a id="commit"></a></dt>
+<dd>FIXME: define both noun and verb.
+</dd>
+<dt><strong>Commit message</strong><a id="commit-message"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Commons</strong><a id="commons"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Competent practitioner</strong><a id="competent-practitioner"></a></dt>
+<dd>Someone who can do normal tasks with normal effort under normal circumstances.
+See also <a href="glossary.html#novice">novice</a> and <a href="glossary.html#novice">expert</a>.
+</dd>
+<dt><strong>Compiled language</strong><a id="compiled-language"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Compiler</strong><a id="compiler"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Computational notebook</strong><a id="computational-notebook"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Conditional expression</strong><a id="conditional-expression"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Confirmation bias</strong><a id="confirmation-bias"></a></dt>
+<dd>Is the tendency to seek out or interpret information that re-affirms or
+supports one’s pre-existing knowledge, beliefs, or values.
+</dd>
+<dt><strong>Continuation prompt</strong><a id="continuation-prompt"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Continuous integration</strong><a id="continuous-integration"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Coverage</strong><a id="coverage"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Creative Commons - Attribution License</strong><a id="cc-by"></a> (CC-BY)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Current working directory</strong><a id="current-working-directory"></a></dt>
+<dd>The folder or directory location that the program is operating in. Any action
+taken by the program occurs relative to this directory.
+</dd>
+<dt><strong>Data package</strong><a id="data-package"></a></dt>
+<dd>A software package that, mostly, contains only data. Is used to make it
+simpler to disseminate data for easier use.
+</dd>
+<dt><strong>Default target</strong><a id="default-target-make"></a> (in Make)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Defensive programming</strong><a id="defensive-programming"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Destructuring</strong><a id="destructuring"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Dictionary</strong><a id="dictionary"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Digital Object Identifier</strong><a id="doi"></a> (DOI)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Docstring</strong><a id="docstring"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Documentation generator</strong><a id="documentation-generator"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Down-vote</strong><a id="down-vote"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Entry point</strong><a id="entry-point"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Exception</strong><a id="exception"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Expected result</strong><a id="expected-result"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Expert</strong><a id="expert"></a></dt>
+<dd>Someone who can diagnose and handle unusual situations,
+knows when the usual rules do not apply,
+and tends to recognize solutions rather than reasoning to them.
+See also <a href="glossary.html#competent-practitioner">competent practitioner</a> and <a href="glossary.html#novice">novice</a>.
+</dd>
+<dt><strong>Explicit relative import</strong><a id="explicit-relative-import"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Exploratory programming</strong><a id="exploratory-programming"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Export a variable</strong><a id="export-variable"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>External error</strong><a id="external-error"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>False beginner</strong><a id="false-beginner"></a></dt>
+<dd>Someone who has studied a language before but is learning it again.
+False beginners start at the same point as true beginners
+(i.e., a pre-test will show the same proficiency)
+but can move much more quickly.
+</dd>
+<dt><strong>Feature request</strong><a id="feature-request"></a></dt>
+<dd>Is a request to the maintainers or developers of a software program to add
+a specific functionality (a feature) to that program.
+</dd>
+<dt><strong>Filename extension</strong><a id="filename-extension"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Filename stem</strong><a id="filename-stem"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Filesystem</strong><a id="filesystem"></a></dt>
+<dd>Controls how files are stored and retrieved on disk by an operating system.
+Also used to refer to the disk that is used to store the files or the type of the filesystem.
+</dd>
+<dt><strong>Filter</strong><a id="filter"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Fixture</strong><a id="fixture"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Flag variable</strong><a id="flag-variable"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Folder</strong><a id="folder"></a></dt>
+<dd>Is a computer storage and organization concept that allows files to be
+organized in a common location, which is the folder or directory. A folder can
+store both files and other folders.
+</dd>
+<dt><strong>Forge</strong><a id="forge"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Frequently Asked Questions</strong><a id="faq"></a> (FAQ)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Full identifier</strong><a id="full-identifier-git"></a> (in Git)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Function</strong><a id="function-make"></a> (in Make)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>GNU Public License</strong><a id="gpl"></a> (GPL)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Git</strong><a id="git"></a></dt>
+<dd>Is a software program that formally tracks changes made to a collection
+of files within a specific <a href="glossary.html#folder">folder</a> (and its subfolders). Technically,
+Git is a “distributed version control system”, meaning that each user who has
+a <a href="glossary.html#repository">repository</a> on their computer also has the entire history of
+changes made to that repository, so that technically there is no central
+repository (e.g. that is only accessible on a server).
+</dd>
+<dt><strong>Git branch</strong><a id="git-branch"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Git clone</strong><a id="git-clone"></a></dt>
+<dd>Copies, and usually downloads, a Git <a href="glossary.html#remote-repository">remote repository</a>
+onto the local computer.
+</dd>
+<dt><strong>Git conflict</strong><a id="git-conflict"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Git fork</strong><a id="git-fork"></a></dt>
+<dd>Is a concept in GitHub that indicates a GitHub <a href="glossary.html#repository">repository</a>
+has been <a href="glossary.html#git-clone">cloned</a> into a new GitHub repository.
+</dd>
+<dt><strong>Git merge</strong><a id="git-merge"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Git pull</strong><a id="git-pull"></a></dt>
+<dd>Downloads and synchronizes changes between a <a href="glossary.html#remote-repository">remote repository</a>
+and a local <a href="glossary.html#repository">repository</a>.
+</dd>
+<dt><strong>Git push</strong><a id="git-push"></a></dt>
+<dd>Uploads and synchronizes changes between a local <a href="glossary.html#repository">repository</a>
+and a <a href="glossary.html#remote-repository">remote repository</a>.
+</dd>
+<dt><strong>Git stage</strong><a id="git-stage"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Git</strong><a id="git"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Graphical user interface</strong><a id="gui"></a> (GUI)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Hitchhiker</strong><a id="hitchhiker"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Home directory</strong><a id="home-directory"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Governance</strong><a id="governance"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>ISO date format</strong><a id="iso-date-format"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Impact/effort matrix</strong><a id="impact-effort-matrix"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Implicit relative import</strong><a id="implicit-relative-import"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Impostor syndrome</strong><a id="impostor-syndrome"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>In-place operator</strong><a id="in-place-operator"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Internal error</strong><a id="internal-error"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Interpeter</strong><a id="interpeter"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Interpreted language</strong><a id="interpreted-language"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Interruption bingo</strong><a id="interruption-bingo"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Integration testing</strong><a id="integration-testing"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Invariant</strong><a id="invariant"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Issue tracking system</strong><a id="issue-tracking-system"></a></dt>
+<dd>Is similar to a <a href="glossary.html#bug-tracker">bug tracking system</a> in that it tracks “issues”
+made to a <a href="glossary.html#repository">repository</a>, usually in the form of <a href="glossary.html#feature-request">feature requests</a>,
+<a href="glossary.html#bug-report">bug reports</a>, or some other todo item.
+</dd>
+<dt><strong>Issue</strong><a id="issue"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>JSON</strong><a id="json"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Kebab case</strong><a id="kebab-case"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Label</strong><a id="issue-label"></a> (in issue tracker)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Label</strong><a id="issue-label"></a> (in issue tracker)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>LaTeX</strong><a id="latex"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Linter</strong><a id="linter"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>List comprehension</strong><a id="list-comprehension"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Logging framework</strong><a id="logging-framework"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Long option</strong><a id="long-option"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Loop body</strong><a id="loop-body"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Loop</strong><a id="loop-unix"></a> (in Unix)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Milestone</strong><a id="milestone"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>MIT License</strong><a id="mit-license"></a></dt>
+<dd>Is a legal license that places very limited restrictions on the re-use of
+software, making it a very permissive license that encourages using, modifying,
+and distributing the software widely.
+</dd>
+<dt><strong>Magic number</strong><a id="magic-number"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Makefile</strong><a id="makefile"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Martha’s Rules</strong><a id="marthas-rules"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Maximum likelihood extimation</strong><a id="max-like-est"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Mental model</strong><a id="mental-model"></a></dt>
+<dd>A simplified representation of the key elements and relationships of some problem domain
+that is good enough to support problem solving.
+</dd>
+<dt><strong>Nano</strong><a id="nano"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Ngo</strong><a id="ngo"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Novice</strong><a id="novice"></a></dt>
+<dd>Someone who has not yet built a usable mental model of a domain.
+See also <a href="glossary.html#competent-practitioner">competent practitioner</a> and <a href="glossary.html#expert">expert</a>.
+</dd>
+<dt><strong>Object-oriented programming</strong><a id="oop"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Open license</strong><a id="open-license"></a></dt>
+<dd>Is a legal license that encourages, rather than restricts, the use, re-use,
+modification, and distribution of a copyrighted material, such as with software
+or written text.
+</dd>
+<dt><strong>Open science</strong><a id="open-science"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Operating system</strong><a id="operating-system"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Oppression</strong><a id="oppression"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Optional argument</strong><a id="optional-argument"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Orthogonality</strong><a id="orthogonality"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Overlay configuration</strong><a id="overlay-configuration"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Pager</strong><a id="pager"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Parent directory</strong><a id="parent-directory"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Patch</strong><a id="patch"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Path coverage</strong><a id="path-coverage"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Path</strong><a id="path"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Pattern rule</strong><a id="pattern-rule-make"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Phony target</strong><a id="phony-target-make"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Pipe</strong><a id="pipe-unix"></a> (in Unix)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Positional argument</strong><a id="positional-argument"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Postcondition</strong><a id="postcondition"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Pothole case</strong><a id="pothole-case"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Power law</strong><a id="power-law"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Precondition</strong><a id="precondition"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Prerequisite</strong><a id="prerequisite-make"></a> (in Make)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Privilege</strong><a id="privilege"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Procedural programming</strong><a id="procedural-programming"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Process</strong><a id="process"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Product manager</strong><a id="product-manager"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Project manager</strong><a id="project-manager"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Prompt</strong><a id="prompt"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Provenance</strong><a id="provenance"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Public domain license</strong><a id="cc-0"></a> (CC-0)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Pull request</strong><a id="pull-request"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Python</strong><a id="python"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Raise</strong><a id="raise"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Raster image</strong><a id="raster-image"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Recursion</strong><a id="recursion"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Redirection</strong><a id="redirection"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Refactoring</strong><a id="refactoring"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Regression testing</strong><a id="regression-testing"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Regression</strong><a id="regression"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Regular expression</strong><a id="regular-expression"></a></dt>
+<dd>a sequence of characters that define a pattern that can be used to find matching strings
+</dd>
+<dt><strong>Relative error</strong><a id="relative-error"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Relative path</strong><a id="relative-path"></a></dt>
+<dd>Is a reference to a folder or file that begins at the <a href="glossary.html#current-working-directory">current working directory</a>,
+unlike an <a href="glossary.html#absolute-path">absolute path</a> that starts with the <a href="glossary.html#root-directory">root directory</a>.
+</dd>
+<dt><strong>Remote login</strong><a id="remote-login"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Remote login server</strong><a id="remote-login-server"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Remote repository</strong><a id="remote-repository"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Repl</strong><a id="repl"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Repository</strong><a id="repository"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Reproducible example</strong><a id="reprex"></a> (reprex)</dt>
+<dd>A way of showing a code example that demonstrates the usage of the code
+or to highlight an error or bug that easily allows another user to re-create
+(“reproduce”) the same output or error.
+</dd>
+<dt><strong>Reproducible research</strong><a id="reproducible-research"></a></dt>
+<dd>A central pillar of rigorous research that involves describing and documenting
+the research results in such a way that another researcher or person can re-run
+the analysis code on the exact data to obtain the same result, to “reproduce”
+the findings.
+</dd>
+<dt><strong>Research software engineer</strong><a id="rse"></a> (RSE)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Restructured Text (reST)</strong><a id="restructured-text"></a></dt>
+<dd>A plain text markup language used by much Python documentation and documentation tooling.
+</dd>
+<dt><strong>Revision</strong><a id="revision"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Root directory</strong><a id="root-directory"></a></dt>
+<dd>The root folder is the folder that contains all folders and files on the
+computer. It is the starting point to all files and is essentially referring to
+the hard drive itself. An analogy to the root directory would be that it is
+the trunk of a tree and all other folders are branches from that trunk.
+</dd>
+<dt><strong>Rotating file</strong><a id="rotating-file"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Rule</strong><a id="rule-make"></a> (in Make)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Secure Shell</strong><a id="secure-shell"></a> (SSH)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>SSH daemon</strong><a id="ssh-daemon"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>SSH key</strong><a id="ssh-key"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>SSH protocol</strong><a id="ssh-protocol"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Script</strong><a id="script"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Search path</strong><a id="search-path"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Semantic versioning</strong><a id="semantic-versioning"></a></dt>
+<dd>FIXME <a href="https://semver.org/" class="uri">https://semver.org/</a>
+</dd>
+<dt><strong>Sense vote</strong><a id="sense-vote"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Shebang</strong><a id="shebang"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Shell script</strong><a id="shell-script"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Short circuit test</strong><a id="short-circuit-test"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Short identifier</strong><a id="short-identifier-git"></a> (in Git)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Short option</strong><a id="short-option"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Snake case</strong><a id="snake-case"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Source distribution</strong><a id="source-distribution"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Sprint</strong><a id="sprint"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Standard error</strong><a id="stderr"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Standard input</strong><a id="standard-input"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Standard input</strong><a id="stdin"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Standard output</strong><a id="standard-output"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Standard output</strong><a id="stdout"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Stop word</strong><a id="stop-word"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Subcommand</strong><a id="subcommand"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Subdirectory</strong><a id="subdirectory"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Sustainable software</strong><a id="sustainable-software"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Tab completion</strong><a id="tab-completion"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Tag</strong><a id="tag"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Target</strong><a id="target"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Target</strong><a id="target-make"></a> (in Make)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Ternary expression</strong><a id="ternary-expression"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Test framework</strong><a id="test-framework"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Test runner</strong><a id="test-runner"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Test-driven development</strong><a id="tdd"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Three stickies</strong><a id="three-stickies"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Ticket</strong><a id="ticket"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Ticketing system</strong><a id="ticketing-system"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Tidy data</strong><a id="tidy-data"></a></dt>
+<dd>As defined in <span class="citation">Wickham (<a href="references.html#ref-Wick2014" role="doc-biblioref">2014</a>)</span>, tabular data is tidy if (1) each variable is in one column,
+(2) each different observation of that variable is in a different row,
+(3) there is one table for each kind of variable, and
+(4) if there are multiple tables, each includes a key so that related data can be linked.
+</dd>
+<dt><strong>Timestamp</strong><a id="timestamp"></a> (on a file)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Tolerance</strong><a id="tolerance"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Transitive dependency</strong><a id="transitive-dependency"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Triage</strong><a id="triage"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Tuple</strong><a id="tuple"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Unit test</strong><a id="unit-test"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Unix shell</strong><a id="unix-shell"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Up-vote</strong><a id="up-vote"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Update operator</strong><a id="update-operator"></a></dt>
+<dd>See <a href="glossary.html#in-place-operator">in-place operator</a>.
+</dd>
+<dt><strong>Validation</strong><a id="validation"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Variable</strong><a id="variable-make"></a> (in Make)</dt>
+<dd>FIXME
+</dd>
+<dt><strong>Verification</strong><a id="verification"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Version control system</strong><a id="version-control-system"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Virtual environment</strong><a id="virtual-environment"></a></dt>
+<dd>In Python, the <code>virtualenv</code> package allows you to create virtual, disposable, Python software environments
+containing only the packages and versions of packages you want to use for a particular project or task,
+and to install new packages into the environment
+without affecting other virtual environments or the system-wide default environment.
+</dd>
+<dt><strong>Virtual machine</strong><a id="virtual-machine"></a></dt>
+<dd>A program that pretends to be a computer.
+This may seem a bit redundant,
+but VMs are quick to create and start up,
+and changes made inside the virtual machine are contained within that VM
+so we can install new packages or run a completely different operating system
+without affecting the underlying computer.
+</dd>
+<dt><strong>Whitespace</strong><a id="whitespace"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Wildcard</strong><a id="wildcard"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Working memory</strong><a id="working-memory"></a></dt>
+<dd>FIXME
+</dd>
+<dt><strong>Wrap code</strong><a id="wrap-code"></a></dt>
+<dd>FIXME
+</dd>
+</dl>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="conduct.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="objectives.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/merely-useful/novice-r/edit/master/gloss.md",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
