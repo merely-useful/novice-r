@@ -55,8 +55,8 @@ _book/index.html : ${R_NOVICE_FILES} ${COMMON_FILES}
 ## pdf : build PDF version.
 pdf : ${ALL_PDF}
 
-_book/r-novice.pdf : ${R_NOVICE_FILES} ${COMMON_FILES}
-	rm -f r-novice.Rmd
+_book/novice-r.pdf : ${R_NOVICE_FILES} ${COMMON_FILES}
+	rm -f novice-r.Rmd
 	Rscript -e "bookdown::render_book(input='index.Rmd', output_format='bookdown::pdf_book'); warnings()"
 
 #-------------------------------------------------------------------------------
