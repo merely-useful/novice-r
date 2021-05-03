@@ -8,7 +8,7 @@ citation-package: none
 link-citations: yes
 github-repo: merely-useful/novice-r
 site: bookdown::bookdown_site
-date: "2020-08-26"
+date: "2021-05-03"
 lot: yes
 lof: yes
 ---
@@ -860,7 +860,7 @@ Sys.Date()
 ```
 
 ```
-## [1] "2020-08-26"
+## [1] "2021-05-03"
 ```
 
 ```r
@@ -917,7 +917,7 @@ Sys.Date()
 ```
 
 ```
-## [1] "2020-08-26"
+## [1] "2021-05-03"
 ```
 
 FIXME: Screenshot or animated gif.
@@ -1200,7 +1200,7 @@ To follow along with the code in this chapter you'll need to download and import
 
 ```r
 library(tidyverse)
-dog_licenses <- read_csv("https://github.com/merely-useful/merely-useful.github.io/raw/book/data/nyc-dog-licenses.csv.gz") %>%
+dog_licenses <- readr::read_csv("https://github.com/merely-useful/novice-r/raw/master/data/nyc-dog-licenses.csv.gz") %>% 
   drop_na(animal_name)
 ```
 
@@ -1284,24 +1284,24 @@ dog_licenses
 ```
 
 ```
-## [90m# A tibble: 118,542 x 15[39m
-##    row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##         [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m 1[39m        533 BONITA      F             2013-05-01       Unknown    Queens 
-## [90m 2[39m        548 ROCKY       M             2014-05-01       Labrador … Queens 
-## [90m 3[39m        622 BULLY       M             2010-07-01       American … Queens 
-## [90m 4[39m        633 COCO        M             2005-02-01       Labrador … Queens 
-## [90m 5[39m        655 SKI         F             2012-09-01       American … Queens 
-## [90m 6[39m        872 CHASE       M             2013-11-01       Shih Tzu   Queens 
-## [90m 7[39m        874 CHEWY       M             2014-09-01       Shih Tzu   Queens 
-## [90m 8[39m        875 CHASE       M             2008-08-01       Labrador … Queens 
-## [90m 9[39m        893 MILEY       F             2008-07-01       Boxer      Queens 
-## [90m10[39m        919 KENZI       F             2010-05-01       Schnauzer… Queens 
-## [90m# … with 118,532 more rows, and 9 more variables: zip_code [3m[90m<dbl>[90m[23m,[39m
-## [90m#   community_district [3m[90m<dbl>[90m[23m, census_tract_2010 [3m[90m<dbl>[90m[23m,[39m
-## [90m#   neighborhood_tabulation_area [3m[90m<chr>[90m[23m, city_council_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   congressional_district [3m[90m<dbl>[90m[23m, state_senatorial_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   license_issued_date [3m[90m<date>[90m[23m, license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 118,542 x 15
+##    row_number animal_name animal_gender animal_birth_mon… breed_name     borough
+##         <dbl> <chr>       <chr>         <date>            <chr>          <chr>  
+##  1        533 BONITA      F             2013-05-01        Unknown        Queens 
+##  2        548 ROCKY       M             2014-05-01        Labrador Retr… Queens 
+##  3        622 BULLY       M             2010-07-01        American Pit … Queens 
+##  4        633 COCO        M             2005-02-01        Labrador Retr… Queens 
+##  5        655 SKI         F             2012-09-01        American Pit … Queens 
+##  6        872 CHASE       M             2013-11-01        Shih Tzu       Queens 
+##  7        874 CHEWY       M             2014-09-01        Shih Tzu       Queens 
+##  8        875 CHASE       M             2008-08-01        Labrador Retr… Queens 
+##  9        893 MILEY       F             2008-07-01        Boxer          Queens 
+## 10        919 KENZI       F             2010-05-01        Schnauzer, Mi… Queens 
+## # … with 118,532 more rows, and 9 more variables: zip_code <dbl>,
+## #   community_district <dbl>, census_tract_2010 <dbl>,
+## #   neighborhood_tabulation_area <chr>, city_council_district <dbl>,
+## #   congressional_district <dbl>, state_senatorial_district <dbl>,
+## #   license_issued_date <date>, license_expired_date <date>
 ```
 
 Notice that in contrast to the Viewer you only see the first 10 rows of the dataset, and just the first few columns. The number of columns you see depends on the width of your console, so you may see more or fewer than displayed here.  You should also note some of the contents of the columns have been abbreviated. The `…` at the end of some values in `breed_name` indicates these values have been truncated for display purposes.
@@ -1321,24 +1321,24 @@ arrange(dog_licenses, animal_birth_month)
 ```
 
 ```
-## [90m# A tibble: 118,542 x 15[39m
-##    row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##         [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m 1[39m      [4m1[24m[4m5[24m568 JACK        M             1999-01-01       Pug        Queens 
-## [90m 2[39m      [4m2[24m[4m3[24m695 KATTY       F             1999-01-01       Chihuahua  Queens 
-## [90m 3[39m     [4m1[24m[4m0[24m[4m1[24m309 TOMMY       M             1999-01-01       Unknown    Queens 
-## [90m 4[39m       [4m1[24m598 SARAH       F             1999-01-01       West High… Queens 
-## [90m 5[39m       [4m8[24m628 DOMINO      M             1999-01-01       Labrador … Queens 
-## [90m 6[39m      [4m1[24m[4m5[24m733 BRINKS      M             1999-01-01       Yorkshire… Queens 
-## [90m 7[39m      [4m3[24m[4m0[24m419 LUCKY       M             1999-01-01       Unknown    Queens 
-## [90m 8[39m      [4m3[24m[4m1[24m348 MAGGIE      F             1999-01-01       German Sh… Queens 
-## [90m 9[39m      [4m3[24m[4m4[24m685 COOKIE      M             1999-01-01       Pomeranian Queens 
-## [90m10[39m      [4m3[24m[4m7[24m194 DARCY       F             1999-01-01       Cocker Sp… Queens 
-## [90m# … with 118,532 more rows, and 9 more variables: zip_code [3m[90m<dbl>[90m[23m,[39m
-## [90m#   community_district [3m[90m<dbl>[90m[23m, census_tract_2010 [3m[90m<dbl>[90m[23m,[39m
-## [90m#   neighborhood_tabulation_area [3m[90m<chr>[90m[23m, city_council_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   congressional_district [3m[90m<dbl>[90m[23m, state_senatorial_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   license_issued_date [3m[90m<date>[90m[23m, license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 118,542 x 15
+##    row_number animal_name animal_gender animal_birth_mon… breed_name     borough
+##         <dbl> <chr>       <chr>         <date>            <chr>          <chr>  
+##  1      15568 JACK        M             1999-01-01        Pug            Queens 
+##  2      23695 KATTY       F             1999-01-01        Chihuahua      Queens 
+##  3     101309 TOMMY       M             1999-01-01        Unknown        Queens 
+##  4       1598 SARAH       F             1999-01-01        West High Whi… Queens 
+##  5       8628 DOMINO      M             1999-01-01        Labrador Retr… Queens 
+##  6      15733 BRINKS      M             1999-01-01        Yorkshire Ter… Queens 
+##  7      30419 LUCKY       M             1999-01-01        Unknown        Queens 
+##  8      31348 MAGGIE      F             1999-01-01        German Shephe… Queens 
+##  9      34685 COOKIE      M             1999-01-01        Pomeranian     Queens 
+## 10      37194 DARCY       F             1999-01-01        Cocker Spaniel Queens 
+## # … with 118,532 more rows, and 9 more variables: zip_code <dbl>,
+## #   community_district <dbl>, census_tract_2010 <dbl>,
+## #   neighborhood_tabulation_area <chr>, city_council_district <dbl>,
+## #   congressional_district <dbl>, state_senatorial_district <dbl>,
+## #   license_issued_date <date>, license_expired_date <date>
 ```
 You'll see Jack the Pug that lives in Queens, just like you did in the Viewer.
 
@@ -1349,24 +1349,24 @@ arrange(dog_licenses, desc(animal_birth_month))
 ```
 
 ```
-## [90m# A tibble: 118,542 x 15[39m
-##    row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##         [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m 1[39m     [4m1[24m[4m2[24m[4m0[24m352 MARLEY      M             2016-12-01       Cocker Sp… Manhat…
-## [90m 2[39m     [4m1[24m[4m2[24m[4m1[24m981 MR.         M             2016-12-01       Chihuahua… Brookl…
-## [90m 3[39m     [4m1[24m[4m2[24m[4m0[24m501 RORY        M             2016-12-01       Unknown    Brookl…
-## [90m 4[39m     [4m1[24m[4m2[24m[4m2[24m028 TAQUITO     M             2016-12-01       Papillon   Staten…
-## [90m 5[39m     [4m1[24m[4m1[24m[4m5[24m820 REX         M             2016-11-01       Maltese    Queens 
-## [90m 6[39m     [4m1[24m[4m2[24m[4m1[24m727 CHANDERBAL… M             2016-11-01       Havanese   Queens 
-## [90m 7[39m     [4m1[24m[4m1[24m[4m5[24m777 ANGEL       F             2016-11-01       Poodle, M… Queens 
-## [90m 8[39m     [4m1[24m[4m1[24m[4m8[24m175 MASON       M             2016-11-01       American … Queens 
-## [90m 9[39m     [4m1[24m[4m2[24m[4m1[24m601 TEDDY       M             2016-11-01       Havanese   Brookl…
-## [90m10[39m     [4m1[24m[4m2[24m[4m0[24m995 LOLA        F             2016-11-01       Morkie     Staten…
-## [90m# … with 118,532 more rows, and 9 more variables: zip_code [3m[90m<dbl>[90m[23m,[39m
-## [90m#   community_district [3m[90m<dbl>[90m[23m, census_tract_2010 [3m[90m<dbl>[90m[23m,[39m
-## [90m#   neighborhood_tabulation_area [3m[90m<chr>[90m[23m, city_council_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   congressional_district [3m[90m<dbl>[90m[23m, state_senatorial_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   license_issued_date [3m[90m<date>[90m[23m, license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 118,542 x 15
+##    row_number animal_name  animal_gender animal_birth_mo… breed_name    borough 
+##         <dbl> <chr>        <chr>         <date>           <chr>         <chr>   
+##  1     120352 MARLEY       M             2016-12-01       Cocker Spani… Manhatt…
+##  2     121981 MR.          M             2016-12-01       Chihuahua Cr… Brooklyn
+##  3     120501 RORY         M             2016-12-01       Unknown       Brooklyn
+##  4     122028 TAQUITO      M             2016-12-01       Papillon      Staten …
+##  5     115820 REX          M             2016-11-01       Maltese       Queens  
+##  6     121727 CHANDERBALLI M             2016-11-01       Havanese      Queens  
+##  7     115777 ANGEL        F             2016-11-01       Poodle, Mini… Queens  
+##  8     118175 MASON        M             2016-11-01       American Sta… Queens  
+##  9     121601 TEDDY        M             2016-11-01       Havanese      Brooklyn
+## 10     120995 LOLA         F             2016-11-01       Morkie        Staten …
+## # … with 118,532 more rows, and 9 more variables: zip_code <dbl>,
+## #   community_district <dbl>, census_tract_2010 <dbl>,
+## #   neighborhood_tabulation_area <chr>, city_council_district <dbl>,
+## #   congressional_district <dbl>, state_senatorial_district <dbl>,
+## #   license_issued_date <date>, license_expired_date <date>
 ```
 
 As another example, to find the earliest issue date we can order by increasing `license_issued_date`:
@@ -1376,24 +1376,24 @@ arrange(dog_licenses, license_issued_date)
 ```
 
 ```
-## [90m# A tibble: 118,542 x 15[39m
-##    row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##         [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m 1[39m          1 QUEEN       F             2013-04-01       Akita Cro… Manhat…
-## [90m 2[39m          2 CHEWBACCA   F             2012-06-01       Labrador … Manhat…
-## [90m 3[39m          3 IAN         M             2006-01-01       Unknown    Manhat…
-## [90m 4[39m          7 LOLA        F             2009-06-01       Maltese    Manhat…
-## [90m 5[39m          4 PAIGE       F             2014-07-01       American … Manhat…
-## [90m 6[39m          5 BUDDY       M             2008-04-01       Unknown    Manhat…
-## [90m 7[39m          8 YOGI        M             2010-09-01       Boxer      Bronx  
-## [90m 8[39m         10 MUNECA      F             2013-05-01       Beagle     Brookl…
-## [90m 9[39m         27 BESS        F             2010-09-01       Beagle     Brookl…
-## [90m10[39m         26 BIGS        M             2004-12-01       American … Brookl…
-## [90m# … with 118,532 more rows, and 9 more variables: zip_code [3m[90m<dbl>[90m[23m,[39m
-## [90m#   community_district [3m[90m<dbl>[90m[23m, census_tract_2010 [3m[90m<dbl>[90m[23m,[39m
-## [90m#   neighborhood_tabulation_area [3m[90m<chr>[90m[23m, city_council_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   congressional_district [3m[90m<dbl>[90m[23m, state_senatorial_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   license_issued_date [3m[90m<date>[90m[23m, license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 118,542 x 15
+##    row_number animal_name animal_gender animal_birth_mon… breed_name     borough
+##         <dbl> <chr>       <chr>         <date>            <chr>          <chr>  
+##  1          1 QUEEN       F             2013-04-01        Akita Crossbr… Manhat…
+##  2          2 CHEWBACCA   F             2012-06-01        Labrador Retr… Manhat…
+##  3          3 IAN         M             2006-01-01        Unknown        Manhat…
+##  4          7 LOLA        F             2009-06-01        Maltese        Manhat…
+##  5          4 PAIGE       F             2014-07-01        American Pit … Manhat…
+##  6          5 BUDDY       M             2008-04-01        Unknown        Manhat…
+##  7          8 YOGI        M             2010-09-01        Boxer          Bronx  
+##  8         10 MUNECA      F             2013-05-01        Beagle         Brookl…
+##  9         27 BESS        F             2010-09-01        Beagle         Brookl…
+## 10         26 BIGS        M             2004-12-01        American Pit … Brookl…
+## # … with 118,532 more rows, and 9 more variables: zip_code <dbl>,
+## #   community_district <dbl>, census_tract_2010 <dbl>,
+## #   neighborhood_tabulation_area <chr>, city_council_district <dbl>,
+## #   congressional_district <dbl>, state_senatorial_district <dbl>,
+## #   license_issued_date <date>, license_expired_date <date>
 ```
 The first row is the record with the earliest issue date, but we can't actually see that date because the column `license_issued_date` isn't being displayed due to space.  One solution is to extract only the columns we are interested in, a manipulation known as selecting columns.
 
@@ -1419,20 +1419,20 @@ select(dog_licenses, animal_name)
 ```
 
 ```
-## [90m# A tibble: 118,542 x 1[39m
+## # A tibble: 118,542 x 1
 ##    animal_name
-##    [3m[90m<chr>[39m[23m      
-## [90m 1[39m BONITA     
-## [90m 2[39m ROCKY      
-## [90m 3[39m BULLY      
-## [90m 4[39m COCO       
-## [90m 5[39m SKI        
-## [90m 6[39m CHASE      
-## [90m 7[39m CHEWY      
-## [90m 8[39m CHASE      
-## [90m 9[39m MILEY      
-## [90m10[39m KENZI      
-## [90m# … with 118,532 more rows[39m
+##    <chr>      
+##  1 BONITA     
+##  2 ROCKY      
+##  3 BULLY      
+##  4 COCO       
+##  5 SKI        
+##  6 CHASE      
+##  7 CHEWY      
+##  8 CHASE      
+##  9 MILEY      
+## 10 KENZI      
+## # … with 118,532 more rows
 ```
 
 You can provide additional column names as arguments to keep additional specified columns, for example to keep `animal_name` and `breed_name`:
@@ -1442,20 +1442,20 @@ select(dog_licenses, animal_name, breed_name)
 ```
 
 ```
-## [90m# A tibble: 118,542 x 2[39m
+## # A tibble: 118,542 x 2
 ##    animal_name breed_name                        
-##    [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m                             
-## [90m 1[39m BONITA      Unknown                           
-## [90m 2[39m ROCKY       Labrador Retriever Crossbreed     
-## [90m 3[39m BULLY       American Pit Bull Terrier/Pit Bull
-## [90m 4[39m COCO        Labrador Retriever                
-## [90m 5[39m SKI         American Pit Bull Terrier/Pit Bull
-## [90m 6[39m CHASE       Shih Tzu                          
-## [90m 7[39m CHEWY       Shih Tzu                          
-## [90m 8[39m CHASE       Labrador Retriever                
-## [90m 9[39m MILEY       Boxer                             
-## [90m10[39m KENZI       Schnauzer, Miniature              
-## [90m# … with 118,532 more rows[39m
+##    <chr>       <chr>                             
+##  1 BONITA      Unknown                           
+##  2 ROCKY       Labrador Retriever Crossbreed     
+##  3 BULLY       American Pit Bull Terrier/Pit Bull
+##  4 COCO        Labrador Retriever                
+##  5 SKI         American Pit Bull Terrier/Pit Bull
+##  6 CHASE       Shih Tzu                          
+##  7 CHEWY       Shih Tzu                          
+##  8 CHASE       Labrador Retriever                
+##  9 MILEY       Boxer                             
+## 10 KENZI       Schnauzer, Miniature              
+## # … with 118,532 more rows
 ```
 
 To return to finding the earliest issue date, you need to first arrange by increasing `license_issued_date` and then select the `license_issued_date` column.  One approach is to store the result of the arrange step,
@@ -1470,20 +1470,20 @@ select(dog_by_date, license_issued_date)
 ```
 
 ```
-## [90m# A tibble: 118,542 x 1[39m
+## # A tibble: 118,542 x 1
 ##    license_issued_date
-##    [3m[90m<date>[39m[23m             
-## [90m 1[39m 2014-09-12         
-## [90m 2[39m 2014-09-12         
-## [90m 3[39m 2014-09-12         
-## [90m 4[39m 2014-09-12         
-## [90m 5[39m 2014-09-12         
-## [90m 6[39m 2014-09-12         
-## [90m 7[39m 2014-09-12         
-## [90m 8[39m 2014-09-13         
-## [90m 9[39m 2014-09-13         
-## [90m10[39m 2014-09-13         
-## [90m# … with 118,532 more rows[39m
+##    <date>             
+##  1 2014-09-12         
+##  2 2014-09-12         
+##  3 2014-09-12         
+##  4 2014-09-12         
+##  5 2014-09-12         
+##  6 2014-09-12         
+##  7 2014-09-12         
+##  8 2014-09-13         
+##  9 2014-09-13         
+## 10 2014-09-13         
+## # … with 118,532 more rows
 ```
 
 There are lots of shortcuts you can use with `select()` to avoid having to type out all the variables you want to keep.  For example, you can ask for all the columns that start with a certain string:
@@ -1493,20 +1493,20 @@ select(dog_licenses, starts_with("Animal"))
 ```
 
 ```
-## [90m# A tibble: 118,542 x 3[39m
+## # A tibble: 118,542 x 3
 ##    animal_name animal_gender animal_birth_month
-##    [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m            
-## [90m 1[39m BONITA      F             2013-05-01        
-## [90m 2[39m ROCKY       M             2014-05-01        
-## [90m 3[39m BULLY       M             2010-07-01        
-## [90m 4[39m COCO        M             2005-02-01        
-## [90m 5[39m SKI         F             2012-09-01        
-## [90m 6[39m CHASE       M             2013-11-01        
-## [90m 7[39m CHEWY       M             2014-09-01        
-## [90m 8[39m CHASE       M             2008-08-01        
-## [90m 9[39m MILEY       F             2008-07-01        
-## [90m10[39m KENZI       F             2010-05-01        
-## [90m# … with 118,532 more rows[39m
+##    <chr>       <chr>         <date>            
+##  1 BONITA      F             2013-05-01        
+##  2 ROCKY       M             2014-05-01        
+##  3 BULLY       M             2010-07-01        
+##  4 COCO        M             2005-02-01        
+##  5 SKI         F             2012-09-01        
+##  6 CHASE       M             2013-11-01        
+##  7 CHEWY       M             2014-09-01        
+##  8 CHASE       M             2008-08-01        
+##  9 MILEY       F             2008-07-01        
+## 10 KENZI       F             2010-05-01        
+## # … with 118,532 more rows
 ```
 Take a look in the ["Useful functions" section of the `select()` help page][select-docs] for a complete list:
 
@@ -1594,24 +1594,24 @@ dog_licenses %>% filter(animal_name == "BRUNO")
 ```
 
 ```
-## [90m# A tibble: 272 x 15[39m
-##    row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##         [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m 1[39m      [4m1[24m[4m2[24m001 BRUNO       M             2010-05-01       American … Queens 
-## [90m 2[39m      [4m2[24m[4m7[24m228 BRUNO       M             2013-07-01       Jack Russ… Queens 
-## [90m 3[39m      [4m6[24m[4m8[24m192 BRUNO       M             2002-01-01       Shih Tzu   Queens 
-## [90m 4[39m      [4m7[24m[4m0[24m175 BRUNO       M             2015-12-01       Chihuahua… Queens 
-## [90m 5[39m     [4m1[24m[4m2[24m[4m0[24m562 BRUNO       M             2016-05-01       Labrador … Queens 
-## [90m 6[39m       [4m3[24m915 BRUNO       M             2014-03-01       Doberman … Queens 
-## [90m 7[39m       [4m9[24m614 BRUNO       M             2014-12-01       Boxer      Queens 
-## [90m 8[39m      [4m1[24m[4m5[24m606 BRUNO       M             2015-02-01       French Bu… Queens 
-## [90m 9[39m      [4m3[24m[4m2[24m742 BRUNO       M             2014-03-01       Maltipoo   Queens 
-## [90m10[39m      [4m3[24m[4m4[24m299 BRUNO       M             2003-01-01       Unknown    Queens 
-## [90m# … with 262 more rows, and 9 more variables: zip_code [3m[90m<dbl>[90m[23m,[39m
-## [90m#   community_district [3m[90m<dbl>[90m[23m, census_tract_2010 [3m[90m<dbl>[90m[23m,[39m
-## [90m#   neighborhood_tabulation_area [3m[90m<chr>[90m[23m, city_council_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   congressional_district [3m[90m<dbl>[90m[23m, state_senatorial_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   license_issued_date [3m[90m<date>[90m[23m, license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 272 x 15
+##    row_number animal_name animal_gender animal_birth_mon… breed_name     borough
+##         <dbl> <chr>       <chr>         <date>            <chr>          <chr>  
+##  1      12001 BRUNO       M             2010-05-01        American Pit … Queens 
+##  2      27228 BRUNO       M             2013-07-01        Jack Russell … Queens 
+##  3      68192 BRUNO       M             2002-01-01        Shih Tzu       Queens 
+##  4      70175 BRUNO       M             2015-12-01        Chihuahua Cro… Queens 
+##  5     120562 BRUNO       M             2016-05-01        Labrador Retr… Queens 
+##  6       3915 BRUNO       M             2014-03-01        Doberman Pins… Queens 
+##  7       9614 BRUNO       M             2014-12-01        Boxer          Queens 
+##  8      15606 BRUNO       M             2015-02-01        French Bulldog Queens 
+##  9      32742 BRUNO       M             2014-03-01        Maltipoo       Queens 
+## 10      34299 BRUNO       M             2003-01-01        Unknown        Queens 
+## # … with 262 more rows, and 9 more variables: zip_code <dbl>,
+## #   community_district <dbl>, census_tract_2010 <dbl>,
+## #   neighborhood_tabulation_area <chr>, city_council_district <dbl>,
+## #   congressional_district <dbl>, state_senatorial_district <dbl>,
+## #   license_issued_date <date>, license_expired_date <date>
 ```
 You could read this code aloud as:
 
@@ -1628,14 +1628,14 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 0 x 15[39m
-## [90m# … with 15 variables: row_number [3m[90m<dbl>[90m[23m, animal_name [3m[90m<chr>[90m[23m,[39m
-## [90m#   animal_gender [3m[90m<chr>[90m[23m, animal_birth_month [3m[90m<date>[90m[23m, breed_name [3m[90m<chr>[90m[23m,[39m
-## [90m#   borough [3m[90m<chr>[90m[23m, zip_code [3m[90m<dbl>[90m[23m, community_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   census_tract_2010 [3m[90m<dbl>[90m[23m, neighborhood_tabulation_area [3m[90m<chr>[90m[23m,[39m
-## [90m#   city_council_district [3m[90m<dbl>[90m[23m, congressional_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   state_senatorial_district [3m[90m<dbl>[90m[23m, license_issued_date [3m[90m<date>[90m[23m,[39m
-## [90m#   license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 0 x 15
+## # … with 15 variables: row_number <dbl>, animal_name <chr>,
+## #   animal_gender <chr>, animal_birth_month <date>, breed_name <chr>,
+## #   borough <chr>, zip_code <dbl>, community_district <dbl>,
+## #   census_tract_2010 <dbl>, neighborhood_tabulation_area <chr>,
+## #   city_council_district <dbl>, congressional_district <dbl>,
+## #   state_senatorial_district <dbl>, license_issued_date <date>,
+## #   license_expired_date <date>
 ```
 There is no output (apart from the column names), which means that no rows satisfy this criteria.
 
@@ -1647,14 +1647,14 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 0 x 15[39m
-## [90m# … with 15 variables: row_number [3m[90m<dbl>[90m[23m, animal_name [3m[90m<chr>[90m[23m,[39m
-## [90m#   animal_gender [3m[90m<chr>[90m[23m, animal_birth_month [3m[90m<date>[90m[23m, breed_name [3m[90m<chr>[90m[23m,[39m
-## [90m#   borough [3m[90m<chr>[90m[23m, zip_code [3m[90m<dbl>[90m[23m, community_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   census_tract_2010 [3m[90m<dbl>[90m[23m, neighborhood_tabulation_area [3m[90m<chr>[90m[23m,[39m
-## [90m#   city_council_district [3m[90m<dbl>[90m[23m, congressional_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   state_senatorial_district [3m[90m<dbl>[90m[23m, license_issued_date [3m[90m<date>[90m[23m,[39m
-## [90m#   license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 0 x 15
+## # … with 15 variables: row_number <dbl>, animal_name <chr>,
+## #   animal_gender <chr>, animal_birth_month <date>, breed_name <chr>,
+## #   borough <chr>, zip_code <dbl>, community_district <dbl>,
+## #   census_tract_2010 <dbl>, neighborhood_tabulation_area <chr>,
+## #   city_council_district <dbl>, congressional_district <dbl>,
+## #   state_senatorial_district <dbl>, license_issued_date <date>,
+## #   license_expired_date <date>
 ```
 The result has zero rows, which would suggest there are no such licenses, but in fact this is the answer to a different question.  Can you see what is wrong with the code?  By surrounding `animal_gender` in quotes, R has interpreted the comparison as: is the string `"animal_gender"` equal to the string `"M"`?.  The answer is `FALSE`, and no rows are returned.  I actually wanted to compare the `animal_gender` column to the string `"M"`, so `animal_gender` should have no quotes around it:
 
@@ -1664,24 +1664,24 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 64,770 x 15[39m
-##    row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##         [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m 1[39m        548 ROCKY       M             2014-05-01       Labrador … Queens 
-## [90m 2[39m        622 BULLY       M             2010-07-01       American … Queens 
-## [90m 3[39m        633 COCO        M             2005-02-01       Labrador … Queens 
-## [90m 4[39m        872 CHASE       M             2013-11-01       Shih Tzu   Queens 
-## [90m 5[39m        874 CHEWY       M             2014-09-01       Shih Tzu   Queens 
-## [90m 6[39m        875 CHASE       M             2008-08-01       Labrador … Queens 
-## [90m 7[39m        976 APOLLO      M             2014-10-01       American … Queens 
-## [90m 8[39m       [4m1[24m297 JERRY       M             2009-06-01       Labrador … Queens 
-## [90m 9[39m       [4m2[24m133 SIMON       M             2010-12-01       Havanese   Queens 
-## [90m10[39m       [4m2[24m289 BUDDY       M             2012-06-01       Labrador … Queens 
-## [90m# … with 64,760 more rows, and 9 more variables: zip_code [3m[90m<dbl>[90m[23m,[39m
-## [90m#   community_district [3m[90m<dbl>[90m[23m, census_tract_2010 [3m[90m<dbl>[90m[23m,[39m
-## [90m#   neighborhood_tabulation_area [3m[90m<chr>[90m[23m, city_council_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   congressional_district [3m[90m<dbl>[90m[23m, state_senatorial_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   license_issued_date [3m[90m<date>[90m[23m, license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 64,770 x 15
+##    row_number animal_name animal_gender animal_birth_mon… breed_name     borough
+##         <dbl> <chr>       <chr>         <date>            <chr>          <chr>  
+##  1        548 ROCKY       M             2014-05-01        Labrador Retr… Queens 
+##  2        622 BULLY       M             2010-07-01        American Pit … Queens 
+##  3        633 COCO        M             2005-02-01        Labrador Retr… Queens 
+##  4        872 CHASE       M             2013-11-01        Shih Tzu       Queens 
+##  5        874 CHEWY       M             2014-09-01        Shih Tzu       Queens 
+##  6        875 CHASE       M             2008-08-01        Labrador Retr… Queens 
+##  7        976 APOLLO      M             2014-10-01        American Pit … Queens 
+##  8       1297 JERRY       M             2009-06-01        Labrador Retr… Queens 
+##  9       2133 SIMON       M             2010-12-01        Havanese       Queens 
+## 10       2289 BUDDY       M             2012-06-01        Labrador Retr… Queens 
+## # … with 64,760 more rows, and 9 more variables: zip_code <dbl>,
+## #   community_district <dbl>, census_tract_2010 <dbl>,
+## #   neighborhood_tabulation_area <chr>, city_council_district <dbl>,
+## #   congressional_district <dbl>, state_senatorial_district <dbl>,
+## #   license_issued_date <date>, license_expired_date <date>
 ```
 
 The operator, `==` (you can read as "is equal to", or simply "equals"), is a specific kind of comparison.  Other comparisons include:
@@ -1723,24 +1723,24 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 272 x 15[39m
-##    row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##         [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m 1[39m      [4m1[24m[4m2[24m001 BRUNO       M             2010-05-01       American … Queens 
-## [90m 2[39m      [4m2[24m[4m7[24m228 BRUNO       M             2013-07-01       Jack Russ… Queens 
-## [90m 3[39m      [4m6[24m[4m8[24m192 BRUNO       M             2002-01-01       Shih Tzu   Queens 
-## [90m 4[39m      [4m7[24m[4m0[24m175 BRUNO       M             2015-12-01       Chihuahua… Queens 
-## [90m 5[39m     [4m1[24m[4m2[24m[4m0[24m562 BRUNO       M             2016-05-01       Labrador … Queens 
-## [90m 6[39m       [4m3[24m915 BRUNO       M             2014-03-01       Doberman … Queens 
-## [90m 7[39m       [4m9[24m614 BRUNO       M             2014-12-01       Boxer      Queens 
-## [90m 8[39m      [4m1[24m[4m5[24m606 BRUNO       M             2015-02-01       French Bu… Queens 
-## [90m 9[39m      [4m3[24m[4m2[24m742 BRUNO       M             2014-03-01       Maltipoo   Queens 
-## [90m10[39m      [4m3[24m[4m4[24m299 BRUNO       M             2003-01-01       Unknown    Queens 
-## [90m# … with 262 more rows, and 9 more variables: zip_code [3m[90m<dbl>[90m[23m,[39m
-## [90m#   community_district [3m[90m<dbl>[90m[23m, census_tract_2010 [3m[90m<dbl>[90m[23m,[39m
-## [90m#   neighborhood_tabulation_area [3m[90m<chr>[90m[23m, city_council_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   congressional_district [3m[90m<dbl>[90m[23m, state_senatorial_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   license_issued_date [3m[90m<date>[90m[23m, license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 272 x 15
+##    row_number animal_name animal_gender animal_birth_mon… breed_name     borough
+##         <dbl> <chr>       <chr>         <date>            <chr>          <chr>  
+##  1      12001 BRUNO       M             2010-05-01        American Pit … Queens 
+##  2      27228 BRUNO       M             2013-07-01        Jack Russell … Queens 
+##  3      68192 BRUNO       M             2002-01-01        Shih Tzu       Queens 
+##  4      70175 BRUNO       M             2015-12-01        Chihuahua Cro… Queens 
+##  5     120562 BRUNO       M             2016-05-01        Labrador Retr… Queens 
+##  6       3915 BRUNO       M             2014-03-01        Doberman Pins… Queens 
+##  7       9614 BRUNO       M             2014-12-01        Boxer          Queens 
+##  8      15606 BRUNO       M             2015-02-01        French Bulldog Queens 
+##  9      32742 BRUNO       M             2014-03-01        Maltipoo       Queens 
+## 10      34299 BRUNO       M             2003-01-01        Unknown        Queens 
+## # … with 262 more rows, and 9 more variables: zip_code <dbl>,
+## #   community_district <dbl>, census_tract_2010 <dbl>,
+## #   neighborhood_tabulation_area <chr>, city_council_district <dbl>,
+## #   congressional_district <dbl>, state_senatorial_district <dbl>,
+## #   license_issued_date <date>, license_expired_date <date>
 ```
 And you could find the dog licenses issued to dogs that live in Brooklyn:
 
@@ -1750,24 +1750,24 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 29,334 x 15[39m
-##    row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##         [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m 1[39m       [4m2[24m895 FUDGE       M             2014-07-01       American … Brookl…
-## [90m 2[39m       [4m4[24m057 STAR        F             2011-01-01       Poodle     Brookl…
-## [90m 3[39m      [4m7[24m[4m4[24m463 MUNECA      F             2011-09-01       Chihuahua… Brookl…
-## [90m 4[39m      [4m7[24m[4m6[24m232 KATTY       F             2002-06-01       Chihuahua  Brookl…
-## [90m 5[39m      [4m8[24m[4m5[24m113 SHADOW      M             2015-03-01       American … Brookl…
-## [90m 6[39m      [4m8[24m[4m5[24m997 SPARKIE     M             2013-08-01       Maltese C… Brookl…
-## [90m 7[39m      [4m9[24m[4m2[24m451 SNOW        M             2014-07-01       Maltese    Brookl…
-## [90m 8[39m     [4m1[24m[4m0[24m[4m4[24m256 BELLA       F             2016-07-01       Maltese    Brookl…
-## [90m 9[39m      [4m1[24m[4m0[24m389 SPARKLE     F             2006-01-01       Schnauzer… Brookl…
-## [90m10[39m      [4m8[24m[4m2[24m492 UNKNOWN     F             2015-11-01       Pomeranian Brookl…
-## [90m# … with 29,324 more rows, and 9 more variables: zip_code [3m[90m<dbl>[90m[23m,[39m
-## [90m#   community_district [3m[90m<dbl>[90m[23m, census_tract_2010 [3m[90m<dbl>[90m[23m,[39m
-## [90m#   neighborhood_tabulation_area [3m[90m<chr>[90m[23m, city_council_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   congressional_district [3m[90m<dbl>[90m[23m, state_senatorial_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   license_issued_date [3m[90m<date>[90m[23m, license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 29,334 x 15
+##    row_number animal_name animal_gender animal_birth_mon… breed_name     borough
+##         <dbl> <chr>       <chr>         <date>            <chr>          <chr>  
+##  1       2895 FUDGE       M             2014-07-01        American Pit … Brookl…
+##  2       4057 STAR        F             2011-01-01        Poodle         Brookl…
+##  3      74463 MUNECA      F             2011-09-01        Chihuahua Cro… Brookl…
+##  4      76232 KATTY       F             2002-06-01        Chihuahua      Brookl…
+##  5      85113 SHADOW      M             2015-03-01        American Pit … Brookl…
+##  6      85997 SPARKIE     M             2013-08-01        Maltese Cross… Brookl…
+##  7      92451 SNOW        M             2014-07-01        Maltese        Brookl…
+##  8     104256 BELLA       F             2016-07-01        Maltese        Brookl…
+##  9      10389 SPARKLE     F             2006-01-01        Schnauzer, St… Brookl…
+## 10      82492 UNKNOWN     F             2015-11-01        Pomeranian     Brookl…
+## # … with 29,324 more rows, and 9 more variables: zip_code <dbl>,
+## #   community_district <dbl>, census_tract_2010 <dbl>,
+## #   neighborhood_tabulation_area <chr>, city_council_district <dbl>,
+## #   congressional_district <dbl>, state_senatorial_district <dbl>,
+## #   license_issued_date <date>, license_expired_date <date>
 ```
 If you want to find the licenses that are to dogs named Bruno in Brooklyn, you could combine the two logical statements with `&`:
 
@@ -1777,24 +1777,24 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 55 x 15[39m
-##    row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##         [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m 1[39m       [4m8[24m496 BRUNO       M             2005-04-01       American … Brookl…
-## [90m 2[39m      [4m6[24m[4m5[24m466 BRUNO       M             2012-11-01       Golden Re… Brookl…
-## [90m 3[39m     [4m1[24m[4m1[24m[4m5[24m999 BRUNO       M             2009-01-01       Pug        Brookl…
-## [90m 4[39m     [4m1[24m[4m1[24m[4m8[24m963 BRUNO       M             2005-01-01       Unknown    Brookl…
-## [90m 5[39m      [4m1[24m[4m0[24m505 BRUNO       M             2006-04-01       Bull Dog,… Brookl…
-## [90m 6[39m      [4m1[24m[4m4[24m444 BRUNO       M             2007-01-01       Cocker Sp… Brookl…
-## [90m 7[39m      [4m1[24m[4m4[24m690 BRUNO       M             2014-04-01       Shih Tzu   Brookl…
-## [90m 8[39m      [4m4[24m[4m7[24m454 BRUNO       M             2011-06-01       Pug        Brookl…
-## [90m 9[39m      [4m5[24m[4m8[24m918 BRUNO       M             2006-04-01       Bull Dog,… Brookl…
-## [90m10[39m     [4m1[24m[4m0[24m[4m5[24m964 BRUNO       M             2016-04-01       Bull Dog,… Brookl…
-## [90m# … with 45 more rows, and 9 more variables: zip_code [3m[90m<dbl>[90m[23m,[39m
-## [90m#   community_district [3m[90m<dbl>[90m[23m, census_tract_2010 [3m[90m<dbl>[90m[23m,[39m
-## [90m#   neighborhood_tabulation_area [3m[90m<chr>[90m[23m, city_council_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   congressional_district [3m[90m<dbl>[90m[23m, state_senatorial_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   license_issued_date [3m[90m<date>[90m[23m, license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 55 x 15
+##    row_number animal_name animal_gender animal_birth_mon… breed_name     borough
+##         <dbl> <chr>       <chr>         <date>            <chr>          <chr>  
+##  1       8496 BRUNO       M             2005-04-01        American Pit … Brookl…
+##  2      65466 BRUNO       M             2012-11-01        Golden Retrie… Brookl…
+##  3     115999 BRUNO       M             2009-01-01        Pug            Brookl…
+##  4     118963 BRUNO       M             2005-01-01        Unknown        Brookl…
+##  5      10505 BRUNO       M             2006-04-01        Bull Dog, Eng… Brookl…
+##  6      14444 BRUNO       M             2007-01-01        Cocker Spaniel Brookl…
+##  7      14690 BRUNO       M             2014-04-01        Shih Tzu       Brookl…
+##  8      47454 BRUNO       M             2011-06-01        Pug            Brookl…
+##  9      58918 BRUNO       M             2006-04-01        Bull Dog, Eng… Brookl…
+## 10     105964 BRUNO       M             2016-04-01        Bull Dog, Fre… Brookl…
+## # … with 45 more rows, and 9 more variables: zip_code <dbl>,
+## #   community_district <dbl>, census_tract_2010 <dbl>,
+## #   neighborhood_tabulation_area <chr>, city_council_district <dbl>,
+## #   congressional_district <dbl>, state_senatorial_district <dbl>,
+## #   license_issued_date <date>, license_expired_date <date>
 ```
 The parentheses around each logical expression are optional, but can help visually to group the components to `&`, especially if those logical expressions get more complicated.
 
@@ -1843,20 +1843,20 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 118,542 x 2[39m
+## # A tibble: 118,542 x 2
 ##    animal_name called_chase
-##    [3m[90m<chr>[39m[23m       [3m[90m<lgl>[39m[23m       
-## [90m 1[39m BONITA      FALSE       
-## [90m 2[39m ROCKY       FALSE       
-## [90m 3[39m BULLY       FALSE       
-## [90m 4[39m COCO        FALSE       
-## [90m 5[39m SKI         FALSE       
-## [90m 6[39m CHASE       TRUE        
-## [90m 7[39m CHEWY       FALSE       
-## [90m 8[39m CHASE       TRUE        
-## [90m 9[39m MILEY       FALSE       
-## [90m10[39m KENZI       FALSE       
-## [90m# … with 118,532 more rows[39m
+##    <chr>       <lgl>       
+##  1 BONITA      FALSE       
+##  2 ROCKY       FALSE       
+##  3 BULLY       FALSE       
+##  4 COCO        FALSE       
+##  5 SKI         FALSE       
+##  6 CHASE       TRUE        
+##  7 CHEWY       FALSE       
+##  8 CHASE       TRUE        
+##  9 MILEY       FALSE       
+## 10 KENZI       FALSE       
+## # … with 118,532 more rows
 ```
 
 > Take `dog_licences`, **and then**,
@@ -1874,24 +1874,24 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 126 x 16[39m
-##    row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##         [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m 1[39m        872 CHASE       M             2013-11-01       Shih Tzu   Queens 
-## [90m 2[39m        875 CHASE       M             2008-08-01       Labrador … Queens 
-## [90m 3[39m      [4m3[24m[4m2[24m652 CHASE       M             2013-09-01       Yorkshire… Queens 
-## [90m 4[39m      [4m4[24m[4m2[24m125 CHASE       M             2015-08-01       Chihuahua  Queens 
-## [90m 5[39m     [4m1[24m[4m0[24m[4m9[24m847 CHASE       M             2013-04-01       Terrier m… Queens 
-## [90m 6[39m     [4m1[24m[4m1[24m[4m4[24m557 CHASE       M             2009-07-01       Siberian … Queens 
-## [90m 7[39m      [4m3[24m[4m3[24m434 CHASE       M             2014-08-01       Schnauzer… Queens 
-## [90m 8[39m      [4m4[24m[4m5[24m142 CHASE       M             2005-01-01       Unknown    Queens 
-## [90m 9[39m       [4m2[24m528 CHASE       M             2011-10-01       Lhasa Apso Queens 
-## [90m10[39m       [4m3[24m426 CHASE       M             2014-03-01       Yorkshire… Queens 
-## [90m# … with 116 more rows, and 10 more variables: zip_code [3m[90m<dbl>[90m[23m,[39m
-## [90m#   community_district [3m[90m<dbl>[90m[23m, census_tract_2010 [3m[90m<dbl>[90m[23m,[39m
-## [90m#   neighborhood_tabulation_area [3m[90m<chr>[90m[23m, city_council_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   congressional_district [3m[90m<dbl>[90m[23m, state_senatorial_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   license_issued_date [3m[90m<date>[90m[23m, license_expired_date [3m[90m<date>[90m[23m, called_chase [3m[90m<lgl>[90m[23m[39m
+## # A tibble: 126 x 16
+##    row_number animal_name animal_gender animal_birth_mon… breed_name     borough
+##         <dbl> <chr>       <chr>         <date>            <chr>          <chr>  
+##  1        872 CHASE       M             2013-11-01        Shih Tzu       Queens 
+##  2        875 CHASE       M             2008-08-01        Labrador Retr… Queens 
+##  3      32652 CHASE       M             2013-09-01        Yorkshire Ter… Queens 
+##  4      42125 CHASE       M             2015-08-01        Chihuahua      Queens 
+##  5     109847 CHASE       M             2013-04-01        Terrier mix    Queens 
+##  6     114557 CHASE       M             2009-07-01        Siberian Husky Queens 
+##  7      33434 CHASE       M             2014-08-01        Schnauzer, St… Queens 
+##  8      45142 CHASE       M             2005-01-01        Unknown        Queens 
+##  9       2528 CHASE       M             2011-10-01        Lhasa Apso     Queens 
+## 10       3426 CHASE       M             2014-03-01        Yorkshire Ter… Queens 
+## # … with 116 more rows, and 10 more variables: zip_code <dbl>,
+## #   community_district <dbl>, census_tract_2010 <dbl>,
+## #   neighborhood_tabulation_area <chr>, city_council_district <dbl>,
+## #   congressional_district <dbl>, state_senatorial_district <dbl>,
+## #   license_issued_date <date>, license_expired_date <date>, called_chase <lgl>
 ```
 
 Take a closer look at the argument to mutate:
@@ -1924,20 +1924,20 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 118,542 x 2[39m
+## # A tibble: 118,542 x 2
 ##    animal_name called_chase    
-##    [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m           
-## [90m 1[39m BONITA      not called chase
-## [90m 2[39m ROCKY       not called chase
-## [90m 3[39m BULLY       not called chase
-## [90m 4[39m COCO        not called chase
-## [90m 5[39m SKI         not called chase
-## [90m 6[39m CHASE       called chase    
-## [90m 7[39m CHEWY       not called chase
-## [90m 8[39m CHASE       called chase    
-## [90m 9[39m MILEY       not called chase
-## [90m10[39m KENZI       not called chase
-## [90m# … with 118,532 more rows[39m
+##    <chr>       <chr>           
+##  1 BONITA      not called chase
+##  2 ROCKY       not called chase
+##  3 BULLY       not called chase
+##  4 COCO        not called chase
+##  5 SKI         not called chase
+##  6 CHASE       called chase    
+##  7 CHEWY       not called chase
+##  8 CHASE       called chase    
+##  9 MILEY       not called chase
+## 10 KENZI       not called chase
+## # … with 118,532 more rows
 ```
 
 <div class="figure">
@@ -1957,20 +1957,20 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 118,542 x 3[39m
+## # A tibble: 118,542 x 3
 ##    animal_name is_chase called_chase    
-##    [3m[90m<chr>[39m[23m       [3m[90m<lgl>[39m[23m    [3m[90m<chr>[39m[23m           
-## [90m 1[39m BONITA      FALSE    not called chase
-## [90m 2[39m ROCKY       FALSE    not called chase
-## [90m 3[39m BULLY       FALSE    not called chase
-## [90m 4[39m COCO        FALSE    not called chase
-## [90m 5[39m SKI         FALSE    not called chase
-## [90m 6[39m CHASE       TRUE     called chase    
-## [90m 7[39m CHEWY       FALSE    not called chase
-## [90m 8[39m CHASE       TRUE     called chase    
-## [90m 9[39m MILEY       FALSE    not called chase
-## [90m10[39m KENZI       FALSE    not called chase
-## [90m# … with 118,532 more rows[39m
+##    <chr>       <lgl>    <chr>           
+##  1 BONITA      FALSE    not called chase
+##  2 ROCKY       FALSE    not called chase
+##  3 BULLY       FALSE    not called chase
+##  4 COCO        FALSE    not called chase
+##  5 SKI         FALSE    not called chase
+##  6 CHASE       TRUE     called chase    
+##  7 CHEWY       FALSE    not called chase
+##  8 CHASE       TRUE     called chase    
+##  9 MILEY       FALSE    not called chase
+## 10 KENZI       FALSE    not called chase
+## # … with 118,532 more rows
 ```
 Notice that the computation for the `called_chase` column refers to the `is_chase` column.  The arguments to mutate are computed in order, so columns created later in the same `mutate()` can refer to columns created earlier.
 
@@ -1983,20 +1983,20 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 118,542 x 1[39m
+## # A tibble: 118,542 x 1
 ##    license_duration
-##    [3m[90m<drtn>[39m[23m          
-## [90m 1[39m 1118 days       
-## [90m 2[39m 1826 days       
-## [90m 3[39m  697 days       
-## [90m 4[39m 1096 days       
-## [90m 5[39m 1826 days       
-## [90m 6[39m  731 days       
-## [90m 7[39m  731 days       
-## [90m 8[39m 1097 days       
-## [90m 9[39m  421 days       
-## [90m10[39m  402 days       
-## [90m# … with 118,532 more rows[39m
+##    <drtn>          
+##  1 1118 days       
+##  2 1826 days       
+##  3  697 days       
+##  4 1096 days       
+##  5 1826 days       
+##  6  731 days       
+##  7  731 days       
+##  8 1097 days       
+##  9  421 days       
+## 10  402 days       
+## # … with 118,532 more rows
 ```
 The output shows us licenses aren't issued for a standard time period.  In these first rows, there are some licenses issued for a whole number of years: 2 (731 days), 3 (1097 days) and 5 (1826 days).  However, others seem to be for fractions of years like 421 days.
 
@@ -2013,20 +2013,20 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 118,542 x 2[39m
+## # A tibble: 118,542 x 2
 ##    license_duration avg_duration
-##    [3m[90m<drtn>[39m[23m           [3m[90m<drtn>[39m[23m      
-## [90m 1[39m 1118 days        467.321 days
-## [90m 2[39m 1826 days        467.321 days
-## [90m 3[39m  697 days        467.321 days
-## [90m 4[39m 1096 days        467.321 days
-## [90m 5[39m 1826 days        467.321 days
-## [90m 6[39m  731 days        467.321 days
-## [90m 7[39m  731 days        467.321 days
-## [90m 8[39m 1097 days        467.321 days
-## [90m 9[39m  421 days        467.321 days
-## [90m10[39m  402 days        467.321 days
-## [90m# … with 118,532 more rows[39m
+##    <drtn>           <drtn>      
+##  1 1118 days        467.321 days
+##  2 1826 days        467.321 days
+##  3  697 days        467.321 days
+##  4 1096 days        467.321 days
+##  5 1826 days        467.321 days
+##  6  731 days        467.321 days
+##  7  731 days        467.321 days
+##  8 1097 days        467.321 days
+##  9  421 days        467.321 days
+## 10  402 days        467.321 days
+## # … with 118,532 more rows
 ```
 You'll get back the original number of rows, but the single value will be repeated in all of them - on average licenses are issued for 467.321 days.  You'll see a different verb, `summarise()` that collapses many rows into one later in this chapter.
 
@@ -2110,15 +2110,15 @@ filter(dog_licenses, breed_name == "Finnish Lapphund")
 ```
 
 ```
-## [90m# A tibble: 1 x 15[39m
-##   row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##        [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m1[39m     [4m1[24m[4m1[24m[4m8[24m408 FREDDIE     M             2011-11-01       Finnish L… Manhat…
-## [90m# … with 9 more variables: zip_code [3m[90m<dbl>[90m[23m, community_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   census_tract_2010 [3m[90m<dbl>[90m[23m, neighborhood_tabulation_area [3m[90m<chr>[90m[23m,[39m
-## [90m#   city_council_district [3m[90m<dbl>[90m[23m, congressional_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   state_senatorial_district [3m[90m<dbl>[90m[23m, license_issued_date [3m[90m<date>[90m[23m,[39m
-## [90m#   license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 1 x 15
+##   row_number animal_name animal_gender animal_birth_month breed_name    borough 
+##        <dbl> <chr>       <chr>         <date>             <chr>         <chr>   
+## 1     118408 FREDDIE     M             2011-11-01         Finnish Lapp… Manhatt…
+## # … with 9 more variables: zip_code <dbl>, community_district <dbl>,
+## #   census_tract_2010 <dbl>, neighborhood_tabulation_area <chr>,
+## #   city_council_district <dbl>, congressional_district <dbl>,
+## #   state_senatorial_district <dbl>, license_issued_date <date>,
+## #   license_expired_date <date>
 ```
 
 Syntax errors are usually the result of typos.  Some things to keep an eye out for:
@@ -2213,8 +2213,8 @@ dog_licenses %>% filter(animal_name)
 
 ```
 ## Error: Problem with `filter()` input `..1`.
-## [31m✖[39m Input `..1` must be a logical vector, not a character.
-## [34mℹ[39m Input `..1` is `animal_name`.
+## ✖ Input `..1` must be a logical vector, not a character.
+## ℹ Input `..1` is `animal_name`.
 ```
 
 Perhaps the most common runtime error is of the form `Error: object not found`:
@@ -2263,8 +2263,8 @@ dog_licenses %>% filter(animal_gender == M)
 
 ```
 ## Error: Problem with `filter()` input `..1`.
-## [31m✖[39m object 'M' not found
-## [34mℹ[39m Input `..1` is `animal_gender == M`.
+## ✖ object 'M' not found
+## ℹ Input `..1` is `animal_gender == M`.
 ```
 you get an error because R is looking for an object called `M` to compare to the values in the column called `animal_gender`.  What we really wanted to do was compare the values in `animal_gender` to the string `"M"`:
 
@@ -2273,24 +2273,24 @@ dog_licenses %>% filter(animal_gender == "M")
 ```
 
 ```
-## [90m# A tibble: 64,770 x 15[39m
-##    row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##         [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m 1[39m        548 ROCKY       M             2014-05-01       Labrador … Queens 
-## [90m 2[39m        622 BULLY       M             2010-07-01       American … Queens 
-## [90m 3[39m        633 COCO        M             2005-02-01       Labrador … Queens 
-## [90m 4[39m        872 CHASE       M             2013-11-01       Shih Tzu   Queens 
-## [90m 5[39m        874 CHEWY       M             2014-09-01       Shih Tzu   Queens 
-## [90m 6[39m        875 CHASE       M             2008-08-01       Labrador … Queens 
-## [90m 7[39m        976 APOLLO      M             2014-10-01       American … Queens 
-## [90m 8[39m       [4m1[24m297 JERRY       M             2009-06-01       Labrador … Queens 
-## [90m 9[39m       [4m2[24m133 SIMON       M             2010-12-01       Havanese   Queens 
-## [90m10[39m       [4m2[24m289 BUDDY       M             2012-06-01       Labrador … Queens 
-## [90m# … with 64,760 more rows, and 9 more variables: zip_code [3m[90m<dbl>[90m[23m,[39m
-## [90m#   community_district [3m[90m<dbl>[90m[23m, census_tract_2010 [3m[90m<dbl>[90m[23m,[39m
-## [90m#   neighborhood_tabulation_area [3m[90m<chr>[90m[23m, city_council_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   congressional_district [3m[90m<dbl>[90m[23m, state_senatorial_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   license_issued_date [3m[90m<date>[90m[23m, license_expired_date [3m[90m<date>[90m[23m[39m
+## # A tibble: 64,770 x 15
+##    row_number animal_name animal_gender animal_birth_mon… breed_name     borough
+##         <dbl> <chr>       <chr>         <date>            <chr>          <chr>  
+##  1        548 ROCKY       M             2014-05-01        Labrador Retr… Queens 
+##  2        622 BULLY       M             2010-07-01        American Pit … Queens 
+##  3        633 COCO        M             2005-02-01        Labrador Retr… Queens 
+##  4        872 CHASE       M             2013-11-01        Shih Tzu       Queens 
+##  5        874 CHEWY       M             2014-09-01        Shih Tzu       Queens 
+##  6        875 CHASE       M             2008-08-01        Labrador Retr… Queens 
+##  7        976 APOLLO      M             2014-10-01        American Pit … Queens 
+##  8       1297 JERRY       M             2009-06-01        Labrador Retr… Queens 
+##  9       2133 SIMON       M             2010-12-01        Havanese       Queens 
+## 10       2289 BUDDY       M             2012-06-01        Labrador Retr… Queens 
+## # … with 64,760 more rows, and 9 more variables: zip_code <dbl>,
+## #   community_district <dbl>, census_tract_2010 <dbl>,
+## #   neighborhood_tabulation_area <chr>, city_council_district <dbl>,
+## #   congressional_district <dbl>, state_senatorial_district <dbl>,
+## #   license_issued_date <date>, license_expired_date <date>
 ```
 
 ### Exercise: `object not found`
@@ -2306,8 +2306,8 @@ Fix these `object not found` errors. (Hint: the names of the objects or variable
     
     ```
     ## Error: Problem with `mutate()` input `year_issued`.
-    ## [31m✖[39m object 'Liscenceissuedate' not found
-    ## [34mℹ[39m Input `year_issued` is `lubridate::year(Liscenceissuedate)`.
+    ## ✖ object 'Liscenceissuedate' not found
+    ## ℹ Input `year_issued` is `lubridate::year(Liscenceissuedate)`.
     ```
 
 *
@@ -2319,8 +2319,8 @@ Fix these `object not found` errors. (Hint: the names of the objects or variable
     
     ```
     ## Error: Problem with `filter()` input `..1`.
-    ## [31m✖[39m object 'BRUNO' not found
-    ## [34mℹ[39m Input `..1` is `animal_name == BRUNO`.
+    ## ✖ object 'BRUNO' not found
+    ## ℹ Input `..1` is `animal_name == BRUNO`.
     ```
 
 ### Warnings and messages
@@ -2334,11 +2334,12 @@ sites <- read_csv("site.csv")
 ```
 
 ```
-## Parsed with column specification:
+## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
-##   site_id = [31mcol_character()[39m,
-##   latitude = [32mcol_double()[39m,
-##   longitude = [32mcol_double()[39m
+##   site_id = col_character(),
+##   latitude = col_double(),
+##   longitude = col_double()
 ## )
 ```
 
@@ -2364,12 +2365,12 @@ bad
 ```
 
 ```
-## [90m# A tibble: 3 x 2[39m
+## # A tibble: 3 x 2
 ##      id    X2
-##   [3m[90m<dbl>[39m[23m [3m[90m<dbl>[39m[23m
-## [90m1[39m     1     2
-## [90m2[39m     2     1
-## [90m3[39m     3     5
+##   <dbl> <dbl>
+## 1     1     2
+## 2     2     1
+## 3     3     5
 ```
 
 Warnings don't **stop** you from proceeding, but they should alert you to question whether you **should be** proceeding.
@@ -2412,10 +2413,10 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 1 x 1[39m
+## # A tibble: 1 x 1
 ##   avg_duration
-##   [3m[90m<drtn>[39m[23m      
-## [90m1[39m 467.321 days
+##   <drtn>      
+## 1 467.321 days
 ```
 Instead of the the one value repeated on every row, we get a new tibble with only one row, and a single column that corresponds to our requested summary.
 
@@ -2428,10 +2429,10 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 1 x 1[39m
+## # A tibble: 1 x 1
 ##   shortest_duration
-##   [3m[90m<drtn>[39m[23m           
-## [90m1[39m 1 days
+##   <drtn>           
+## 1 1 days
 ```
 
 Like `mutate()` you can also create multiple summary columns at once:
@@ -2447,10 +2448,10 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 1 x 3[39m
+## # A tibble: 1 x 3
 ##   avg_duration shortest_duration longest_duration
-##   [3m[90m<drtn>[39m[23m       [3m[90m<drtn>[39m[23m            [3m[90m<drtn>[39m[23m          
-## [90m1[39m 467.321 days 1 days            2191 days
+##   <drtn>       <drtn>            <drtn>          
+## 1 467.321 days 1 days            2191 days
 ```
 
 Lot's of statistical operations produce one numbers summaries and are appropriate for use with `summarise()`: `sd()`, `min()`, `max()`, `mean()`, `median()`, `quantile()` (with a single argument).  You can see more examples in the ["Useful functions" section of the `summarise()` documentation][summarise-useful]. Whenever you are summarizing many rows, it's a good idea to keep track of how many rows were summarized.  This is so common, dplyr provides a special function, `n()`, that simply counts the number of rows.  To add it to your summary:
@@ -2467,10 +2468,10 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 1 x 4[39m
+## # A tibble: 1 x 4
 ##   avg_duration shortest_duration longest_duration n_licenses
-##   [3m[90m<drtn>[39m[23m       [3m[90m<drtn>[39m[23m            [3m[90m<drtn>[39m[23m                [3m[90m<int>[39m[23m
-## [90m1[39m 467.321 days 1 days            2191 days            [4m1[24m[4m1[24m[4m8[24m542
+##   <drtn>       <drtn>            <drtn>                <int>
+## 1 467.321 days 1 days            2191 days            118542
 ```
 
 Now, imagine you want this summary just for licenses issued to dogs in the Bronx.  You might do something like:
@@ -2495,10 +2496,10 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 1 x 4[39m
+## # A tibble: 1 x 4
 ##   avg_duration  shortest_duration longest_duration n_licenses
-##   [3m[90m<drtn>[39m[23m        [3m[90m<drtn>[39m[23m            [3m[90m<drtn>[39m[23m                [3m[90m<int>[39m[23m
-## [90m1[39m 435.9884 days 2 days            1919 days             [4m1[24m[4m2[24m043
+##   <drtn>        <drtn>            <drtn>                <int>
+## 1 435.9884 days 2 days            1919 days             12043
 ```
 
 But how does this compare to Brooklyn?  You could do the same operation again, but now for Brooklyn:
@@ -2516,10 +2517,10 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 1 x 4[39m
+## # A tibble: 1 x 4
 ##   avg_duration  shortest_duration longest_duration n_licenses
-##   [3m[90m<drtn>[39m[23m        [3m[90m<drtn>[39m[23m            [3m[90m<drtn>[39m[23m                [3m[90m<int>[39m[23m
-## [90m1[39m 465.8845 days 2 days            2191 days             [4m2[24m[4m9[24m334
+##   <drtn>        <drtn>            <drtn>                <int>
+## 1 465.8845 days 2 days            2191 days             29334
 ```
 
 What about Queens?  This kind of operation—summarising different subsets of the same data—is so common there is a much easier way to do it: combining `summarise()` with `group_by()`.
@@ -2539,24 +2540,20 @@ dog_licenses %>%
 ```
 
 ```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```
-## [90m# A tibble: 57 x 5[39m
+## # A tibble: 57 x 5
 ##    borough      avg_duration  shortest_duration longest_duration n_licenses
-##    [3m[90m<chr>[39m[23m        [3m[90m<drtn>[39m[23m        [3m[90m<drtn>[39m[23m            [3m[90m<drtn>[39m[23m                [3m[90m<int>[39m[23m
-## [90m 1[39m ARVERNE      334.0000 days 334 days           334 days                 1
-## [90m 2[39m Astoria      498.0000 days 239 days           757 days                 2
-## [90m 3[39m ASTORIA      387.6667 days 366 days           405 days                 3
-## [90m 4[39m B            347.0000 days 347 days           347 days                 1
-## [90m 5[39m Bayside      410.0000 days 410 days           410 days                 1
-## [90m 6[39m BELLE HARBOR 309.0000 days 309 days           309 days                 1
-## [90m 7[39m Briarwood    540.5000 days 358 days           723 days                 2
-## [90m 8[39m Bronx        435.9884 days   2 days          1919 days             [4m1[24m[4m2[24m043
-## [90m 9[39m BRONX        370.3333 days  72 days           418 days               102
-## [90m10[39m Brooklyn     465.8845 days   2 days          2191 days             [4m2[24m[4m9[24m334
-## [90m# … with 47 more rows[39m
+##    <chr>        <drtn>        <drtn>            <drtn>                <int>
+##  1 ARVERNE      334.0000 days 334 days           334 days                 1
+##  2 Astoria      498.0000 days 239 days           757 days                 2
+##  3 ASTORIA      387.6667 days 366 days           405 days                 3
+##  4 B            347.0000 days 347 days           347 days                 1
+##  5 Bayside      410.0000 days 410 days           410 days                 1
+##  6 BELLE HARBOR 309.0000 days 309 days           309 days                 1
+##  7 Briarwood    540.5000 days 358 days           723 days                 2
+##  8 Bronx        435.9884 days   2 days          1919 days             12043
+##  9 BRONX        370.3333 days  72 days           418 days               102
+## 10 Brooklyn     465.8845 days   2 days          2191 days             29334
+## # … with 47 more rows
 ```
 The `group_by()` verb doesn't perform any changes to the data except to add a signal that this data is now grouped.  Subsequent operations will then happen within these groups.  In the case of `summarise()` we now get one row per group, and these are all stacked together in our result.
 
@@ -2609,24 +2606,24 @@ dog_licenses %>%
 ```
 
 ```
-## [90m# A tibble: 118,542 x 16[39m
-##    row_number animal_name animal_gender animal_birth_mo… breed_name borough
-##         [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m         [3m[90m<date>[39m[23m           [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m  
-## [90m 1[39m        533 BONITA      F             2013-05-01       Unknown    Queens 
-## [90m 2[39m        548 ROCKY       M             2014-05-01       Labrador … Queens 
-## [90m 3[39m        622 BULLY       M             2010-07-01       American … Queens 
-## [90m 4[39m        633 COCO        M             2005-02-01       Labrador … Queens 
-## [90m 5[39m        655 SKI         F             2012-09-01       American … Queens 
-## [90m 6[39m        872 CHASE       M             2013-11-01       Shih Tzu   Queens 
-## [90m 7[39m        874 CHEWY       M             2014-09-01       Shih Tzu   Queens 
-## [90m 8[39m        875 CHASE       M             2008-08-01       Labrador … Queens 
-## [90m 9[39m        893 MILEY       F             2008-07-01       Boxer      Queens 
-## [90m10[39m        919 KENZI       F             2010-05-01       Schnauzer… Queens 
-## [90m# … with 118,532 more rows, and 10 more variables: zip_code [3m[90m<dbl>[90m[23m,[39m
-## [90m#   community_district [3m[90m<dbl>[90m[23m, census_tract_2010 [3m[90m<dbl>[90m[23m,[39m
-## [90m#   neighborhood_tabulation_area [3m[90m<chr>[90m[23m, city_council_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   congressional_district [3m[90m<dbl>[90m[23m, state_senatorial_district [3m[90m<dbl>[90m[23m,[39m
-## [90m#   license_issued_date [3m[90m<date>[90m[23m, license_expired_date [3m[90m<date>[90m[23m, borough_code [3m[90m<chr>[90m[23m[39m
+## # A tibble: 118,542 x 16
+##    row_number animal_name animal_gender animal_birth_mon… breed_name     borough
+##         <dbl> <chr>       <chr>         <date>            <chr>          <chr>  
+##  1        533 BONITA      F             2013-05-01        Unknown        Queens 
+##  2        548 ROCKY       M             2014-05-01        Labrador Retr… Queens 
+##  3        622 BULLY       M             2010-07-01        American Pit … Queens 
+##  4        633 COCO        M             2005-02-01        Labrador Retr… Queens 
+##  5        655 SKI         F             2012-09-01        American Pit … Queens 
+##  6        872 CHASE       M             2013-11-01        Shih Tzu       Queens 
+##  7        874 CHEWY       M             2014-09-01        Shih Tzu       Queens 
+##  8        875 CHASE       M             2008-08-01        Labrador Retr… Queens 
+##  9        893 MILEY       F             2008-07-01        Boxer          Queens 
+## 10        919 KENZI       F             2010-05-01        Schnauzer, Mi… Queens 
+## # … with 118,532 more rows, and 10 more variables: zip_code <dbl>,
+## #   community_district <dbl>, census_tract_2010 <dbl>,
+## #   neighborhood_tabulation_area <chr>, city_council_district <dbl>,
+## #   congressional_district <dbl>, state_senatorial_district <dbl>,
+## #   license_issued_date <date>, license_expired_date <date>, borough_code <chr>
 ```
 
 Which borough has the longest average licence duration?
@@ -2680,11 +2677,12 @@ sites <- read_csv(here("data", "site.csv"))
 ```
 
 ```
-## Parsed with column specification:
+## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
-##   site_id = [31mcol_character()[39m,
-##   latitude = [32mcol_double()[39m,
-##   longitude = [32mcol_double()[39m
+##   site_id = col_character(),
+##   latitude = col_double(),
+##   longitude = col_double()
 ## )
 ```
 
@@ -2693,12 +2691,12 @@ sites
 ```
 
 ```
-## [90m# A tibble: 3 x 3[39m
+## # A tibble: 3 x 3
 ##   site_id latitude longitude
-##   [3m[90m<chr>[39m[23m      [3m[90m<dbl>[39m[23m     [3m[90m<dbl>[39m[23m
-## [90m1[39m DR-1       -[31m49[39m[31m.[39m[31m8[39m     -[31m129[39m[31m.[39m
-## [90m2[39m DR-3       -[31m47[39m[31m.[39m[31m2[39m     -[31m127[39m[31m.[39m
-## [90m3[39m MSK-4      -[31m48[39m[31m.[39m[31m9[39m     -[31m123[39m[31m.[39m
+##   <chr>      <dbl>     <dbl>
+## 1 DR-1       -49.8     -129.
+## 2 DR-3       -47.2     -127.
+## 3 MSK-4      -48.9     -123.
 ```
 
 FIXME: talk about files paths, point reader to the place where file paths are talked about, or assume file is in their working directory.
@@ -2717,11 +2715,12 @@ visited <- read_csv(here("data", "visited.csv"))
 ```
 
 ```
-## Parsed with column specification:
+## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
-##   visit_id = [32mcol_double()[39m,
-##   site_id = [31mcol_character()[39m,
-##   visit_date = [34mcol_date(format = "")[39m
+##   visit_id = col_double(),
+##   site_id = col_character(),
+##   visit_date = col_date(format = "")
 ## )
 ```
 
@@ -2730,17 +2729,17 @@ visited
 ```
 
 ```
-## [90m# A tibble: 8 x 3[39m
+## # A tibble: 8 x 3
 ##   visit_id site_id visit_date
-##      [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m   [3m[90m<date>[39m[23m    
-## [90m1[39m      619 DR-1    1927-02-08
-## [90m2[39m      622 DR-1    1927-02-10
-## [90m3[39m      734 DR-3    1930-01-07
-## [90m4[39m      735 DR-3    1930-01-12
-## [90m5[39m      751 DR-3    1930-02-26
-## [90m6[39m      752 DR-3    [31mNA[39m        
-## [90m7[39m      837 MSK-4   1932-01-14
-## [90m8[39m      844 DR-1    1932-03-22
+##      <dbl> <chr>   <date>    
+## 1      619 DR-1    1927-02-08
+## 2      622 DR-1    1927-02-10
+## 3      734 DR-3    1930-01-07
+## 4      735 DR-3    1930-01-12
+## 5      751 DR-3    1930-02-26
+## 6      752 DR-3    NA        
+## 7      837 MSK-4   1932-01-14
+## 8      844 DR-1    1932-03-22
 ```
 
 ### Exercise: Import IRS tax return data for New York City
@@ -2768,18 +2767,14 @@ dog_licenses %>%
 ```
 
 ```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```
-## [90m# A tibble: 5 x 5[39m
+## # A tibble: 5 x 5
 ##   borough_code avg_duration  shortest_duration longest_duration n_licenses
-##   [3m[90m<chr>[39m[23m        [3m[90m<drtn>[39m[23m        [3m[90m<drtn>[39m[23m            [3m[90m<drtn>[39m[23m                [3m[90m<int>[39m[23m
-## [90m1[39m BK           465.2768 days 2 days            2191 days             [4m2[24m[4m9[24m558
-## [90m2[39m BX           435.8062 days 2 days            1919 days             [4m1[24m[4m2[24m050
-## [90m3[39m MN           494.0276 days 1 days            2189 days             [4m4[24m[4m1[24m668
-## [90m4[39m QN           452.1386 days 2 days            2186 days             [4m2[24m[4m4[24m420
-## [90m5[39m SI           439.4875 days 4 days            2164 days             [4m1[24m[4m0[24m846
+##   <chr>        <drtn>        <drtn>            <drtn>                <int>
+## 1 BK           465.2768 days 2 days            2191 days             29558
+## 2 BX           435.8062 days 2 days            1919 days             12050
+## 3 MN           494.0276 days 1 days            2189 days             41668
+## 4 QN           452.1386 days 2 days            2186 days             24420
+## 5 SI           439.4875 days 4 days            2164 days             10846
 ```
 
 How do you save this result for future use?
@@ -2800,10 +2795,6 @@ duration_by_borough <- dog_licenses %>%
   )
 ```
 
-```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
 Then you can access it whenever you need it:
 
 ```r
@@ -2811,14 +2802,14 @@ duration_by_borough
 ```
 
 ```
-## [90m# A tibble: 5 x 5[39m
+## # A tibble: 5 x 5
 ##   borough_code avg_duration  shortest_duration longest_duration n_licenses
-##   [3m[90m<chr>[39m[23m        [3m[90m<drtn>[39m[23m        [3m[90m<drtn>[39m[23m            [3m[90m<drtn>[39m[23m                [3m[90m<int>[39m[23m
-## [90m1[39m BK           465.2768 days 2 days            2191 days             [4m2[24m[4m9[24m558
-## [90m2[39m BX           435.8062 days 2 days            1919 days             [4m1[24m[4m2[24m050
-## [90m3[39m MN           494.0276 days 1 days            2189 days             [4m4[24m[4m1[24m668
-## [90m4[39m QN           452.1386 days 2 days            2186 days             [4m2[24m[4m4[24m420
-## [90m5[39m SI           439.4875 days 4 days            2164 days             [4m1[24m[4m0[24m846
+##   <chr>        <drtn>        <drtn>            <drtn>                <int>
+## 1 BK           465.2768 days 2 days            2191 days             29558
+## 2 BX           435.8062 days 2 days            1919 days             12050
+## 3 MN           494.0276 days 1 days            2189 days             41668
+## 4 QN           452.1386 days 2 days            2186 days             24420
+## 5 SI           439.4875 days 4 days            2164 days             10846
 ```
 
 This keeps our result around in memory, but often you also want to preserve the data in a file on disk.  There are two common choices for format: CSV and RDS.
@@ -2836,13 +2827,14 @@ duration_by_borough <- read_csv("duration-by-borough.csv")
 ```
 
 ```
-## Parsed with column specification:
+## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
-##   borough_code = [31mcol_character()[39m,
-##   avg_duration = [32mcol_double()[39m,
-##   shortest_duration = [32mcol_double()[39m,
-##   longest_duration = [32mcol_double()[39m,
-##   n_licenses = [32mcol_double()[39m
+##   borough_code = col_character(),
+##   avg_duration = col_double(),
+##   shortest_duration = col_double(),
+##   longest_duration = col_double(),
+##   n_licenses = col_double()
 ## )
 ```
 
@@ -2907,11 +2899,12 @@ person <- readr::read_csv(path)
 ```
 
 ```
-## Parsed with column specification:
+## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
-##   person_id = [31mcol_character()[39m,
-##   personal_name = [31mcol_character()[39m,
-##   family_name = [31mcol_character()[39m
+##   person_id = col_character(),
+##   personal_name = col_character(),
+##   family_name = col_character()
 ## )
 ```
 
@@ -2920,14 +2913,14 @@ person
 ```
 
 ```
-## [90m# A tibble: 5 x 3[39m
+## # A tibble: 5 x 3
 ##   person_id personal_name family_name
-##   [3m[90m<chr>[39m[23m     [3m[90m<chr>[39m[23m         [3m[90m<chr>[39m[23m      
-## [90m1[39m dyer      William       Dyer       
-## [90m2[39m pb        Frank         Pabodie    
-## [90m3[39m lake      Anderson      Lake       
-## [90m4[39m roe       Valentina     Roerich    
-## [90m5[39m danforth  Frank         Danforth
+##   <chr>     <chr>         <chr>      
+## 1 dyer      William       Dyer       
+## 2 pb        Frank         Pabodie    
+## 3 lake      Anderson      Lake       
+## 4 roe       Valentina     Roerich    
+## 5 danforth  Frank         Danforth
 ```
 
 *Read `survey/site.csv`.*
@@ -2987,14 +2980,14 @@ dplyr::select(person, family_name, personal_name)
 ```
 
 ```
-## [90m# A tibble: 5 x 2[39m
+## # A tibble: 5 x 2
 ##   family_name personal_name
-##   [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m        
-## [90m1[39m Dyer        William      
-## [90m2[39m Pabodie     Frank        
-## [90m3[39m Lake        Anderson     
-## [90m4[39m Roerich     Valentina    
-## [90m5[39m Danforth    Frank
+##   <chr>       <chr>        
+## 1 Dyer        William      
+## 2 Pabodie     Frank        
+## 3 Lake        Anderson     
+## 4 Roerich     Valentina    
+## 5 Danforth    Frank
 ```
 
 *Create a table with just the latitudes and longitudes of sites.*
@@ -3007,12 +3000,12 @@ dplyr::filter(person, family_name < "M")
 ```
 
 ```
-## [90m# A tibble: 3 x 3[39m
+## # A tibble: 3 x 3
 ##   person_id personal_name family_name
-##   [3m[90m<chr>[39m[23m     [3m[90m<chr>[39m[23m         [3m[90m<chr>[39m[23m      
-## [90m1[39m dyer      William       Dyer       
-## [90m2[39m lake      Anderson      Lake       
-## [90m3[39m danforth  Frank         Danforth
+##   <chr>     <chr>         <chr>      
+## 1 dyer      William       Dyer       
+## 2 lake      Anderson      Lake       
+## 3 danforth  Frank         Danforth
 ```
 
 *Create a table with only sites south of -48 degrees.*
@@ -3027,12 +3020,12 @@ person %>%
 ```
 
 ```
-## [90m# A tibble: 3 x 2[39m
+## # A tibble: 3 x 2
 ##   family_name personal_name
-##   [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m        
-## [90m1[39m Dyer        William      
-## [90m2[39m Lake        Anderson     
-## [90m3[39m Danforth    Frank
+##   <chr>       <chr>        
+## 1 Dyer        William      
+## 2 Lake        Anderson     
+## 3 Danforth    Frank
 ```
 
 *Create a table with only the latitudes and longitudes of sites south of -48 degrees.*
@@ -3046,14 +3039,14 @@ person %>%
 ```
 
 ```
-## [90m# A tibble: 5 x 4[39m
+## # A tibble: 5 x 4
 ##   person_id personal_name family_name name_length
-##   [3m[90m<chr>[39m[23m     [3m[90m<chr>[39m[23m         [3m[90m<chr>[39m[23m             [3m[90m<int>[39m[23m
-## [90m1[39m dyer      William       Dyer                  4
-## [90m2[39m pb        Frank         Pabodie               7
-## [90m3[39m lake      Anderson      Lake                  4
-## [90m4[39m roe       Valentina     Roerich               7
-## [90m5[39m danforth  Frank         Danforth              8
+##   <chr>     <chr>         <chr>             <int>
+## 1 dyer      William       Dyer                  4
+## 2 pb        Frank         Pabodie               7
+## 3 lake      Anderson      Lake                  4
+## 4 roe       Valentina     Roerich               7
+## 5 danforth  Frank         Danforth              8
 ```
 
 *Look at the help for the built-in function `round` and then use it to create a table with latitudes and longitudes rounded to integers.*
@@ -3068,14 +3061,14 @@ person %>%
 ```
 
 ```
-## [90m# A tibble: 5 x 4[39m
+## # A tibble: 5 x 4
 ##   person_id personal_name family_name name_length
-##   [3m[90m<chr>[39m[23m     [3m[90m<chr>[39m[23m         [3m[90m<chr>[39m[23m             [3m[90m<int>[39m[23m
-## [90m1[39m danforth  Frank         Danforth              8
-## [90m2[39m pb        Frank         Pabodie               7
-## [90m3[39m roe       Valentina     Roerich               7
-## [90m4[39m dyer      William       Dyer                  4
-## [90m5[39m lake      Anderson      Lake                  4
+##   <chr>     <chr>         <chr>             <int>
+## 1 danforth  Frank         Danforth              8
+## 2 pb        Frank         Pabodie               7
+## 3 roe       Valentina     Roerich               7
+## 4 dyer      William       Dyer                  4
+## 5 lake      Anderson      Lake                  4
 ```
 
 *Create a table sorted by decreasing longitude (i.e., most negative longitude last).*
@@ -3090,12 +3083,13 @@ measurements <- readr::read_csv(here::here("data", "measurements.csv"))
 ```
 
 ```
-## Parsed with column specification:
+## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
-##   visit_id = [32mcol_double()[39m,
-##   visitor = [31mcol_character()[39m,
-##   quantity = [31mcol_character()[39m,
-##   reading = [32mcol_double()[39m
+##   visit_id = col_double(),
+##   visitor = col_character(),
+##   quantity = col_character(),
+##   reading = col_double()
 ## )
 ```
 
@@ -3131,13 +3125,13 @@ cleaned %>%
 ```
 
 ```
-## [90m# A tibble: 3 x 2[39m
-## [90m# Groups:   quantity [3][39m
+## # A tibble: 3 x 2
+## # Groups:   quantity [3]
 ##   quantity     n
-##   [3m[90m<chr>[39m[23m    [3m[90m<int>[39m[23m
-## [90m1[39m rad          8
-## [90m2[39m sal          7
-## [90m3[39m temp         3
+##   <chr>    <int>
+## 1 rad          8
+## 2 sal          7
+## 3 temp         3
 ```
 
 *Group by person and quantity measured.*
@@ -3152,16 +3146,12 @@ cleaned %>%
 ```
 
 ```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```
-## [90m# A tibble: 3 x 4[39m
+## # A tibble: 3 x 4
 ##   quantity    low    mid  high
-##   [3m[90m<chr>[39m[23m     [3m[90m<dbl>[39m[23m  [3m[90m<dbl>[39m[23m [3m[90m<dbl>[39m[23m
-## [90m1[39m rad        1.46   6.56  11.2
-## [90m2[39m sal        0.05   9.24  41.6
-## [90m3[39m temp     -[31m21[39m[31m.[39m[31m5[39m  -[31m18[39m[31m.[39m[31m7[39m  -[31m16[39m
+##   <chr>     <dbl>  <dbl> <dbl>
+## 1 rad        1.46   6.56  11.2
+## 2 sal        0.05   9.24  41.6
+## 3 temp     -21.5  -18.7  -16
 ```
 
 *Look at the range for each combination of person and quantity.*
@@ -3176,27 +3166,27 @@ cleaned
 ```
 
 ```
-## [90m# A tibble: 18 x 4[39m
+## # A tibble: 18 x 4
 ##    visit_id visitor quantity reading
-##       [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m   [3m[90m<chr>[39m[23m      [3m[90m<dbl>[39m[23m
-## [90m 1[39m      619 dyer    rad        9.82 
-## [90m 2[39m      619 dyer    sal        0.13 
-## [90m 3[39m      622 dyer    rad        7.8  
-## [90m 4[39m      622 dyer    sal        0.09 
-## [90m 5[39m      734 pb      rad        8.41 
-## [90m 6[39m      734 lake    sal        0.05 
-## [90m 7[39m      734 pb      temp     -[31m21[39m[31m.[39m[31m5[39m  
-## [90m 8[39m      735 pb      rad        7.22 
-## [90m 9[39m      751 pb      rad        4.35 
-## [90m10[39m      751 pb      temp     -[31m18[39m[31m.[39m[31m5[39m  
-## [90m11[39m      752 lake    rad        2.19 
-## [90m12[39m      752 lake    sal        0.09 
-## [90m13[39m      752 lake    temp     -[31m16[39m    
-## [90m14[39m      752 roe     sal        0.416
-## [90m15[39m      837 lake    rad        1.46 
-## [90m16[39m      837 lake    sal        0.21 
-## [90m17[39m      837 roe     sal        0.225
-## [90m18[39m      844 roe     rad       11.2
+##       <dbl> <chr>   <chr>      <dbl>
+##  1      619 dyer    rad        9.82 
+##  2      619 dyer    sal        0.13 
+##  3      622 dyer    rad        7.8  
+##  4      622 dyer    sal        0.09 
+##  5      734 pb      rad        8.41 
+##  6      734 lake    sal        0.05 
+##  7      734 pb      temp     -21.5  
+##  8      735 pb      rad        7.22 
+##  9      751 pb      rad        4.35 
+## 10      751 pb      temp     -18.5  
+## 11      752 lake    rad        2.19 
+## 12      752 lake    sal        0.09 
+## 13      752 lake    temp     -16    
+## 14      752 roe     sal        0.416
+## 15      837 lake    rad        1.46 
+## 16      837 lake    sal        0.21 
+## 17      837 roe     sal        0.225
+## 18      844 roe     rad       11.2
 ```
 
 *Do the same calculation use `case_when`.*
@@ -3210,11 +3200,12 @@ visits <- readr::read_csv(here::here("data", "visited.csv")) %>%
 ```
 
 ```
-## Parsed with column specification:
+## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
-##   visit_id = [32mcol_double()[39m,
-##   site_id = [31mcol_character()[39m,
-##   visit_date = [34mcol_date(format = "")[39m
+##   visit_id = col_double(),
+##   site_id = col_character(),
+##   visit_date = col_date(format = "")
 ## )
 ```
 
@@ -3227,13 +3218,13 @@ cleaned %>% anti_join(visits)
 ```
 
 ```
-## [90m# A tibble: 4 x 4[39m
+## # A tibble: 4 x 4
 ##   visit_id visitor quantity reading
-##      [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m   [3m[90m<chr>[39m[23m      [3m[90m<dbl>[39m[23m
-## [90m1[39m      752 lake    rad        2.19 
-## [90m2[39m      752 lake    sal        0.09 
-## [90m3[39m      752 lake    temp     -[31m16[39m    
-## [90m4[39m      752 roe     sal        0.416
+##      <dbl> <chr>   <chr>      <dbl>
+## 1      752 lake    rad        2.19 
+## 2      752 lake    sal        0.09 
+## 3      752 lake    temp     -16    
+## 4      752 roe     sal        0.416
 ```
 
 *Are there any sites in `visits` that don't have matches in `cleaned`?*
@@ -3248,23 +3239,23 @@ cleaned
 ```
 
 ```
-## [90m# A tibble: 14 x 6[39m
+## # A tibble: 14 x 6
 ##    visit_id site_id visit_date visitor quantity reading
-##       [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m   [3m[90m<date>[39m[23m     [3m[90m<chr>[39m[23m   [3m[90m<chr>[39m[23m      [3m[90m<dbl>[39m[23m
-## [90m 1[39m      619 DR-1    1927-02-08 dyer    rad        9.82 
-## [90m 2[39m      619 DR-1    1927-02-08 dyer    sal        0.13 
-## [90m 3[39m      622 DR-1    1927-02-10 dyer    rad        7.8  
-## [90m 4[39m      622 DR-1    1927-02-10 dyer    sal        0.09 
-## [90m 5[39m      734 DR-3    1930-01-07 pb      rad        8.41 
-## [90m 6[39m      734 DR-3    1930-01-07 lake    sal        0.05 
-## [90m 7[39m      734 DR-3    1930-01-07 pb      temp     -[31m21[39m[31m.[39m[31m5[39m  
-## [90m 8[39m      735 DR-3    1930-01-12 pb      rad        7.22 
-## [90m 9[39m      751 DR-3    1930-02-26 pb      rad        4.35 
-## [90m10[39m      751 DR-3    1930-02-26 pb      temp     -[31m18[39m[31m.[39m[31m5[39m  
-## [90m11[39m      837 MSK-4   1932-01-14 lake    rad        1.46 
-## [90m12[39m      837 MSK-4   1932-01-14 lake    sal        0.21 
-## [90m13[39m      837 MSK-4   1932-01-14 roe     sal        0.225
-## [90m14[39m      844 DR-1    1932-03-22 roe     rad       11.2
+##       <dbl> <chr>   <date>     <chr>   <chr>      <dbl>
+##  1      619 DR-1    1927-02-08 dyer    rad        9.82 
+##  2      619 DR-1    1927-02-08 dyer    sal        0.13 
+##  3      622 DR-1    1927-02-10 dyer    rad        7.8  
+##  4      622 DR-1    1927-02-10 dyer    sal        0.09 
+##  5      734 DR-3    1930-01-07 pb      rad        8.41 
+##  6      734 DR-3    1930-01-07 lake    sal        0.05 
+##  7      734 DR-3    1930-01-07 pb      temp     -21.5  
+##  8      735 DR-3    1930-01-12 pb      rad        7.22 
+##  9      751 DR-3    1930-02-26 pb      rad        4.35 
+## 10      751 DR-3    1930-02-26 pb      temp     -18.5  
+## 11      837 MSK-4   1932-01-14 lake    rad        1.46 
+## 12      837 MSK-4   1932-01-14 lake    sal        0.21 
+## 13      837 MSK-4   1932-01-14 roe     sal        0.225
+## 14      844 DR-1    1932-03-22 roe     rad       11.2
 ```
 
 *Join `visited.csv` with `site.csv` to get (date, latitude, longitude) triples for site visits.*
@@ -3281,13 +3272,13 @@ cleaned %>%
 ```
 
 ```
-## [90m# A tibble: 3 x 7[39m
-## [90m# Groups:   site_id [3][39m
+## # A tibble: 3 x 7
+## # Groups:   site_id [3]
 ##   visit_id site_id visit_date visitor quantity reading max_rad
-##      [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m   [3m[90m<date>[39m[23m     [3m[90m<chr>[39m[23m   [3m[90m<chr>[39m[23m      [3m[90m<dbl>[39m[23m   [3m[90m<dbl>[39m[23m
-## [90m1[39m      734 DR-3    1930-01-07 pb      rad         8.41    8.41
-## [90m2[39m      837 MSK-4   1932-01-14 lake    rad         1.46    1.46
-## [90m3[39m      844 DR-1    1932-03-22 roe     rad        11.2    11.2
+##      <dbl> <chr>   <date>     <chr>   <chr>      <dbl>   <dbl>
+## 1      734 DR-3    1930-01-07 pb      rad         8.41    8.41
+## 2      837 MSK-4   1932-01-14 lake    rad         1.46    1.46
+## 3      844 DR-1    1932-03-22 roe     rad        11.2    11.2
 ```
 
 Another way to do it:
@@ -3302,13 +3293,13 @@ cleaned %>%
 ```
 
 ```
-## [90m# A tibble: 3 x 3[39m
-## [90m# Groups:   site_id [3][39m
+## # A tibble: 3 x 3
+## # Groups:   site_id [3]
 ##   site_id visit_date reading
-##   [3m[90m<chr>[39m[23m   [3m[90m<date>[39m[23m       [3m[90m<dbl>[39m[23m
-## [90m1[39m DR-3    1930-01-07    8.41
-## [90m2[39m MSK-4   1932-01-14    1.46
-## [90m3[39m DR-1    1932-03-22   11.2
+##   <chr>   <date>       <dbl>
+## 1 DR-3    1930-01-07    8.41
+## 2 MSK-4   1932-01-14    1.46
+## 3 DR-1    1932-03-22   11.2
 ```
 
 *Explain why this __doesn't__ work.*
@@ -3324,13 +3315,9 @@ cleaned %>%
 ```
 
 ```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```
 ## Error: Problem with `filter()` input `..1`.
-## [31m✖[39m object 'reading' not found
-## [34mℹ[39m Input `..1` is `reading == max_rad`.
+## ✖ object 'reading' not found
+## ℹ Input `..1` is `reading == max_rad`.
 ```
 
 8. Normalize radiation against the highest radiation seen per site:
@@ -3347,17 +3334,17 @@ cleaned %>%
 ```
 
 ```
-## [90m# A tibble: 7 x 4[39m
-## [90m# Groups:   site_id [3][39m
+## # A tibble: 7 x 4
+## # Groups:   site_id [3]
 ##   visit_id site_id visit_date frac_rad
-##      [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m   [3m[90m<date>[39m[23m        [3m[90m<dbl>[39m[23m
-## [90m1[39m      619 DR-1    1927-02-08    0.873
-## [90m2[39m      622 DR-1    1927-02-10    0.693
-## [90m3[39m      734 DR-3    1930-01-07    1    
-## [90m4[39m      735 DR-3    1930-01-12    0.859
-## [90m5[39m      751 DR-3    1930-02-26    0.517
-## [90m6[39m      837 MSK-4   1932-01-14    1    
-## [90m7[39m      844 DR-1    1932-03-22    1
+##      <dbl> <chr>   <date>        <dbl>
+## 1      619 DR-1    1927-02-08    0.873
+## 2      622 DR-1    1927-02-10    0.693
+## 3      734 DR-3    1930-01-07    1    
+## 4      735 DR-3    1930-01-12    0.859
+## 5      751 DR-3    1930-02-26    0.517
+## 6      837 MSK-4   1932-01-14    1    
+## 7      844 DR-1    1932-03-22    1
 ```
 
 *Normalize salinity against mean salinity by site.*
@@ -3374,17 +3361,17 @@ cleaned %>%
 ```
 
 ```
-## [90m# A tibble: 7 x 7[39m
-## [90m# Groups:   site_id [3][39m
+## # A tibble: 7 x 7
+## # Groups:   site_id [3]
 ##   visit_id site_id visit_date visitor quantity reading delta_rad
-##      [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m   [3m[90m<date>[39m[23m     [3m[90m<chr>[39m[23m   [3m[90m<chr>[39m[23m      [3m[90m<dbl>[39m[23m     [3m[90m<dbl>[39m[23m
-## [90m1[39m      619 DR-1    1927-02-08 dyer    rad         9.82     [31mNA[39m   
-## [90m2[39m      622 DR-1    1927-02-10 dyer    rad         7.8      -[31m2[39m[31m.[39m[31m0[39m[31m2[39m
-## [90m3[39m      844 DR-1    1932-03-22 roe     rad        11.2       3.45
-## [90m4[39m      734 DR-3    1930-01-07 pb      rad         8.41     [31mNA[39m   
-## [90m5[39m      735 DR-3    1930-01-12 pb      rad         7.22     -[31m1[39m[31m.[39m[31m19[39m
-## [90m6[39m      751 DR-3    1930-02-26 pb      rad         4.35     -[31m2[39m[31m.[39m[31m87[39m
-## [90m7[39m      837 MSK-4   1932-01-14 lake    rad         1.46     [31mNA[39m
+##      <dbl> <chr>   <date>     <chr>   <chr>      <dbl>     <dbl>
+## 1      619 DR-1    1927-02-08 dyer    rad         9.82     NA   
+## 2      622 DR-1    1927-02-10 dyer    rad         7.8      -2.02
+## 3      844 DR-1    1932-03-22 roe     rad        11.2       3.45
+## 4      734 DR-3    1930-01-07 pb      rad         8.41     NA   
+## 5      735 DR-3    1930-01-12 pb      rad         7.22     -1.19
+## 6      751 DR-3    1930-02-26 pb      rad         4.35     -2.87
+## 7      837 MSK-4   1932-01-14 lake    rad         1.46     NA
 ```
 
 *Find length of time between visits by site.*
@@ -3403,14 +3390,10 @@ cleaned %>%
 ```
 
 ```
-## `summarise()` ungrouping output (override with `.groups` argument)
-```
-
-```
-## [90m# A tibble: 1 x 2[39m
+## # A tibble: 1 x 2
 ##   site_id any_increase
-##   [3m[90m<chr>[39m[23m   [3m[90m<lgl>[39m[23m       
-## [90m1[39m DR-1    TRUE
+##   <chr>   <lgl>       
+## 1 DR-1    TRUE
 ```
 
 *Find sites with visits more than one year apart.*
@@ -3428,21 +3411,19 @@ hra <- readr::read_csv(here::here("data", "home-range-database.csv"))
 ```
 
 ```
-## Parsed with column specification:
+## 
+## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   .default = col_character(),
-##   mean.mass.g = [32mcol_double()[39m,
-##   log10.mass = [32mcol_double()[39m,
-##   mean.hra.m2 = [32mcol_double()[39m,
-##   log10.hra = [32mcol_double()[39m,
-##   preymass = [32mcol_double()[39m,
-##   log10.preymass = [32mcol_double()[39m,
-##   PPMR = [32mcol_double()[39m
+##   mean.mass.g = col_double(),
+##   log10.mass = col_double(),
+##   mean.hra.m2 = col_double(),
+##   log10.hra = col_double(),
+##   preymass = col_double(),
+##   log10.preymass = col_double(),
+##   PPMR = col_double()
 ## )
-```
-
-```
-## See spec(...) for full column specifications.
+## ℹ Use `spec()` for the full column specifications.
 ```
 
 ```r
@@ -3450,20 +3431,20 @@ head(hra)
 ```
 
 ```
-## [90m# A tibble: 6 x 24[39m
-##   taxon common.name class order family genus species primarymethod N    
-##   [3m[90m<chr>[39m[23m [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m [3m[90m<chr>[39m[23m [3m[90m<chr>[39m[23m  [3m[90m<chr>[39m[23m [3m[90m<chr>[39m[23m   [3m[90m<chr>[39m[23m         [3m[90m<chr>[39m[23m
-## [90m1[39m lake… american e… acti… angu… angui… angu… rostra… telemetry     16   
-## [90m2[39m rive… blacktail … acti… cypr… catos… moxo… poecil… mark-recaptu… [31mNA[39m   
-## [90m3[39m rive… central st… acti… cypr… cypri… camp… anomal… mark-recaptu… 20   
-## [90m4[39m rive… rosyside d… acti… cypr… cypri… clin… fundul… mark-recaptu… 26   
-## [90m5[39m rive… longnose d… acti… cypr… cypri… rhin… catara… mark-recaptu… 17   
-## [90m6[39m rive… muskellunge acti… esoc… esoci… esox  masqui… telemetry     5    
-## [90m# … with 15 more variables: mean.mass.g [3m[90m<dbl>[90m[23m, log10.mass [3m[90m<dbl>[90m[23m,[39m
-## [90m#   alternative.mass.reference [3m[90m<chr>[90m[23m, mean.hra.m2 [3m[90m<dbl>[90m[23m, log10.hra [3m[90m<dbl>[90m[23m,[39m
-## [90m#   hra.reference [3m[90m<chr>[90m[23m, realm [3m[90m<chr>[90m[23m, thermoregulation [3m[90m<chr>[90m[23m, locomotion [3m[90m<chr>[90m[23m,[39m
-## [90m#   trophic.guild [3m[90m<chr>[90m[23m, dimension [3m[90m<chr>[90m[23m, preymass [3m[90m<dbl>[90m[23m, log10.preymass [3m[90m<dbl>[90m[23m,[39m
-## [90m#   PPMR [3m[90m<dbl>[90m[23m, prey.size.reference [3m[90m<chr>[90m[23m[39m
+## # A tibble: 6 x 24
+##   taxon   common.name   class   order   family genus species primarymethod N    
+##   <chr>   <chr>         <chr>   <chr>   <chr>  <chr> <chr>   <chr>         <chr>
+## 1 lake f… american eel  actino… anguil… angui… angu… rostra… telemetry     16   
+## 2 river … blacktail re… actino… cyprin… catos… moxo… poecil… mark-recaptu… <NA> 
+## 3 river … central ston… actino… cyprin… cypri… camp… anomal… mark-recaptu… 20   
+## 4 river … rosyside dace actino… cyprin… cypri… clin… fundul… mark-recaptu… 26   
+## 5 river … longnose dace actino… cyprin… cypri… rhin… catara… mark-recaptu… 17   
+## 6 river … muskellunge   actino… esocif… esoci… esox  masqui… telemetry     5    
+## # … with 15 more variables: mean.mass.g <dbl>, log10.mass <dbl>,
+## #   alternative.mass.reference <chr>, mean.hra.m2 <dbl>, log10.hra <dbl>,
+## #   hra.reference <chr>, realm <chr>, thermoregulation <chr>, locomotion <chr>,
+## #   trophic.guild <chr>, dimension <chr>, preymass <dbl>, log10.preymass <dbl>,
+## #   PPMR <dbl>, prey.size.reference <chr>
 ```
 
 1. Look at how mass is distributed:
@@ -4933,20 +4914,20 @@ ggplot(co2_after_2000, aes(x = year, y = co2_standard)) +
 
 
 ```
-## [90m# A tibble: 680 x 5[39m
+## # A tibble: 680 x 5
 ##     year month date_numeric co2_standard station               
-##    [3m[90m<dbl>[39m[23m [3m[90m<dbl>[39m[23m        [3m[90m<dbl>[39m[23m        [3m[90m<dbl>[39m[23m [3m[90m<chr>[39m[23m                 
-## [90m 1[39m  [4m2[24m000     1        [4m2[24m000.         369. Mauna Loa, Hawaii, USA
-## [90m 2[39m  [4m2[24m000     2        [4m2[24m000.         369. Mauna Loa, Hawaii, USA
-## [90m 3[39m  [4m2[24m000     3        [4m2[24m000.         371. Mauna Loa, Hawaii, USA
-## [90m 4[39m  [4m2[24m000     4        [4m2[24m000.         372. Mauna Loa, Hawaii, USA
-## [90m 5[39m  [4m2[24m000     5        [4m2[24m000.         372. Mauna Loa, Hawaii, USA
-## [90m 6[39m  [4m2[24m000     6        [4m2[24m000.         372. Mauna Loa, Hawaii, USA
-## [90m 7[39m  [4m2[24m000     7        [4m2[24m001.         370. Mauna Loa, Hawaii, USA
-## [90m 8[39m  [4m2[24m000     8        [4m2[24m001.         368. Mauna Loa, Hawaii, USA
-## [90m 9[39m  [4m2[24m000     9        [4m2[24m001.         367. Mauna Loa, Hawaii, USA
-## [90m10[39m  [4m2[24m000    10        [4m2[24m001.         367. Mauna Loa, Hawaii, USA
-## [90m# … with 670 more rows[39m
+##    <dbl> <dbl>        <dbl>        <dbl> <chr>                 
+##  1  2000     1        2000.         369. Mauna Loa, Hawaii, USA
+##  2  2000     2        2000.         369. Mauna Loa, Hawaii, USA
+##  3  2000     3        2000.         371. Mauna Loa, Hawaii, USA
+##  4  2000     4        2000.         372. Mauna Loa, Hawaii, USA
+##  5  2000     5        2000.         372. Mauna Loa, Hawaii, USA
+##  6  2000     6        2000.         372. Mauna Loa, Hawaii, USA
+##  7  2000     7        2001.         370. Mauna Loa, Hawaii, USA
+##  8  2000     8        2001.         368. Mauna Loa, Hawaii, USA
+##  9  2000     9        2001.         367. Mauna Loa, Hawaii, USA
+## 10  2000    10        2001.         367. Mauna Loa, Hawaii, USA
+## # … with 670 more rows
 ```
 
 <div class="figure">
@@ -5010,7 +4991,7 @@ co2_data %>%
 
 
 ```
-## `summarise()` regrouping output by 'station' (override with `.groups` argument)
+## `summarise()` has grouped output by 'station'. You can override using the `.groups` argument.
 ```
 
 

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Merely Useful: An introduction to using R</title>
   <meta name="description" content="Merely Useful: An introduction to using R" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Merely Useful: An introduction to using R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Madeleine Bonsma-Fisher, Kate Hertweck, Damien Irving, Luke Johnston, Christina Koch, Sara Mahallati, Joel Ostblom, Elizabeth Wickes, Charlotte Wickham, and Greg Wilson" />
 
 
-<meta name="date" content="2020-08-26" />
+<meta name="date" content="2021-05-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 
 <link rel="next" href="intro.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,12 +51,15 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -110,6 +113,29 @@ code span.st { color: #008080; } /* String */
 code span.va { } /* Variable */
 code span.vs { color: #008080; } /* VerbatimString */
 code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -319,7 +345,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <div id="header">
 <h1 class="title">Merely Useful: An introduction to using R</h1>
 <p class="author"><em>Madeleine Bonsma-Fisher, Kate Hertweck, Damien Irving, Luke Johnston, Christina Koch, Sara Mahallati, Joel Ostblom, Elizabeth Wickes, Charlotte Wickham, and Greg Wilson</em></p>
-<p class="date"><em>2020-08-26</em></p>
+<p class="date" style="margin-top: 1.5em;"><em>2021-05-03</em></p>
 </div>
 <div id="overview" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Overview</h1>
@@ -333,7 +359,7 @@ as a draft, or not even started. Check back later!</p>
 </blockquote>
 <p>FIXME: general introduction</p>
 <ul>
-<li>Be able to do the steps in <span class="citation">Yenni et al. (<a href="references.html#ref-Yenn2019" role="doc-biblioref">2019</a>)</span>.</li>
+<li>Be able to do the steps in <span class="citation"><a href="references.html#ref-Yenn2019" role="doc-biblioref">Yenni et al.</a> (<a href="references.html#ref-Yenn2019" role="doc-biblioref">2019</a>)</span>.</li>
 </ul>
 <div id="overview-against" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Why isn’t all of this normal already?</h2>
@@ -369,12 +395,12 @@ We are also grateful to <a href="https://www.insightdatascience.com/">Insight Da
 to everyone who has contributed,
 and to:</p>
 <ul>
-<li><em>Practical Computing for Biologists</em> <span class="citation">Haddock and Dunn (<a href="references.html#ref-Hadd2010" role="doc-biblioref">2010</a>)</span></li>
-<li><em>Effective Computation in Physics</em> <span class="citation">Scopatz and Huff (<a href="references.html#ref-Scop2015" role="doc-biblioref">2015</a>)</span></li>
-<li>“A Quick Guide to Organizing Computational Biology Projects” <span class="citation">Noble (<a href="references.html#ref-Nobl2009" role="doc-biblioref">2009</a>)</span></li>
-<li>“Ten Simple Rules for Making Research Software More Robust” <span class="citation">Taschuk and Wilson (<a href="references.html#ref-Tasc2017" role="doc-biblioref">2017</a>)</span></li>
-<li>“Best Practices for Scientific Computing” <span class="citation">Wilson et al. (<a href="references.html#ref-Wils2014" role="doc-biblioref">2014</a>)</span></li>
-<li>“Good Enough Practices in Scientific Computing” <span class="citation">Wilson et al. (<a href="references.html#ref-Wils2017" role="doc-biblioref">2017</a>)</span></li>
+<li><em>Practical Computing for Biologists</em> <span class="citation"><a href="references.html#ref-Hadd2010" role="doc-biblioref">Haddock and Dunn</a> (<a href="references.html#ref-Hadd2010" role="doc-biblioref">2010</a>)</span></li>
+<li><em>Effective Computation in Physics</em> <span class="citation"><a href="references.html#ref-Scop2015" role="doc-biblioref">Scopatz and Huff</a> (<a href="references.html#ref-Scop2015" role="doc-biblioref">2015</a>)</span></li>
+<li>“A Quick Guide to Organizing Computational Biology Projects” <span class="citation"><a href="references.html#ref-Nobl2009" role="doc-biblioref">Noble</a> (<a href="references.html#ref-Nobl2009" role="doc-biblioref">2009</a>)</span></li>
+<li>“Ten Simple Rules for Making Research Software More Robust” <span class="citation"><a href="references.html#ref-Tasc2017" role="doc-biblioref">Taschuk and Wilson</a> (<a href="references.html#ref-Tasc2017" role="doc-biblioref">2017</a>)</span></li>
+<li>“Best Practices for Scientific Computing” <span class="citation"><a href="references.html#ref-Wils2014" role="doc-biblioref">Wilson et al.</a> (<a href="references.html#ref-Wils2014" role="doc-biblioref">2014</a>)</span></li>
+<li>“Good Enough Practices in Scientific Computing” <span class="citation"><a href="references.html#ref-Wils2017" role="doc-biblioref">Wilson et al.</a> (<a href="references.html#ref-Wils2017" role="doc-biblioref">2017</a>)</span></li>
 </ul>
 </div>
 <div id="goals" class="section level2" number="1.4">
@@ -777,12 +803,12 @@ Python Learning Objectives</li>
 <li>relplot() method: designed to visualize many different statistical relationships
 <ul>
 <li>Example: fmri = sns.load_dataset(“fmri”) where fmri is a tidy df</li>
-<li>Example: sns.relplot(x=“timepoint”, y=“signal”, col=“region”, hue=“event”, style=“event”, kind=“line”, data=fmri)</li>
+<li>Example: sns.relplot(x=“timepoint,” y=“signal,” col=“region,” hue=“event,” style=“event,” kind=“line,” data=fmri)</li>
 <li>explain each parameter in kind</li>
 </ul></li>
 <li>catplot() method: helps visualize the relationship between one numeric variable and one (or more) categorical variables
 <ul>
-<li>Example: sns.catplot(x=“day”, y=“total_bill”, hue=“smoker”, kind=“swarm”, data=tips)</li>
+<li>Example: sns.catplot(x=“day,” y=“total_bill,” hue=“smoker,” kind=“swarm,” data=tips)</li>
 <li>kind parameter can be changed to: violin, bar, etc.</li>
 </ul></li>
 <li>pairplot() method: shows all pairwise relationships and the marginal distributions, optionally conditioned on a categorical variable

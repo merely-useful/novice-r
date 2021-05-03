@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Publishing | Merely Useful: An introduction to using R</title>
   <meta name="description" content="Chapter 6 Publishing | Merely Useful: An introduction to using R" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Publishing | Merely Useful: An introduction to using R" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Madeleine Bonsma-Fisher, Kate Hertweck, Damien Irving, Luke Johnston, Christina Koch, Sara Mahallati, Joel Ostblom, Elizabeth Wickes, Charlotte Wickham, and Greg Wilson" />
 
 
-<meta name="date" content="2020-08-26" />
+<meta name="date" content="2021-05-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="practice.html"/>
 <link rel="next" href="reproducibility.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,12 +51,15 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -110,6 +113,29 @@ code span.st { color: #008080; } /* String */
 code span.va { } /* Variable */
 code span.vs { color: #008080; } /* VerbatimString */
 code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -355,11 +381,11 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p>In practice you’ll probably start thinking about a website once you’ve already done a lot of work on a project—your project will already have some analysis documented in R Markdown, be in version control, and hosted on GitHub. However, so that we can work with a specific example, you’ll set up a project in this section that is less developed than where your project might be when you start thinking about making a website.</p>
 <p>At the end of this section, you should have an RStudio project with an example report in <code>report.Rmd</code>. This project should also be on GitHub at <code>https://github.com/{{your_username}}/sharing-work</code>, where <code>{{your_username}}</code> should be substituted with your GitHub username, e.g. mine is at <a href="https://github.com/cwickham/sharing-work" class="uri">https://github.com/cwickham/sharing-work</a>.</p>
 <p>Let’s start by creating a new project called, <code>sharing-work</code> by running the following in the RStudio console:</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="publishing.html#cb246-1" aria-hidden="true"></a>usethis<span class="op">::</span><span class="kw">create_project</span>(<span class="st">&quot;sharing-work&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="publishing.html#cb239-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_project</span>(<span class="st">&quot;sharing-work&quot;</span>)</span></code></pre></div>
 <p>Once the project opens, set it up to use version control by running the next code in the Console:</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="publishing.html#cb247-1" aria-hidden="true"></a>usethis<span class="op">::</span><span class="kw">use_git</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="publishing.html#cb240-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git</span>()</span></code></pre></div>
 <p>Then add it as a repository on GitHub:</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="publishing.html#cb248-1" aria-hidden="true"></a>usethis<span class="op">::</span><span class="kw">use_github</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="publishing.html#cb241-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>()</span></code></pre></div>
 <p>Then so we have a report to work with, create a new R Markdown file (“File -&gt; New File -&gt; R Markdown”), making sure to leave the “Default Output Format” as HTML. Save this new file as <code>report.Rmd</code>.</p>
 <p>Commit these changes and push your repository to GitHub. This is our starting point.</p>
 <p>FIXME: Would it be better to get to this point by getting learners to fork a repo, then “New project -&gt; From version control” in RStudio? Except forking isn’t in the plan for the Version Control section.</p>
@@ -379,10 +405,10 @@ such as HTML. However, you couldn’t give this local address to someone else an
 <h3><span class="header-section-number">6.4.3</span> Setting up your repo to have a web page</h3>
 <p>Our goal is to get the report that is currently living in <code>report.html</code> displayed when a visitor heads to <code>https://{{your_username}}.github.io/sharing-work</code></p>
 <p>You’ll set up GitHub Pages to look for your HTML files in the <code>docs</code> directory. Your first step will be to make this directory and put our report file inside. Create <code>docs/</code> with:</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="publishing.html#cb250-1" aria-hidden="true"></a>usethis<span class="op">::</span><span class="kw">use_directory</span>(<span class="st">&quot;docs&quot;</span>)</span></code></pre></div>
-<p>Move <code>report.Rmd</code> and <code>report.html</code> into this directory. You can do this within the Files pane by checking the files and “More -&gt; Move…”. Or you can do it with code on the Console:</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="publishing.html#cb251-1" aria-hidden="true"></a><span class="kw">file.rename</span>(<span class="st">&quot;report.Rmd&quot;</span>, <span class="st">&quot;docs/report.Rmd&quot;</span>)</span>
-<span id="cb251-2"><a href="publishing.html#cb251-2" aria-hidden="true"></a><span class="kw">file.rename</span>(<span class="st">&quot;report.html&quot;</span>, <span class="st">&quot;docs/report.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="publishing.html#cb243-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_directory</span>(<span class="st">&quot;docs&quot;</span>)</span></code></pre></div>
+<p>Move <code>report.Rmd</code> and <code>report.html</code> into this directory. You can do this within the Files pane by checking the files and “More -&gt; Move….” Or you can do it with code on the Console:</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="publishing.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file.rename</span>(<span class="st">&quot;report.Rmd&quot;</span>, <span class="st">&quot;docs/report.Rmd&quot;</span>)</span>
+<span id="cb244-2"><a href="publishing.html#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="fu">file.rename</span>(<span class="st">&quot;report.html&quot;</span>, <span class="st">&quot;docs/report.html&quot;</span>)</span></code></pre></div>
 <p>Commit and push your changes. Your repo should now have a structure like:</p>
 <pre><code>├── docs
 │   ├── report.Rmd
@@ -391,13 +417,13 @@ such as HTML. However, you couldn’t give this local address to someone else an
 <p>Now you will activate GitHub Pages, so that GitHub will know to deliver your files when visitors head to: <code>https://{{your_username}}.github.io/sharing-work</code></p>
 <p>Visit your GitHub Repository and head to the “Settings” tab.</p>
 <p><img src="figures/publishing/github-settings.png" /></p>
-<p>Scroll to the “GitHub Pages” section. Activate GitHub pages, with source set to “master branch /docs folder”. You should see a message that your site is now live at: <code>https://{{your_username}}.github.io/sharing-work</code></p>
+<p>Scroll to the “GitHub Pages” section. Activate GitHub pages, with source set to “master branch /docs folder.” You should see a message that your site is now live at: <code>https://{{your_username}}.github.io/sharing-work</code></p>
 <p><img src="figures/publishing/github-pages.png" /></p>
 <p>Try visiting: <code>https://{{your_username}}.github.io/sharing-work/report.html</code>. You should see your report. Congratulations you have a webpage!</p>
 </div>
 <div id="getting-a-default-page-to-display-when-people-visit-the-project-site" class="section level3" number="6.4.4">
 <h3><span class="header-section-number">6.4.4</span> Getting a default page to display when people visit the project site</h3>
-<p>You could send people the link, <code>https://{{your_username}}.github.io/sharing-work/report.html</code>, but it is often nicer to send them the shorter version without the file name: <code>https://{{your_username}}.github.io/sharing-work</code>. You can try this now, but it won’t work—you’ll see a message in your browser like: “404- File not found”. This shorter URL points to a directory as opposed to a file. By default, when a server receives a request for a directory, it looks for a file to display with a default name—usually <code>index.html</code>. In your case there is no file called <code>index.html</code> so there is nothing to display.</p>
+<p>You could send people the link, <code>https://{{your_username}}.github.io/sharing-work/report.html</code>, but it is often nicer to send them the shorter version without the file name: <code>https://{{your_username}}.github.io/sharing-work</code>. You can try this now, but it won’t work—you’ll see a message in your browser like: “404- File not found.” This shorter URL points to a directory as opposed to a file. By default, when a server receives a request for a directory, it looks for a file to display with a default name—usually <code>index.html</code>. In your case there is no file called <code>index.html</code> so there is nothing to display.</p>
 <p>If you would like the contents of <code>report.html</code> to be displayed as the homepage of your project, then rename <code>report.Rmd</code> to <code>index.Rmd</code>. You’ll then need to regenerate the HTML file, commit it, and push your changes. For work that is communicated easily in one page, this would be a good option.</p>
 <p>Alternatively, you might have a different page as the default page—one that summarizes the project and then links to other more detailed pages. You’ll see how to do this over the next few sections. To get started create a new R Markdown document. Delete <strong>all</strong> the contents of the file, and then copy and paste in the following:</p>
 <pre><code>---
@@ -427,7 +453,7 @@ This project ...
 <p>To sum up the process above, in its most minimal form, to have a webpage at <code>https://{{your_username}}.github.io/{{repo_name}}</code>, your repo at <code>https://github.com/{{your_username}}/{{repo_name}}</code> needs to:</p>
 <ol style="list-style-type: decimal">
 <li>have an <code>index.html</code> file in the <code>docs</code> directory (probably generated from <code>index.Rmd</code> in the same location), and</li>
-<li>have GitHub Pages activated in repository settings with source set to “master branch /docs folder”.</li>
+<li>have GitHub Pages activated in repository settings with source set to “master branch /docs folder.”</li>
 </ol>
 <p>Be aware that everything inside the <code>docs</code> folder is now public, even if your repository is private.</p>
 <p>You might have noticed this book lives at a GitHub Pages URL without a repo name—there is nothing after the <code>.io</code> in <code>https://merely-useful.github.io</code>. Both GitHub organizations and individuals can make use of this shorter address format (<code>merely-useful</code> is an organization rather than a user, so this is an organization site). There are a few differences between what you’ve learnt so far and the process of setting up a user site without a repo name (at <code>https://{{your_username}}.github.io</code>). First, you need to name your repository in a specific way—it must be called <code>{{your_username}}.github.io</code>. Second, user sites don’t use the <code>docs/</code> folder—you put your HTML files at the top level in the repo. And third, you don’t have to change any settings with user sites—GitHub will recognize the repo name and automatically serve it at <code>https://{{your_username}}.github.io</code>.</p>
@@ -447,9 +473,9 @@ This project ...
 <div id="linking-to-other-pages" class="section level3" number="6.5.1">
 <h3><span class="header-section-number">6.5.1</span> Linking to other pages</h3>
 <p>To create a link to another page in markdown file you use the syntax:</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb255-1"><a href="publishing.html#cb255-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">text to display</span><span class="co">](url)</span></span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb248-1"><a href="publishing.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">text to display</span><span class="co">](url)</span></span></code></pre></div>
 <p>Once Knit to HTML, only <code>text to display</code> will be visible, and clicking on the text will take a viewer to <code>url</code>. For example, to add a link to my GitHub repo I might add the following line to <code>index.Rmd</code>:</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb256-1"><a href="publishing.html#cb256-1" aria-hidden="true"></a>Visit <span class="co">[</span><span class="ot">my github repo</span><span class="co">](https://www.github.com/cwickham/sharing-work)</span></span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb249-1"><a href="publishing.html#cb249-1" aria-hidden="true" tabindex="-1"></a>Visit <span class="co">[</span><span class="ot">my github repo</span><span class="co">](https://www.github.com/cwickham/sharing-work)</span></span></code></pre></div>
 <p>Which when Knit to HTML renders like:</p>
 <blockquote>
 <p>Visit <a href="https://www.github.com/cwickham/sharing-work">my github repo</a></p>
@@ -457,7 +483,7 @@ This project ...
 <p>This is an example of an <strong>absolute</strong> URL. Just like when you specify file paths on your own computer, URLs can be both absolute and relative. An absolute URL describes a file location starting from and including the domain name. For instance, the absolute URL that points to <code>report.html</code> in my repo is <code>https://cwickham.github.io/sharing-work/report.html</code>.</p>
 <p>Relative URLs are <em>relative</em> to the current HTML file. So, for instance if you are viewing <code>https://cwickham.github.io/sharing-work/index.html</code>, a relative link to my <code>report.html</code> would be <code>report.html</code> since this file is at the same level as <code>index.html</code> in my website structure. For pages created using this GitHub Pages workflow, your website structure is the same as the file structure in your <code>docs/</code> folder.</p>
 <p>To add a link to <code>report.html</code> in <code>index.Rmd</code> I would add a line like:</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb257-1"><a href="publishing.html#cb257-1" aria-hidden="true"></a>See the <span class="co">[</span><span class="ot">full report</span><span class="co">](report.html)</span></span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb250-1"><a href="publishing.html#cb250-1" aria-hidden="true" tabindex="-1"></a>See the <span class="co">[</span><span class="ot">full report</span><span class="co">](report.html)</span></span></code></pre></div>
 <p>You should use relative URLs to reference any of <strong>your</strong> files (i.e. those in <code>docs/</code>). That way if you ever rename your repository, move it, or use a different hosting platform, your links will all work without changes. You must use absolute links for files that reside elsewhere on the internet.</p>
 </div>
 <div id="exercise-relative-links" class="section level3" number="6.5.2">
@@ -492,15 +518,15 @@ This project ...
 <div id="linking-to-sections-within-a-page" class="section level3" number="6.5.4">
 <h3><span class="header-section-number">6.5.4</span> Linking to sections within a page</h3>
 <p>URLs can also refer to places inside the current page, most usually to another section. In R Markdown you’ve seen how to create headings using <code>#</code>. For example, an Appendix subsection might be:</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb259-1"><a href="publishing.html#cb259-1" aria-hidden="true"></a><span class="fu">## Appendix</span></span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb252-1"><a href="publishing.html#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Appendix</span></span></code></pre></div>
 <p>If we want to link to this section from elsewhere, you prefix the section name with a single <code>#</code> in the URL. For example, if this section is in <code>report.Rmd</code> and you want to link to it elsewhere in <code>report.Rmd</code>, you could use:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb260-1"><a href="publishing.html#cb260-1" aria-hidden="true"></a>See more details in the <span class="co">[</span><span class="ot">appendix</span><span class="co">](#appendix)</span></span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb253-1"><a href="publishing.html#cb253-1" aria-hidden="true" tabindex="-1"></a>See more details in the <span class="co">[</span><span class="ot">appendix</span><span class="co">](#appendix)</span></span></code></pre></div>
 <p>The URL <code>#appendix</code> is interpreted as the heading with ID <code>appendix</code> in the current page. R Markdown creates IDs for all sections (and subsections) automatically, by converting to lower case and replacing spaces with dashes (<code>-</code>). But, you can explicitly set IDs too, by adding the ID with the <code>#</code> inside curly braces after the section heading. For instance you might prefer the shorter <code>appen</code> ID. You need to set it where the heading occurs:</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb261-1"><a href="publishing.html#cb261-1" aria-hidden="true"></a><span class="fu">## Appendix {#appen}</span></span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb254-1"><a href="publishing.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Appendix {#appen}</span></span></code></pre></div>
 <p>Then you can link to it using this shorter ID elsewhere:</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb262-1"><a href="publishing.html#cb262-1" aria-hidden="true"></a>See more details in the <span class="co">[</span><span class="ot">appendix</span><span class="co">](#appen)</span></span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb255-1"><a href="publishing.html#cb255-1" aria-hidden="true" tabindex="-1"></a>See more details in the <span class="co">[</span><span class="ot">appendix</span><span class="co">](#appen)</span></span></code></pre></div>
 <p>You can also use this strategy to link to sections in other pages by including the relative URL first. For instance, to refer to this “Appendix” section from <code>index.html</code> you could include in <code>index.Rmd</code>:</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb263-1"><a href="publishing.html#cb263-1" aria-hidden="true"></a>Some gory details of the analysis can also be found in the <span class="co">[</span><span class="ot">Appendix of the report</span><span class="co">](report.html#appen)</span></span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb256-1"><a href="publishing.html#cb256-1" aria-hidden="true" tabindex="-1"></a>Some gory details of the analysis can also be found in the <span class="co">[</span><span class="ot">Appendix of the report</span><span class="co">](report.html#appen)</span></span></code></pre></div>
 </div>
 <div id="exercise-add-and-link-to-a-section-in-report.rmd" class="section level3" number="6.5.5">
 <h3><span class="header-section-number">6.5.5</span> Exercise: Add and link to a section in <code>report.Rmd</code></h3>
@@ -509,7 +535,7 @@ This project ...
 <div id="including-images" class="section level3" number="6.5.6">
 <h3><span class="header-section-number">6.5.6</span> Including images</h3>
 <p>Most of your images will likely be plots generated by R chunks in your R Markdown files and thus automatically included in the knitted HTML. If you want to display other images, you use the same syntax you saw in the <a href="reproducibility.html#reproducibility-markdown">Markdown section of the Reproducibility chapter</a> chapter. That is, in your R Markdown file you’ll include the image with something like:</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb264-1"><a href="publishing.html#cb264-1" aria-hidden="true"></a><span class="al">![Image caption here.](path/to/image/file.png)</span></span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb257-1"><a href="publishing.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Image caption here.](path/to/image/file.png)</span></span></code></pre></div>
 <p>However, the <code>path/to/image/file.png</code> should be a relative URL pointing at an image in your <code>docs/</code> directory. For example, if you had an image, <code>me.png</code>, inside an <code>images</code> directory inside your <code>docs</code> folder:</p>
 <pre><code>├── docs
 │   ├── index.Rmd
@@ -520,14 +546,14 @@ This project ...
 │   └── report.html
 └── sharing-work.Rproj</code></pre>
 <p>You could include it in <code>index.html</code> by adding to <code>index.Rmd</code> the line:</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb266-1"><a href="publishing.html#cb266-1" aria-hidden="true"></a><span class="al">![A picture of me](images/me.png)</span></span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb259-1"><a href="publishing.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="al">![A picture of me](images/me.png)</span></span></code></pre></div>
 <p>Notice the syntax is very similar to adding a link to <code>me.png</code>:</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb267-1"><a href="publishing.html#cb267-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">A picture of me</span><span class="co">](images/me.png)</span></span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb260-1"><a href="publishing.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">A picture of me</span><span class="co">](images/me.png)</span></span></code></pre></div>
 <p><em>Including</em> the image displays the image inside at the appropriate place in the current page, <em>linking</em> to the image requires a viewer to click the link to see the image.</p>
 <p>Your image will be included at full size, but you might find it too large. You can additionally specify some attributes for the image in curly braces immediately following the link. For instance, use the <code>width</code> attribute to set the image width, either in pixels:</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb268-1"><a href="publishing.html#cb268-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">A picture of me</span><span class="co">](images/me.png)</span>{width=50} # default unit is px</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb261-1"><a href="publishing.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">A picture of me</span><span class="co">](images/me.png)</span>{width=50} # default unit is px</span></code></pre></div>
 <p>Or as a percentage:</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb269-1"><a href="publishing.html#cb269-1" aria-hidden="true"></a><span class="co">[</span><span class="ot">A picture of me</span><span class="co">](images/me.png)</span>{width=50%}</span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb262-1"><a href="publishing.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">A picture of me</span><span class="co">](images/me.png)</span>{width=50%}</span></code></pre></div>
 </div>
 <div id="exercise-add-an-image-to-index.html" class="section level3" number="6.5.7">
 <h3><span class="header-section-number">6.5.7</span> Exercise: Add an image to <code>index.html</code></h3>
@@ -542,7 +568,7 @@ This project ...
 <li>Create a <code>docs/</code> directory in your project.</li>
 <li>Add an <code>index.Rmd</code> R Markdown document to the <code>docs/</code> folder and knit it to HTML to produce <code>index.html</code>.</li>
 <li>Commit these changes to git, and push to GitHub.</li>
-<li>Activate GitHub Pages in the repository settings with source set to “master branch /docs folder”.</li>
+<li>Activate GitHub Pages in the repository settings with source set to “master branch /docs folder.”</li>
 <li>Visit the site to check it is working.</li>
 </ul>
 
