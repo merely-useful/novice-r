@@ -17,7 +17,7 @@ dog_licenses <- read_csv(here("data", "nyc-dog-licenses.csv.gz")) %>%
 To follow along with the code in this chapter you'll need to download and import the `dog_licenses` data.  Run the following code in the Console:
 ```{r, eval = FALSE, message = FALSE}
 library(tidyverse)
-dog_licenses <- read_csv("https://github.com/merely-useful/merely-useful.github.io/raw/book/data/nyc-dog-licenses.csv.gz") %>%
+dog_licenses <- readr::read_csv("https://github.com/merely-useful/novice-r/raw/master/data/nyc-dog-licenses.csv.gz") %>% 
   drop_na(animal_name)
 ```
 
